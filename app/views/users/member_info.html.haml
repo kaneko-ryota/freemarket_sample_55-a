@@ -1,0 +1,258 @@
+=render "layouts/registration_header"
+
+.member-info
+  .member-info__body
+    .member-info__body__top
+      会員情報入力
+    .member-info__body__main
+      %span.member-info__body__main__text ニックネーム
+      %span.member-info__body__main__mark 必須
+      .member-info__body__main__input
+        %input{type: "text", name: "name", placeholder: "例)メルカリ太郎", class: "member-info__body__main__input__box"}
+
+      %span.member-info__body__main__text メールアドレス
+      %span.member-info__body__main__mark 必須
+      .member-info__body__main__input
+        %input{type: "text", name: "email", placeholder: "PC・携帯どちらでも可", class: "member-info__body__main__input__box"}
+
+      %span.member-info__body__main__text パスワード
+      %span.member-info__body__main__mark 必須
+      .member-info__body__main__input
+        %input{type: "password", name: "password", placeholder: "6文字以上", autocomplete: "new-password", class: "member-info__body__main__input__box"}
+
+      %span.member-info__body__main__text パスワード(確認)
+      %span.member-info__body__main__mark 必須
+      .member-info__body__main__input
+        %input{type: "password", name: "password", placeholder: "6文字以上", class: "member-info__body__main__input__box"}
+
+      .member-info__body__main__identification
+        .member-info__body__main__identification__title
+          本人確認
+        .member-info__body__main__identification__contents
+          安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+
+      %span.member-info__body__main__text お名前(全角)
+      %span.member-info__body__main__mark 必須
+      .member-info__body__main__input
+        %input{type: "text", name: "name", placeholder: "例)山田", class: "member-info__body__main__input__box-name"}
+        %input{type: "text", name: "name", placeholder: "例)彩", class: "member-info__body__main__input__box-name-bottom"}
+
+      %span.member-info__body__main__text お名前カナ(全角)
+      %span.member-info__body__main__mark 必須
+      .member-info__body__main__input
+        %input{type: "text", name: "name", placeholder: "例)ヤマダ", class: "member-info__body__main__input__box-name"}
+        %input{type: "text", name: "name", placeholder: "例)アヤ", class: "member-info__body__main__input__box-name-bottom"}
+
+      %span.member-info__body__main__text 生年月日
+      %span.member-info__body__main__mark 必須
+      .member-info__body__main__input
+        %select{name: "birthday", class: "member-info__body__main__input__box-date"}
+          %option{value: "2019"}
+            2019
+          %option{value: "2018"}
+            2018
+          %option{value: "2017"}
+            2017
+          %option{value: "2016"}
+            2016
+          %option{value: "2015"}
+            2015
+          %option{value: "2014"}
+            2014
+          %option{value: "2013"}
+            2013
+          %option{value: "2012"}
+            2012
+          %option{value: "2011"}
+            2011
+          %option{value: "2010"}
+            2010
+          %option{value: "2009"}
+            2009
+          %option{value: "2008"}
+            2008
+          %option{value: "2007"}
+            2007
+          %option{value: "2006"}
+            2006
+          %option{value: "2005"}
+            2005
+          %option{value: "2004"}
+            2004
+          %option{value: "2003"}
+            2003
+          %option{value: "2002"}
+            2002
+          %option{value: "2001"}
+            2001
+          %option{value: "2000"}
+            2000
+          %option{value: "1999"}
+            1999
+          %option{value: "1998"}
+            1998
+          %option{value: "1997"}
+            1997
+          %option{value: "1996"}
+            1996
+          %option{value: "1995"}
+            1995
+          %option{value: "1994"}
+            1994
+          %option{value: "1993"}
+            1993
+          %option{value: "1992"}
+            1992
+          %option{value: "1991"}
+            1991
+          %option{value: "1990"}
+            1990
+          %option{value: "1989"}
+            1989
+          %option{value: "1988"}
+            1988
+          %option{value: "1987"}
+            1987
+          %option{value: "1986"}
+            1986
+          %option{value: "1985"}
+            1985
+          %option{value: "1984"}
+            1984
+
+        年
+
+        %select{name: "birthday", class: "member-info__body__main__input__box-date"}
+          %option{value: "1"}
+            1
+          %option{value: "2"}
+            2
+          %option{value: "3"}
+            3
+          %option{value: "4"}
+            4
+          %option{value: "5"}
+            5
+          %option{value: "6"}
+            6
+          %option{value: "7"}
+            7
+          %option{value: "8"}
+            8
+          %option{value: "9"}
+            9
+          %option{value: "10"}
+            10
+          %option{value: "11"}
+            11
+          %option{value: "12"}
+            12
+
+        月
+
+        %select{name: "birthday", class: "member-info__body__main__input__box-date"}
+          %option{value: "1"}
+            1
+          %option{value: "2"}
+            2
+          %option{value: "3"}
+            3
+          %option{value: "4"}
+            4
+          %option{value: "5"}
+            5
+          %option{value: "6"}
+            6
+          %option{value: "7"}
+            7
+          %option{value: "8"}
+            8
+          %option{value: "9"}
+            9
+          %option{value: "10"}
+            10
+          %option{value: "11"}
+            11
+          %option{value: "12"}
+            12
+          %option{value: "13"}
+            13
+          %option{value: "14"}
+            14
+          %option{value: "15"}
+            15
+          %option{value: "16"}
+            16
+          %option{value: "17"}
+            17
+          %option{value: "18"}
+            18
+          %option{value: "19"}
+            19
+          %option{value: "20"}
+            20
+          %option{value: "21"}
+            21
+          %option{value: "22"}
+            22
+          %option{value: "23"}
+            23
+          %option{value: "24"}
+            24
+          %option{value: "25"}
+            25
+          %option{value: "26"}
+            26
+          %option{value: "27"}
+            27
+          %option{value: "28"}
+            28
+          %option{value: "29"}
+            29
+          %option{value: "30"}
+            30
+          %option{value: "31"}
+            31
+
+        日
+
+      .member-info__body__main__note
+        .member-info__body__main__note__text
+          ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+
+      .member-info__body__confirm
+        .member-info__body__confirm__icon__text-2
+          =link_to "#" do
+            %span.member-info__body__confirm__icon__text-2__privacy
+              プライバシー
+          %span.member-info__body__confirm__icon__text-2__privacy
+            ・
+          =link_to "#" do
+            %span.member-info__body__confirm__icon__text-2__terms
+              利用規約
+        .member-info__body__confirm__checkbox
+          %input{type: "checkbox", name: "robotconfirm", value: "1", class: "member-info__body__confirm__checkbox__box"}
+        .member-info__body__confirm__text
+          私はロボットではありません
+        .member-info__body__confirm__icon
+          %i.fab.fa-accessible-icon.fa-2x.member-info__body__confirm__icon__detail
+          .member-info__body__confirm__icon__text
+            reCAPTCHA
+
+      .member-info__body__main__agree
+        .member-info__body__main__agree__text
+          「次へ進む」のボタンを押すことにより、
+          =link_to "#" do
+            %span.member-info__body__main__agree__text__blue  利用規約
+          に同意したものとみなします
+
+      .member-info__body__main__next-btn
+        次へ進む
+
+      .member-info__body__main__about
+        =link_to "#" do
+          %span.member-info__body__main__about__text
+            本人情報の登録について
+            %i.fas.fa-angle-right.fa-lg
+
+=render "layouts/registration_footer"
