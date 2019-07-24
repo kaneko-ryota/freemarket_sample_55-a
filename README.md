@@ -95,7 +95,7 @@
 # brands table
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null:false|
+|name|string|----|
 
 ## association
 - has_many :products
@@ -119,8 +119,8 @@
 |ancestry|string|null:false|
 
 ## association
-- has_many :ancestry
 - has_many :products
+- has_ancestry
 
 * gem "ancestry"を使用
 
