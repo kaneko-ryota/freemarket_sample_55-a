@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users do
     collection do
       get :registration_top
+      get :member_info
     end
   end
   resources :products do
