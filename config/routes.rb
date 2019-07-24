@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'products#index'
-  # resources :products
+  resources :users do
+    collection do
+      get :registration_top
+    end
+  end
   resources :products do
     resources :comments
     resources :likes, only: [:create, :destroy]
