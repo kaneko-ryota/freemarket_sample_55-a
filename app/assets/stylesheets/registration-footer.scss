@@ -1,0 +1,33 @@
+.registration-footer{
+  height: 220px;
+  width: 100%;
+  &__box{
+    height: 220px;
+    width: 456px;
+    margin: 0 auto;
+    padding: 40px 0;
+    box-sizing: border-box;
+    &--text{
+      width: 456px;
+      font-size: 12px;
+      text-align: center;
+      .li{
+        margin: 0 0 0 16px; 
+        text-decoration: none;
+        color: #333333;
+      }
+    }
+    &--img{
+      width: 80px;
+      bottom: 0;
+      vertical-align: middle;
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+    &--credit{
+      margin-top: 6px;
+      font-size: 0.5rem;
+      text-align: center;
+    }
+  }
+}
