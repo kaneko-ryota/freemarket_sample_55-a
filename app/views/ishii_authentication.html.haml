@@ -1,0 +1,34 @@
+.tell-authentication
+  .tell-authentication__body
+    .tell-authentication__body__title
+      電話番号認証
+    .tell-authentication__body__second
+      .tell-authentication__body__second__text
+        認証番号
+      .tell-authentication__body__second__number
+        %input{type: "text", name: "phone", placeholder: "認証番号を入力", class: "tell-authentication__body__second__number__box"}
+      .tell-authentication__body__second__sentence
+        SMSで届いた認証番号を入力してください
+      =link_to "#" do
+        .tell-authentication__body__second__btn
+          認証して完了
+
+    .tell-authentication__body__third
+      .tell-authentication__body__third__text
+        30秒たっても認証番号が届かない方へ
+      .tell-authentication__body__third__sentence
+        電話で認証番号を聞くこともできます。
+      =link_to "#" do
+        .tell-authentication__body__third__btn
+          電話で認証番号を聞く（通話無料）
+
+    .tell-authentication__body__bottom
+      .tell-authentication__body__bottom__text
+        認証番号を再送することもできます。もう一度電話番号を入力して下さい。
+      .tell-authentication__body__bottom__sentence
+        電話番号を再度入力する
+      .tell-authentication__body__bottom__sentence-2
+        ※SMSが届かない場合は
+        =link_to "#" do
+          %span.tell-authentication__body__bottom__sentence-2__link SMS受信設定
+        を確認して、もう一度電話番号を入力してください。
