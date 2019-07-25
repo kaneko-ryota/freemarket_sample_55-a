@@ -1,3 +1,7 @@
-.logout-box 
-  .logout-box__a 
-    = link_to "ログアウト", '#',class:"logoutlink"
+= render "shared/main_header"
+= render "shared/ishii_pankuzu"
+.logout
+  = render "shared/main_sidebar"
+  .logout__box
+    .logout__box--logout-btn
+      = link_to "ログアウト", '#',class:"logoutlink"
