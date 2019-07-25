@@ -1,0 +1,40 @@
+@import "reset";
+
+// 適応させるgem
+@import "font-awesome";
+
+
+// 読み込むscss
+
+// products
+@import "products/detail";
+@import "products/purchase_confirmation";
+@import "products/sell";
+
+// registration
+@import "registration/address";
+@import "registration/authentication";
+@import "registration/complete";
+@import "registration/credit";
+@import "registration/login_display";
+@import "registration/member_info";
+@import "registration/tell_number_confirmation";
+@import "registration/top";
+
+// shared
+@import "shared/header";
+@import "shared/ishii_pankuzu";
+@import "shared/main_footer";
+@import "shared/main_sidebar";
+@import "shared/registration_footer";
+@import "shared/registration_header";
+
+// user
+@import "user/logout";
+@import "user/mypage";
+@import "user/profile";
+@import "user/user_info";
+
+// others
+@import "ishii_exhibition_btn";
+@import "top_page";

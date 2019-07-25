@@ -1,5 +1,6 @@
+= render "shared/main_header"
 .main
-  .sidebar
+  = render "shared/main_sidebar"
   .contents
     %h2.contents__head
       クレジットカード情報入力
@@ -72,3 +73,4 @@
             %span.question ?
             コードの裏面の番号とは？
         %button{type:"button"}追加する
+= render "shared/main_footer"

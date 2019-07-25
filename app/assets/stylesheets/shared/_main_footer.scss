@@ -1,9 +1,9 @@
 @import "font-awesome";
 .app{
   height: 300px;
-  width:100vw;
   background-color: yellow;
   color:white;
+  clear: both;
   &__pc{
     overflow: hidden;
     position: relative;
@@ -47,7 +47,6 @@
   padding: 0 60px;
   background: #362d2c;
   color: #fff;
-  width: 100vw;
   height: 400px;
   .footer-cells{
     margin: 0 auto;
