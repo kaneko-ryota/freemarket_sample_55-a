@@ -1,0 +1,22 @@
+.tell-main
+  .tell-main__body
+    .tell-main__body__title
+      電話番号の確認
+    .tell-main__body__bottom
+      .tell-main__body__bottom__text
+        携帯電話の番号
+      .tell-main__body__bottom__phone-number
+        %input{type: "text", name: "phone", placeholder: "携帯電話の番号を入力", class: "tell-main__body__bottom__phone-number__box"}
+      .tell-main__body__bottom__sentence
+        本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+      =link_to "#" do
+        .tell-main__body__bottom__btn
+          SMSを送信する
+      .tell-main__body__bottom__sentence
+        ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+
+      .tell-main__body__bottom__reason
+        =link_to "#" do
+          %span.tell-main__body__bottom__reason__text
+            電話番号の確認が必要な理由
+            %i.fas.fa-angle-right.fa-lg

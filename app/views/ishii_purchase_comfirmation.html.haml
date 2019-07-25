@@ -1,0 +1,55 @@
+.main
+  .main__body
+    .main__body__title
+      購入内容の確認
+    .main__body__product
+      .main__body__product__contents
+        .main__body__product__contents__detail
+          .main__body__product__contents__detail__image
+            =image_tag "stadium.jpg", size: "64x64"
+          .main__body__product__contents__detail__text
+            スタジアム
+          .main__body__product__contents__detail__price
+            %p.main__body__product__contents__detail__price__num
+              ¥8,000
+              %sapn.main__body__product__contents__detail__price__num__shipping 送料込み
+
+          =link_to "#" do
+            .main__body__product__contents__detail__point
+              ポイントはありません
+          .main__body__product__contents__detail__fee
+            %p.main__body__product__contents__detail__fee__text
+              支払い金額
+            %p.main__body__product__contents__detail__fee__num
+              ¥8,000
+
+          =link_to "#" do
+            .main__body__product__contents__detail__buy-btn
+              購入する
+
+    .main__body__delivery
+      .main__body__delivery__detail
+        .main__body__delivery__detail__box
+          .main__body__delivery__detail__box__title 配送先
+          .main__body__delivery__detail__box__postal-code
+            .main__body__delivery__detail__box__postal-code__num 〒000-0000
+            .main__body__delivery__detail__box__address 東京都渋谷区渋谷０−０−０
+            .main__body__delivery__detail__box__name メルちゃん
+            .main__body__delivery__detail__box__change
+              =link_to "#" do
+                %span.main__body__delivery__detail__box__change__text
+                  変更する
+                  %i.fas.fa-angle-right.fa-lg
+
+    .main__body__pay
+      .main__body__pay__detail
+        .main__body__pay__detail__box
+          .main__body__pay__detail__box__text 支払い方法
+          .main__body__pay__detail__box__num ************0000
+          .main__body__pay__detail__box__date 08/23
+          =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3861581201", size: "49x20", class: "main__body__pay__detail__box__image"
+          .main__body__delivery__detail__box__change
+            =link_to "#" do
+              %span.main__body__delivery__detail__box__change__text
+                変更する
+                %i.fas.fa-angle-right.fa-lg

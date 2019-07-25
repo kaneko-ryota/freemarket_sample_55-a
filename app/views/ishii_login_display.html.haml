@@ -1,0 +1,50 @@
+.new-main
+  .new-main__body
+    .new-main__body__top
+      .new-main__body__top__text
+        アカウントをお持ちでない方はこちら
+      =link_to "#" do
+        .new-main__body__top__btn
+          新規会員登録
+    .new-main__body__sns
+      =link_to "#" do
+        .new-main__body__sns__btn-facebook
+          %i.fab.fa-facebook-square.fa-2x.new-main__body__sns__btn-facebook__icon
+          Facebookでログイン
+      =link_to "#" do
+        .new-main__body__sns__btn-google
+          %i.fab.fa-google.fa-lg.new-main__body__sns__btn-google__icon
+          Googleでログイン
+    .new-main__body__input
+      .new-main__body__input__email
+        %input{type: "text", name: "email", placeholder: "メールアドレス", class: "new-main__body__input__email__box"}
+      .new-main__body__input__pass
+        %input{type: "password", name: "password", placeholder: "パスワード",  autocomplete: "new-password", class: "new-main__body__input__pass__box"}
+    .new-main__body__confirm
+      .new-main__body__confirm__icon__text-2
+        =link_to "#" do
+          %span.new-main__body__confirm__icon__text-2__privacy
+            プライバシー
+        %span.new-main__body__confirm__icon__text-2__privacy
+          ・
+        =link_to "#" do
+          %span.new-main__body__confirm__icon__text-2__terms
+            利用規約
+      %label
+        %input{type: "checkbox", name: "robotconfirm", class: "new-main__body__confirm__checkbox__box"}
+        %span.new-main__body__confirm__checkbox__text 私はロボットではありません
+
+
+      .new-main__body__confirm__icon
+        %i.fab.fa-accessible-icon.fa-2x.new-main__body__confirm__icon__detail
+        .new-main__body__confirm__icon__text
+          reCAPTCHA
+
+    .new-main__body__login
+      =link_to "#" do
+        .new-main__body__login__btn
+          ログイン
+
+    =link_to "#" do
+      .new-main__body__forget
+        パスワードをお忘れの方

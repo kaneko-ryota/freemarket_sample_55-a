@@ -1,0 +1,96 @@
+.tell-authentication {
+  background-color: #f5f5f5;
+  &__body {
+    width: 700px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    &__title {
+      padding: 40px 0;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      border-bottom: 1px solid #dddddd;
+    }
+    &__second {
+      width: 343px;
+      margin: 0 auto;
+      padding-top: 40px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid #eeeeee;
+      &__text {
+        font-size: 14px;
+        font-weight: bold;
+      }
+      &__number {
+        &__box {
+          width: 328px;
+          height: 48px;
+          border-radius: 4px;
+          border: 1px solid #cccccc;
+          margin: 5px 0;
+        }
+        &__box::placeholder {
+          padding-left: 20px;
+        }
+      }
+      &__sentence {
+        font-size: 14px;
+      }
+      &__btn {
+        height: 50px;
+        background-color: #ea352d;
+        text-align: center;
+        line-height: 50px;
+        color: #ffffff;
+        font-size: 14px;
+        margin-top: 32px;
+        margin-bottom: 10px;
+      }
+    }
+    &__third {
+      width: 343px;
+      margin: 0 auto;
+      padding-top: 40px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid #eeeeee;
+      &__text {
+        font-size: 14px;
+        font-weight: bold;
+      }
+      &__sentence {
+        font-size: 14px;
+      }
+      &__btn {
+        height: 50px;
+        background-color: #ea352d;
+        text-align: center;
+        line-height: 50px;
+        color: #ffffff;
+        font-size: 14px;
+        margin-top: 32px;
+        margin-bottom: 10px;
+      }
+    }
+    &__bottom {
+      width: 343px;
+      margin: 0 auto;
+      padding-top: 40px;
+      padding-bottom: 64px;
+      &__text {
+        font-size: 14px;
+        font-weight: bold;
+      }
+      &__sentence {
+        font-size: 13px;
+        color: #0099e8;
+        margin: 10px 0;
+      }
+      &__sentence-2 {
+        font-size: 13px;
+        &__link {
+          color: #0099e8;
+        }
+      }
+    }
+  }
+}
