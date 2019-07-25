@@ -2,11 +2,10 @@
 
 .header{
   position: relative;
-  background-color: yellow;
   display: block;
   height: 100px;
+  background-color: #fff;
   .inner{
-    background-color: white;
     padding: 8px 0 0;
     width: 1020px;
     margin: auto;
@@ -26,11 +25,14 @@
         margin-left: 45px;
         position: relative;
         input{
+          background: #f5f5f5;
           box-sizing: border-box;
-          height: 36px;
+          height: 40px;
           width: 100%;
           padding: 0 42px 0 10px;
           border-radius: 4px;
+          border: 1px solid #ccc;
+          outline: 0;
         }
         i{
           position: absolute;
@@ -55,7 +57,7 @@
           li{
             padding: 0 11px 0 0;
             h2{
-              font-size: 14px;
+              font-size: 13px;
               font-weight: bold;
               text-align: center;
               .fa-list-ul{
@@ -70,7 +72,6 @@
       }
       &--right{
         height: 44px;
-        width: 400px;
         float: right;
         ul{
           display: flex;
@@ -86,6 +87,7 @@
             .profile_icon{
               width: 32px;
               border-radius: 15px;
+              vertical-align: middle;
             }
           }
         }
