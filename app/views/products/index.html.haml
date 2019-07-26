@@ -1,43 +1,52 @@
 = render "shared/main_header"
-= render "shared/ishii_pankuzu"
-.main
-  %section.pickup-container
-    %h2.pickup-container__head ピックアップカテゴリー
-    %section.item-box-container
-      %h3.item-box-container__title レディース新着アイテム
-      .item-box-container__content
-        = render "shared/item_box"
-        = render "shared/item_box"
-        = render "shared/item_box"
-        = render "shared/item_box"
-      .item-box-container__view-all すべての商品を見る
+.default
+  .contents
+    = render "shared/main_sidebar"
+    .contents__main  
+      .contents__main__user
+        .user
+          %a{href: "https://www.mercari.com/jp/u/934297861/"}
+            %figure
+              %img{alt: "", height: "60", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60"}/
+            %h2.bold ダイチ
+            .mypage-number
+              %div
+                評価
+                %span.bold 0
+              %div
+                出品数
+                %span.bold 0
 
-    %section.item-box-container
-      %h3.item-box-container__title メンズ新着アイテム
-      .item-box-container__content
-        = render "shared/item_box"
-        = render "shared/item_box"
-        = render "shared/item_box"
-        = render "shared/item_box"
-      .item-box-container__view-all すべての商品を見る
-
-  %section.pickup-container
-    %h2.pickup-container__head ピックアップブランド
-    %section.item-box-container
-      %h3.item-box-container__title シャネル新着アイテム
-      .item-box-container__content
-        = render "shared/item_box"
-        = render "shared/item_box"
-        = render "shared/item_box"
-        = render "shared/item_box"
-      .item-box-container__view-all すべての商品を見る
-
-    %section.item-box-container
-      %h3.item-box-container__title ナイキ新着アイテム
-      .item-box-container__content
-        = render "shared/item_box"
-        = render "shared/item_box"
-        = render "shared/item_box"
-        = render "shared/item_box"
-      .item-box-container__view-all すべての商品を見る
+      .infotodo
+        .infotodo--info お知らせ
+        .infotodo--todo やることリスト
+      %ul.tab
+        %li.tab--item
+          %img.lazyloaded{alt: "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png"}/
+          .textbox
+            .textbox__text お知らせですお知らせですお知らせですお知らせですお知らせ
+            .textbox__time
+              .textbox__time__icon
+              .textbox__time__timeago 10時間前
+        %li.tab--item
+          %img.lazyloaded{alt: "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png"}/
+          .textbox
+            .textbox__text お知らせですお知らせですお知らせですお知らせですお知らせ
+            .textbox__time
+              .textbox__time__icon
+              .textbox__time__timeago 10時間前
+        %li.tab--item
+          %img.lazyloaded{alt: "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png"}/
+          .textbox
+            .textbox__text お知らせですお知らせですお知らせですお知らせですお知らせ
+            .textbox__time
+              .textbox__time__icon
+              .textbox__time__timeago 10時間前
+        %li.tab--list 
+          = link_to "一覧を見る", '#',class:'itiran'
+      .bought 購入した商品
+      .deal 取引中
+      .past 過去の取引
+      .hako 
+        .hako__noitem 取引中の商品がありません
 = render "shared/main_footer"
