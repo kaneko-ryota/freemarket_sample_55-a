@@ -149,6 +149,10 @@
   .a{
     opacity: 1;
   }
+  &__icon {
+    color: #ffffff;
+    margin-top: 20px;
+  }
 }
 .bottom{
   margin: 30px auto 20px;
@@ -160,12 +164,15 @@
     width: auto;
     margin-left: 100px;
   }
-  &__copyrigth{
+  &__copyright{
     display: inline-block;
     margin: 8px 0 0;
     text-align: center;
+    &__text {
+      color: #ffffff;
+      margin-left: 300px;
+      font-size: 12px;
+    }
   }
 }
-.small{
-  color: #fff;
-}
+
