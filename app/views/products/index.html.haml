@@ -1,0 +1,43 @@
+= render "shared/main_header"
+= render "shared/ishii_pankuzu"
+.main
+  %section.pickup-container
+    %h2.pickup-container__head ピックアップカテゴリー
+    %section.item-box-container
+      %h3.item-box-container__title レディース新着アイテム
+      .item-box-container__content
+        = render "shared/item_box"
+        = render "shared/item_box"
+        = render "shared/item_box"
+        = render "shared/item_box"
+      .item-box-container__view-all すべての商品を見る
+
+    %section.item-box-container
+      %h3.item-box-container__title メンズ新着アイテム
+      .item-box-container__content
+        = render "shared/item_box"
+        = render "shared/item_box"
+        = render "shared/item_box"
+        = render "shared/item_box"
+      .item-box-container__view-all すべての商品を見る
+
+  %section.pickup-container
+    %h2.pickup-container__head ピックアップブランド
+    %section.item-box-container
+      %h3.item-box-container__title シャネル新着アイテム
+      .item-box-container__content
+        = render "shared/item_box"
+        = render "shared/item_box"
+        = render "shared/item_box"
+        = render "shared/item_box"
+      .item-box-container__view-all すべての商品を見る
+
+    %section.item-box-container
+      %h3.item-box-container__title ナイキ新着アイテム
+      .item-box-container__content
+        = render "shared/item_box"
+        = render "shared/item_box"
+        = render "shared/item_box"
+        = render "shared/item_box"
+      .item-box-container__view-all すべての商品を見る
+= render "shared/main_footer"
