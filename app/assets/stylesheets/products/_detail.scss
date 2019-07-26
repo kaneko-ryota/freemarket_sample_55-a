@@ -73,8 +73,23 @@
             font-size: 0.8rem;
             text-align: left;
             background: #fff;
-            .icon{
-              font-weight: 900;
+            .item-user-rating{
+              display: flex;
+              &__icon{
+                margin-right: 10px;
+                .icon-good{
+                  color: #ef5185;
+                  font-size: 1rem;
+                }
+                .icon-not-good{
+                  color: #fba933;
+                  font-size: 1rem;
+                }
+                .icon-bad{
+                  color: #6ab5d8;
+                  font-size: 1rem;
+                }
+              }
             }
           }
           .item-category{
@@ -310,20 +325,23 @@ ul{
   justify-content: center;
   li{
     margin: 0 5px;
-    .facebook-icon-share{
+    .fa-facebook-square{
       color: #3B5998;
       border-radius: 4px;
       line-height: 44px;
+      font-size: 3rem;
     }
-    .twitter-icon-share{
+    .fa-twitter-square{
       color: #1DA1F2;
       border-radius: 4px;
       line-height: 44px;
+      font-size: 3rem;
     }
-    .pinterest-icon-share{
+    .fa-pinterest-square{
       color: #BD081C;
       border-radius: 4px;
       line-height: 44px;
+      font-size: 3rem;
     }
   }
 }

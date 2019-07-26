@@ -1,7 +1,6 @@
 @import "reset";
 
 // 適応させるgem
-@import "font-awesome";
 
 
 // 読み込むscss
@@ -10,6 +9,7 @@
 @import "products/detail";
 @import "products/purchase_confirmation";
 @import "products/sell";
+@import "products/top_page";
 
 // registration
 @import "registration/address";
@@ -40,4 +40,3 @@
 
 // others
 @import "ishii_exhibition_btn";
-@import "top_page";
