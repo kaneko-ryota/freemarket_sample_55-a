@@ -1,0 +1,96 @@
+.category-main{
+  .category-pickup-container{
+    padding: 40px 0;
+    &__head{
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .category-item-box-container{
+      width: 1020px;
+      margin: auto;
+      &__parts {
+        &__text {
+          margin-right: 10px;
+          font-size: 14px;
+          color: #0099e8;
+        }
+      }
+      &__title{
+        color: #333333;
+        font-size: 22px;
+        font-weight: bold;
+        margin: 20px 10px 10px 0;
+      }
+      &__content{
+        overflow: auto;
+        .category-item-box{
+          height: 330px;
+          width: 188px;
+          background-color: #fff;
+          margin: 0 15px 20px 0;
+          position: relative;
+          float: left;
+          &__photo{
+            margin: 0;
+            img{
+              height: 220px;
+              width: 100%;
+            }
+            figcaption{
+              .category-item-sold-out-badge:after{
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                border-style: solid;
+                border-width: 100px 100px 0 0;
+                border-color: #ea352d transparent;
+              }
+              .category-sold-label{
+                position: absolute;
+                top: 15px;
+                left: 0;
+                z-index: 2;
+                color: #fff;
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+                letter-spacing: 2px;
+                font-weight: 600;
+              }
+            }
+          }
+          &__body{
+            padding: 16px;
+            color: black;
+            &--name{
+              height: 3em;
+              font-size: 16px
+            }
+            &--num{
+              font-size: 14px;
+              margin: 8px 0 0;
+              display: flex;
+              justify-content: space-between;
+              .category-price{
+                font-size: 14px;
+                font-weight: 600;
+              }
+              .category-add-heart{
+                font-weight: 400;
+              }
+            }
+          }
+        }
+      }
+      &__view-all{
+        font-size: 13px;
+        color: #0099e8;
+        padding: 20px 0 30px;
+        text-align: right;
+      }
+    }
+  }
+}
