@@ -1,0 +1,61 @@
+= render "shared/registration_header"
+.address-info
+  .address-info__body
+    .address-info__body__title
+      発送元・お届け先住所入力
+
+    .address-info__body__main
+      %span.address-info__body__main__text お名前
+      %span.address-info__body__main__mark 必須
+      .address-info__body__main__input
+        %input{type: "text", name: "name", placeholder: "メルカリ", class: "address-info__body__main__input__box"}
+        %input{type: "text", name: "name", placeholder: "太郎", class: "address-info__body__main__input__box-2"}
+      %span.address-info__body__main__text お名前カナ
+      %span.address-info__body__main__mark 必須
+      .address-info__body__main__input
+        %input{type: "text", name: "name", placeholder: "メルカリ", class: "address-info__body__main__input__box"}
+        %input{type: "text", name: "name", placeholder: "タロウ", class: "address-info__body__main__input__box-2"}
+      %span.address-info__body__main__text 郵便番号
+      %span.address-info__body__main__mark 必須
+      .address-info__body__main__input
+        %input{type: "text", name: "postal-code", placeholder: "例)123-4567", class: "address-info__body__main__input__box-2"}
+      %span.address-info__body__main__text 都道府県
+      %span.address-info__body__main__mark 必須
+      .address-info__body__main__input
+        %select{name: "prefecture", class: "address-info__body__main__input__box2-prefecture"}
+          %option{value: "北海道"}
+            北海道
+          %option{value: "青森"}
+            青森
+          %option{value: "岩手"}
+            岩手
+          %option{value: "秋田"}
+            秋田
+          %option{value: "福島"}
+            福島
+          %option{value: "山形"}
+            山形
+          %option{value: "宮城"}
+            宮城
+
+      %span.address-info__body__main__text 市区町村
+      %span.address-info__body__main__mark 必須
+      .address-info__body__main__input
+        %input{type: "text", name: "city", placeholder: "例)横浜市緑区", class: "address-info__body__main__input__box-2"}
+      %span.address-info__body__main__text 番地
+      %span.address-info__body__main__mark 必須
+      .address-info__body__main__input
+        %input{type: "text", name: "add-number", placeholder: "例)青山1-1-1", class: "address-info__body__main__input__box-2"}
+      %span.address-info__body__main__text 建物名
+      %span.address-info__body__main__mark-any 任意
+      .address-info__body__main__input
+        %input{type: "text", name: "building", placeholder: "例)柳ビル103", class: "address-info__body__main__input__box-2"}
+      %span.address-info__body__main__text 電話
+      %span.address-info__body__main__mark-any 任意
+      .address-info__body__main__input
+        %input{type: "text", name: "phone", placeholder: "例)09012345678", class: "address-info__body__main__input__box-2"}
+
+      =link_to "#" do
+        .address-info__body__main__next-btn
+          次へ進む
+= render "shared/registration_footer"

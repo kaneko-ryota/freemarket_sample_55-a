@@ -1,0 +1,15 @@
+= render "shared/main_header"
+.profile-container
+  = render "shared/main_sidebar"
+  .profile-wrap
+    %h2.profile-wrap__head
+      プロフィール
+    %form.profile-wrap__form
+      .profile-wrap__form--nickname
+        %figure.nickname-image
+          %img.nickname-image__box{src:"https://static.mercdn.net/images/member_photo_noimage_thumb.png",width:"60",height:"60"}
+        %input.nickname-text-box{type:"text",name:"nickname",placeholder:"例)AYA☆セール中"}
+      .profile-wrap__form--textarea
+        %textarea.textarea-box{placeholder:"例)こんにちは！ご覧いただきありがとうございます！お気に入りの商品がありましたら、お声をかけてください。"}
+        %button.textarea-submit{type:"submit"}変更する
+= render "shared/main_footer"

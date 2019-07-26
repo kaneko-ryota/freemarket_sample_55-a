@@ -1,0 +1,19 @@
+.exhibition-btn {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 160px;
+  height: 160px;
+  background-color: #ea352d;
+  border-radius: 50%;
+  color: #ffffff;
+  text-align: center;
+  font-size: 22px;
+  padding-top: 28px;
+  box-sizing: border-box;
+  &__icon {
+    &__color {
+      color: #ffffff;
+    }
+  }
+}

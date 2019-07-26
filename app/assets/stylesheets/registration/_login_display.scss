@@ -1,0 +1,173 @@
+.new-main {
+  width: 100%;
+  background-color: #f5f5f5;
+  &__body {
+    width: 456px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    &__top {
+      padding: 40px 64px;
+      border-bottom: 1px solid #f5f5f5;
+      &__text {
+        text-align: center;
+        font-size: 14px;
+      }
+      &__btn {
+        text-align: center;
+        line-height: 42px;
+        font-size: 14px;
+        height: 42px;
+        background-color: #0099e8;
+        margin-top: 8px;
+        color: #ffffff;
+      }
+    }
+    &__sns {
+      padding: 40px 64px;
+      &__btn-facebook{
+        text-align: center;
+        line-height: 50px;
+        font-size: 14px;
+        height: 50px;
+        background-color: #315185;
+        color: #ffffff;
+        position: relative;
+        &__icon {
+          position: absolute;
+          top: 12px;
+          left: 20px;
+        }
+      }
+      &__btn-google{
+        text-align: center;
+        line-height: 50px;
+        font-size: 14px;
+        height: 50px;
+        margin-top: 16px;
+        border: 1px solid #333333;
+        box-sizing: border-box;
+        position: relative;
+        &__icon {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+        }
+      }
+    }
+    &__input {
+      padding: 16px 64px 30px 64px;
+      &__email {
+        &__box {
+          width: 328px;
+          height: 48px;
+          border-radius: 4px;
+          border: 1px solid #cccccc;
+        }
+        &__box::placeholder {
+          padding-left: 20px;
+        }
+      }
+      &__pass {
+        &__box {
+          width: 328px;
+          height: 48px;
+          border-radius: 4px;
+          margin-top: 20px;
+          border: 1px solid #cccccc;
+        }
+        &__box::placeholder {
+          padding-left: 20px;
+        }
+      }
+    }
+    &__confirm {
+      width: 304px;
+      height: 76px;
+      margin-left: 64px;
+      background-color: #f9f9f9;
+      position: relative;
+      z-index: 5;
+      &__checkbox {
+        &__box {
+          display: none;
+        }
+        &__box:checked {
+          color: #009a9a;
+        }
+        &__text {
+          width: 192px;
+          height: 76px;
+          float: left;
+          padding-top: 20px;
+          padding-left: 50px;
+          font-size: 14px;
+          box-sizing: border-box;
+        }
+        &__text::before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 30px;
+          left: 10px;
+          width: 25px;
+          height: 25px;
+          border: 2px solid #cccccc;
+          border-radius: 4px;
+        }
+        &__box:checked + &__text::after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 20px;
+          left: 19px;
+          width: 10px;
+          height: 24px;
+          transform: rotate(40deg);
+          border-bottom: 3px solid #009a9a;
+          border-right: 3px solid #009a9a;
+        }
+      }
+      &__icon {
+        width: calc(100% - 52px - 152px);
+        height: 76px;
+        float: left;
+        position: relative;
+        &__detail {
+          position: absolute;
+          top: 10px;
+          right: 20px;
+          color: blue;
+        }
+        &__text {
+          font-size: 10px;
+          position: absolute;
+          top: 45px;
+          right: 10px;
+        }
+        &__text-2 {
+          font-size: 10px;
+          position: absolute;
+          top: 60px;
+          right: 10px;
+          z-index: 100;
+        }
+      }
+    }
+    &__login {
+      padding: 30px 64px;
+      &__btn{
+        text-align: center;
+        line-height: 50px;
+        font-size: 14px;
+        height: 50px;
+        background-color: #ea352d;
+        color: #ffffff;
+      }
+    }
+    &__forget {
+      padding: 0 64px 20px 64px;
+      color: #0099e8;
+      font-size: 14px;
+    }
+  }
+}

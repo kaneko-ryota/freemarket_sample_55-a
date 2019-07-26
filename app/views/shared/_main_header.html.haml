@@ -1,0 +1,36 @@
+%header.header
+  .inner
+    .inner__top
+      = link_to "#" do
+        %h1
+          %img{src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?891577966"}
+      %form.header-form
+        %input{placeholder: '何かお探しですか?', class: 'input-default'}
+        %i.fa.fa-search
+    .inner__nav-box
+      %nav.inner__nav-box--left
+        %ul
+          %li
+            %h2
+              = link_to "#" do
+                = fa_icon "list-ul"
+                %span カテゴリーから探す
+          %li       
+            %h2
+              = link_to "#" do
+                = fa_icon "tag"
+                %span ブランドから探す
+      .inner__nav-box--right
+        %ul
+          %li
+            = link_to "#" do
+              %i.far.fa-bell
+              %span お知らせ
+          %li
+            = link_to "#" do
+              = fa_icon "check"
+              %span やることリスト
+          %li
+            = link_to "#" do
+              %img{src: "//static.mercdn.net/images/member_photo_noimage_thumb.png",class: 'profile_icon'}
+              %span マイページ

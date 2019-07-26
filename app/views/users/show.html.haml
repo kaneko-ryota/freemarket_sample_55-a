@@ -1,0 +1,52 @@
+= render "shared/main_header"
+.default
+  .contents
+    = render "shared/main_sidebar"
+    .contents__main  
+      .contents__main__user
+        .user
+          %a{href: "https://www.mercari.com/jp/u/934297861/"}
+            %figure
+              %img{alt: "", height: "60", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60"}/
+            %h2.bold ダイチ
+            .mypage-number
+              %div
+                評価
+                %span.bold 0
+              %div
+                出品数
+                %span.bold 0
+
+      .infotodo
+        .infotodo--info お知らせ
+        .infotodo--todo やることリスト
+      %ul.tab
+        %li.tab--item
+          %img.lazyloaded{alt: "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png"}/
+          .textbox
+            .textbox__text お知らせですお知らせですお知らせですお知らせですお知らせ
+            .textbox__time
+              .textbox__time__icon
+              .textbox__time__timeago 10時間前
+        %li.tab--item
+          %img.lazyloaded{alt: "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png"}/
+          .textbox
+            .textbox__text お知らせですお知らせですお知らせですお知らせですお知らせ
+            .textbox__time
+              .textbox__time__icon
+              .textbox__time__timeago 10時間前
+        %li.tab--item
+          %img.lazyloaded{alt: "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png"}/
+          .textbox
+            .textbox__text お知らせですお知らせですお知らせですお知らせですお知らせ
+            .textbox__time
+              .textbox__time__icon
+              .textbox__time__timeago 10時間前
+        %li.tab--list 
+          = link_to "一覧を見る", '#',class:'itiran'
+      .bought 購入した商品
+      .deal 取引中
+      .past 過去の取引
+      .hako 
+        .hako__noitem 取引中の商品がありません
+= render "shared/main_footer"

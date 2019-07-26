@@ -3,13 +3,20 @@ Rails.application.routes.draw do
   root to: 'products#index'
   resources :users do
     collection do
-      get :registration_top
+      get :new_registration
       get :member_info
+      get :profile
+      get :phone_number
+      get :complete
+      get :logout
     end
   end
   resources :products do
     resources :comments
     resources :likes, only: [:create, :destroy]
+    collection do
+      get :purchase_confirmation
+    end
   end
   resources :addresses
   resources :credits

@@ -1,0 +1,95 @@
+.header{
+  position: relative;
+  display: block;
+  height: 100px;
+  background-color: #fff;
+  .inner{
+    padding: 8px 0 0;
+    width: 1020px;
+    margin: auto;
+    &__top{
+      height: 40px;
+      width: 100%;
+      display: flex;
+      h1{
+        img{
+          height: 36px;
+          width: 134px;
+        }
+      }
+      form{
+        height: 40px;
+        width: 100%;
+        margin-left: 45px;
+        position: relative;
+        input{
+          background: #f5f5f5;
+          box-sizing: border-box;
+          height: 40px;
+          width: 100%;
+          padding: 0 42px 0 10px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          outline: 0;
+        }
+        i{
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+        }
+        input::placeholder{
+          font-size: 15px;
+        }
+      }
+    }
+    &__nav-box{
+      height: 44px;
+      margin: 8px 0 0;
+      line-height: 32px;
+      &--left{
+        height: 44px;
+        float: left;
+        ul{
+          display: flex;
+          li{
+            padding: 0 11px 0 0;
+            h2{
+              font-size: 13px;
+              font-weight: bold;
+              text-align: center;
+              .fa-list-ul{
+                color: red;
+              }
+              .fa-tag{
+                color: red;
+              }
+            }
+          }
+        }
+      }
+      &--right{
+        height: 44px;
+        float: right;
+        ul{
+          display: flex;
+          li{
+            font-size: 14px;
+            padding: 0 14px;
+            .fa-bell{
+              color: gray;
+            }
+            .fa-check{
+              color: gray;
+            }
+            .profile_icon{
+              width: 32px;
+              border-radius: 15px;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+    }
+  }
+}

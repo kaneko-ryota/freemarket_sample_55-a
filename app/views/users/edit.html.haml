@@ -1,0 +1,52 @@
+= render "shared/main_header"
+.entry
+  = render "shared/main_sidebar"
+  .entry-wrap
+    %h2.entry-wrap__head
+      本人情報の登録
+    %form.entry-wrap__form
+      .entry-wrap--form--group
+        %p
+          お客さまの本人情報をご登録ください。
+          %br
+          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+        %p.group-upload
+          = link_to "本人確認書類のアップロードに関して>","/" ,target:"_blank",class:"group-upload__link"
+      .entry-wrap__form--group
+        %label お名前
+        %p メルカリ太郎
+      .entry-wrap__form--group
+        %label お名前カナ
+        %p メルカリタロウ
+      .entry-wrap__form--group
+        %label 生年月日
+        %p 1998/7/24
+      .entry-wrap__form--group
+        %label 郵便番号
+        %span.optional 任意
+        %input{type:"text",placeholder:"例）1234567"}
+      .entry-wrap__form--group
+        %label 都道府県 
+        %span.optional 任意
+        .group-prefecture-select-box
+          %select{name:"prefecture"}
+            %option 北海道
+            %option 青森県
+      .entry-wrap__form--group
+        %label 市区町村
+        %span.optional 任意
+        %input{type:"text",placeholder:"例）東京都渋谷区"}
+      .entry-wrap__form--group
+        %label 番地
+        %span.optional 任意
+        %input{type:"text",placeholder:"例）青山1-1-1"}
+      .entry-wrap__form--group
+        %label 建物名
+        %span.optional 任意
+        %input{type:"text",placeholder:"例）柳ビル103"}
+      %button{type:"submit"}登録する
+      .entry-wrap__form--group-last
+        %p.group-about-user-registration
+        = link_to "本人情報の登録について>","/",target:"_blank",class:"group-about-user-registration__link"
+
+= render "shared/main_footer"
