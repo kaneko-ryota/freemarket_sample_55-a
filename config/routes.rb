@@ -3,8 +3,12 @@ Rails.application.routes.draw do
   root to: 'products#index'
   resources :users do
     collection do
-      get :registration_top
+      get :new_registration
       get :member_info
+      get :profile
+      get :phone_number
+      get :complete
+      get :logout
     end
   end
   resources :products do
