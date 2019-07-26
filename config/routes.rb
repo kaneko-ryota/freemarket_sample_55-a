@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     collection do
       get :registration_top
       get :member_info
+      get :profile
+      get :phone_number
+      get :complete
+      get :logout
     end
   end
   resources :products do

@@ -1,109 +1,115 @@
-.entry-wrap{
-  width: 700px;
-  margin: 0 auto;
-  &__head{
-    font-size: 24px;
-    padding: 8px 24px;
-    border-bottom: 1px solid #f5f5f5;
-    text-align: center;
-    font-weight: bold;
-  }
-  &__form{
-    padding: 64px;
-    border-top: 1px solid #f5f5f5;
-    &--group-first{
+.entry{
+  width: 1020px;
+  margin: 40px 210px 40px 210px;
+  overflow: auto;
+  .entry-wrap{
+    background-color: #fff;
+    width: 700px;
+    float: right;
+    &__head{
+      font-size: 24px;
+      padding: 8px 24px;
+      border-bottom: 1px solid #f5f5f5;
+      text-align: center;
+      font-weight: bold;
     }
-    &--group{
-      margin: 40px 0 0;
-    }
-    .group-upload{
-      text-align: right;
-      &__link{
-        color: #0099e8;
-        text-decoration: none;
-        font-size: 14px;
+    &__form{
+      padding: 64px;
+      border-top: 1px solid #f5f5f5;
+      &--group-first{
       }
-    }
-    .group-about-user-registration{
-      
-      &__link{
-        color: #0099e8;
-        text-decoration: none;
-        font-size: 14px;
+      &--group{
+        margin: 40px 0 0;
       }
-    }
-    // ----------------------------------
-    .group-prefecture-select-box{
-      margin: 8px 0 0;
-    }
-    select{
-      width: 100%;
-      position: relative;
-      z-index: 2;
-      height: 48px;
-      padding: 0 16px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-      line-height: 1.5;
-      cursor: pointer;
-      background: 0;
-      outline: 0;
-      
-    }
-  }
-  
-  
-  label{
-    font-size: 14px;
-    font-weight: 600;
-  }
-  p{
-    margin: 8px 0 0;
-    line-height: 1.5;
-    font-size: 14px;
-  }
-  input{
-    width: 100%;
-    outline: 0;
-    margin: 8px 0 0;
-    padding: 10px 16px 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    background: #fff;
-    line-height: 1.5;
-    font-size: 16px;
-    box-sizing: border-box;
-    &:focus{
-      border-color: #0099e8;    
+      .group-upload{
+        text-align: right;
+        &__link{
+          color: #0099e8;
+          text-decoration: none;
+          font-size: 14px;
+        }
+      }
+      .group-about-user-registration{
+        
+        &__link{
+          color: #0099e8;
+          text-decoration: none;
+          font-size: 14px;
+        }
+      }
+      // ----------------------------------
+      .group-prefecture-select-box{
+        margin: 8px 0 0;
+      }
+      select{
+        width: 100%;
+        position: relative;
+        z-index: 2;
+        height: 48px;
+        padding: 0 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        line-height: 1.5;
+        cursor: pointer;
+        background: 0;
+        outline: 0;
+        
+      }
     }
     
-  }
-  .optional{
-    padding: 2px 4px;
-    margin: 0 0 0 8px;
-    font-size: 12px;
-    border-radius: 2px;
-    color: #fff;
-    vertical-align: top;
-    background: #ccc;
-  }
-  button{
-    width: 100%;
-    height: 48px;
-    background-color: #ea352d;
-    color: #fff;
-    border: 1px solid #ea352d;
-    margin: 40px 0 0;
-    text-align: center;
-    cursor: pointer;
-    font-size: 14px;
-    &:focus{
-      outline: 0;
+    
+    label{
+      font-size: 14px;
+      font-weight: 600;
     }
-  }
-  .entry-wrap__form--group-last{
-    text-align: right;
-    margin-top: 40px;
+    p{
+      margin: 8px 0 0;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+    input{
+      width: 100%;
+      outline: 0;
+      margin: 8px 0 0;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+      box-sizing: border-box;
+      &:focus{
+        border-color: #0099e8;    
+      }
+      
+    }
+    .optional{
+      padding: 2px 4px;
+      margin: 0 0 0 8px;
+      font-size: 12px;
+      border-radius: 2px;
+      color: #fff;
+      vertical-align: top;
+      background: #ccc;
+    }
+    button{
+      width: 100%;
+      height: 48px;
+      background-color: #ea352d;
+      color: #fff;
+      border: 1px solid #ea352d;
+      margin: 40px 0 0;
+      text-align: center;
+      cursor: pointer;
+      font-size: 14px;
+      &:focus{
+        outline: 0;
+      }
+    }
+    .entry-wrap__form--group-last{
+      text-align: right;
+      margin-top: 40px;
+    }
   }
 }
