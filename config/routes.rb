@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :products do
     resources :comments
     resources :likes, only: [:create, :destroy]
+    collection do
+      get :purchase_confirmation
+    end
   end
   resources :addresses
   resources :credits
