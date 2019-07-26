@@ -22,9 +22,15 @@
             %td 
               = link_to "hasebeee", "#"
               .item-user-rating
-                = fa_icon 'eye', class: 'icon'
-                = fa_icon 'cloud', class: 'icon'
-                = fa_icon "address-book", class: 'icon'
+                .item-user-rating__icon
+                  = fa_icon 'laugh', class: 'icon-good'
+                  %span 20
+                .item-user-rating__icon
+                  = fa_icon 'meh', class: 'icon-not-good'
+                  %span 3
+                .item-user-rating__icon
+                  = fa_icon "frown", class: 'icon-bad'
+                  %span 1
           %tr
             %th カテゴリー
             %td.item-category
@@ -74,10 +80,10 @@
   .item__button-container
     .item__button-container--left
       %button.button-like
-        = fa_icon "heart-o"
+        %i.far.fa-heart
         %span いいね！ 100
       = link_to "#" , class: "button-report" do
-        = fa_icon "flag-o"
+        %i.far.fa-flag
         %span 不適切な商品の報告
 
     .item__button-container--right
@@ -101,10 +107,10 @@
           .message-item__body--text 400円での購入は可能ですか？
           .message-item__body--icons
             %time
-              = fa_icon "hourglass-o", class: "clock-icon";
+              %i.far.fa-clock
               %span 1日前
             %button
-              = fa_icon "flag-o", class: "flag-icon";
+              %i.far.fa-flag
 
       %li.message-item
         = link_to "#" , class: "message-user" do
@@ -119,10 +125,10 @@
           .message-item__body--text 通報しました
           .message-item__body--icons
             %time
-              = fa_icon "hourglass-o", class: "clock-icon";
+              %i.far.fa-clock
               %span 1日前
             %button
-              = fa_icon "flag-o", class: "flag-icon";
+              %i.far.fa-flag
   .message__content
     %form.message-form
       %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
@@ -146,20 +152,20 @@
   %ul.social-media-buttons__box
     %li
       = link_to "#" do
-        = fa_icon "facebook-square 3x", class: "facebook-icon-share"
+        %i.fab.fa-facebook-square
     %li
       = link_to "#" do
-        = fa_icon "twitter-square 3x", class: "twitter-icon-share"
+        %i.fab.fa-twitter-square
     %li
       = link_to "#" do
-        = fa_icon "pinterest-square 3x", class: "pinterest-icon-share"
+        %i.fab.fa-pinterest-square
 
 
 %section.item-box-container
   %h3.item-box-container__title 
     %span hasebeeさんのその他の出品
     .item-box-container__content
-      = render "item_box"
-      = render "item_box"
-      = render "item_box"
+      = render "shared/item_box"
+      = render "shared/item_box"
+      = render "shared/item_box"
 = render "shared/main_footer"
