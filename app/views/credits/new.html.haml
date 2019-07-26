@@ -1,19 +1,19 @@
 =render 'shared/registration_header'
 .main-credit
-  .sidebar
-  .contents
-    %h2.contents__head
+  -# .sidebar
+  .credit-contents
+    %h2.credit-contents__head
       クレジットカード情報入力
-    %form.contents__form
-      .contents__form-inner
-        .contents__form-inner--group
+    %form.credit-contents__form
+      .credit-contents__form-inner
+        .credit-contents__form-inner--group
           %label
             カード番号
             %span.require
               必須
           %input.text-form{type:"text",placeholder:"半角数字のみ",maxlength:"19"}
           %ul
-          %ul.contents__form-inner--group--card-group
+          %ul.credit-contents__form-inner--group--card-group
             %li.card-list
               %img{src:"https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3135490372",width:"49",height:"20"}
             %li.card-list
@@ -28,14 +28,14 @@
               %img{src:"https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?3135490372",width:"32",height:"20"}
             %li.card-list
               %img{src:"https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?3135490372",width:"32",height:"20"}
-        .contents__form-inner--group
+        .credit-contents__form-inner--group
           %label
             有効期限
             %span.require
               必須
           %br
-          .contents__form-inner--group--select-wrap
-            %select.contents__form-inner--group--select-wrap--box
+          .credit-contents__form-inner--group--select-wrap
+            %select.credit-contents__form-inner--group--select-wrap--box
               %option{value:""}01
               %option{value:""}02
               %option{value:""}03
@@ -49,8 +49,8 @@
               %option{value:""}11
               %option{value:""}12
             %span 月
-          .contents__form-inner--group--select-wrap
-            %select.contents__form-inner--group--select-wrap--box
+          .credit-contents__form-inner--group--select-wrap
+            %select.credit-contents__form-inner--group--select-wrap--box
               %option{value:""}19
               %option{value:""}20
               %option{value:""}21
@@ -63,13 +63,13 @@
               %option{value:""}28
               %option{value:""}29
             %span 年
-        .contents__form-inner--group
+        .credit-contents__form-inner--group
           %label
             セキュリティコード
             %span.require
               必須
           %input.text-form{type:"text",placeholder:"カード背面4桁もしくは3桁の番号"}
-          .contents__form-inner--group--seqcode-text
+          .credit-contents__form-inner--group--seqcode-text
             %span.question ?
             コードの裏面の番号とは？
         %button{type:"button"}追加する
