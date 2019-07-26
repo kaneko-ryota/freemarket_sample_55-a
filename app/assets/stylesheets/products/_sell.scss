@@ -144,7 +144,7 @@
               text-align: right;
               float: right;
               input{
-                height: 48px;
+                height: 45px;
                 border-radius: 4px;
                 border: 1px solid #ccc;
                 background: #fff;
@@ -229,4 +229,15 @@
     cursor: pointer;
     width: 100%;
   }
+}
+.form-question{
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #0099e8;
+  color: #fff;
+  line-height: 14px;
+  font-size: 12px;
+  text-align: center;
 }
