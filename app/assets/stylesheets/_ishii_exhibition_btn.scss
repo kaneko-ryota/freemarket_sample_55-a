@@ -11,4 +11,9 @@
   font-size: 22px;
   padding-top: 28px;
   box-sizing: border-box;
+  &__icon {
+    &__color {
+      color: #ffffff;
+    }
+  }
 }
