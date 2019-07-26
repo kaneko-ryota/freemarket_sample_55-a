@@ -1,9 +1,10 @@
 *{
   color: #333;
 }.main-credit{
-  margin: 40px auto 0;
-  width: 1020px;
-  background: pink;
+  // margin: 40px auto 0;
+  // width: 1020px;
+  // background: pink;
+  overflow: auto;
 }
 .sidebar{
   float: left;
@@ -11,9 +12,7 @@
   margin: 0 40px 0 0;
   background: red;
 }
-.contents{
-  float: right;
-  width: 700px;
+.credit-contents{
   &__head{
     font-size: 24px;
     padding: 8px 24px;
