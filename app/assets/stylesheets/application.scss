@@ -12,10 +12,8 @@
 @import "products/top_page";
 
 // registration
-@import "registration/address";
 @import "registration/authentication";
 @import "registration/complete";
-@import "registration/credit";
 @import "registration/login_display";
 @import "registration/member_info";
 @import "registration/tell_number_confirmation";
@@ -37,6 +35,12 @@
 
 // category
 @import "categories/category_list";
+
+// credits
+@import "credits/credit";
+
+// adresses
+@import "adresses/address";
 
 // others
 @import "ishii_exhibition_btn";
