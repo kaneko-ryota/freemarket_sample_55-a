@@ -27,9 +27,8 @@
           border-radius: 4px;
           border: 1px solid #cccccc;
           margin: 5px 0;
-        }
-        &__box::placeholder {
-          padding-left: 20px;
+          padding: 0 20px;
+          box-sizing: border-box;
         }
       }
       &__sentence {
