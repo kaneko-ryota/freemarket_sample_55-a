@@ -1,27 +1,25 @@
 .logout{
-  height: 150px;
   width: 1020px;
   margin: 40px auto 0;
-  display: flex;
-  justify-content: space-between;
+  margin-bottom: 30px;
+  overflow: auto;
   &__box{
     width: 700px;
+    height: 130px;
     background-color: #fff;
-    display: flex;
-    justify-content: space-between;
-    &--logout-btn{
-      height: 50px;
-      width: 350px;
-      font-size: 14px;
-      color: #ffffff;
-      background-color: #ea352d;
-      border-radius: 4px;
-      text-align: center;
-      line-height: 50px;
-      margin: auto;
-      .logoutlink{
-        text-decoration: none;
+    overflow: auto;
+    &__padding {
+      padding: 0 175px;
+      &__logout-btn{
+        height: 50px;
+        width: 350px;
+        font-size: 14px;
         color: #ffffff;
+        background-color: #ea352d;
+        border-radius: 4px;
+        text-align: center;
+        line-height: 50px;
+        margin-top: 44px;
       }
     }
   }

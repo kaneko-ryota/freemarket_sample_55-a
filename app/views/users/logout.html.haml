@@ -3,5 +3,11 @@
 .logout
   = render "shared/main_sidebar"
   .logout__box
-    .logout__box--logout-btn
-      = link_to "ログアウト", '#',class:"logoutlink"
+    / =link_to "#" do
+    .logout__box__padding
+      =link_to "#" do
+        .logout__box__padding__logout-btn
+          ログアウト
+
+=render "shared/main_footer"
+= render "shared/exhibition_btn"
