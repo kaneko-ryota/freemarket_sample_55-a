@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new.create(product_params)
+    @product = Product.new(product_params)
     if @product.save
       redirect_to controller: :products, action: :index
     else
