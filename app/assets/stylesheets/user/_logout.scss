@@ -7,13 +7,21 @@
     width: 700px;
     height: 130px;
     background-color: #fff;
-    overflow: auto;
-    &__padding {
-      padding: 0 175px;
-      &__logout-btn{
-        height: 50px;
-        width: 350px;
-        font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    &--logout-btn{
+      height: 50px;
+      width: 350px;
+      font-size: 14px;
+      color: #ffffff;
+      background-color: #ea352d;
+      border-radius: 4px;
+      text-align: center;
+      line-height: 50px;
+      margin: auto;
+      .logoutlink{
+        display: block;
+        text-decoration: none;
         color: #ffffff;
         background-color: #ea352d;
         border-radius: 4px;
