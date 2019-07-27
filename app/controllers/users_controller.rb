@@ -24,6 +24,10 @@ class UsersController < ApplicationController
   def logout
   end
 
+  private
 
+  def user_params
+    params.require(:user).permit(:name, :email)
+  end
 
 end

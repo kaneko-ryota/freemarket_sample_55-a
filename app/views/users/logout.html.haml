@@ -3,11 +3,5 @@
 .logout
   = render "shared/main_sidebar"
   .logout__box
-    / =link_to "#" do
-    .logout__box__padding
-      =link_to "#" do
-        .logout__box__padding__logout-btn
-          ログアウト
-
-=render "shared/main_footer"
-= render "shared/exhibition_btn"
+    .logout__box--logout-btn
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class:"logoutlink"
