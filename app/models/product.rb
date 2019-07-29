@@ -13,7 +13,6 @@ class Product < ApplicationRecord
   scope :nike,  -> {where(brand_id: 3).order("created_at DESC").limit(4)}
 
 
-
   def previous
     if user.products.order('id desc').where('id < ?', id).first == nil
       user.products.last
