@@ -15,10 +15,8 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @product_ladies = Product.where(category_id:1).order("created_at DESC").limit(4)
-    @product_mens = Product.where(category_id:2).order("created_at DESC").limit(4)
-    @chanels = Product.where(bland_id:1).order("created_at DESC").limit(4)
-    @nikes = Product.where(bland_id:2).order("created_at DESC").limit(4)
+    @products_ladies = Product.ladies
+    @products_mens = Product.mens
   end
 
   def show
