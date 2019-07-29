@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
   end
 
   def index
+    @product_ladies = Product.where(category_id:1).order("created_at DESC").limit(4)
   end
 
   def show

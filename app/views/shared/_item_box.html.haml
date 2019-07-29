@@ -2,13 +2,17 @@
   %figure.item-box__photo
     %img{src:"https://sawamura.site/wp-content/uploads/2018/08/pic_main_472.png"}
     %figcaption
-      .item-sold-out-badge
-        .sold-label
-          SOLD
+      - if product.trade_status == 2 || product.trade_status == 3
+        .item-sold-out-badge
+          .sold-label
+            SOLD
   .item-box__body
-    %h3.item-box__body--name TECH::EXPERT 渋谷校
+    %h3.item-box__body--name
+      = product.name
     .item-box__body--num
-      .price ¥ 999,99999円
+      .price
+        ¥
+        = product.price.to_s(:delimited)
       .add-heart
         %i.far.fa-heart
         %span 12
