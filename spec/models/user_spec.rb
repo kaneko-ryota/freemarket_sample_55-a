@@ -1,10 +1,10 @@
 require 'rails_helper'
 describe User do
   describe '#create' do
-    it "is invalid without a nickname" do
-      user = build(:user, nickname: "")
+    it "is invalid without a name" do
+      user = build(:user, name: "")
       user.valid?
-      expect(user.errors[:nickname]).to include("can't be blank")
+      expect(user.errors[:name]).to include("can't be blank")
     end
 
     it "is invalid without a email" do
