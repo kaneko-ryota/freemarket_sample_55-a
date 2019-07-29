@@ -7,33 +7,28 @@
     .member-info__body__main
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = render "devise/shared/error_messages", resource: resource
-
         .field
-          = f.label :name
+          = f.label :ニックネーム
+          %span.member-info__body__main__mark 必須
           .member-info__body__main__input
-            = f.text_field :name, autofocus: true
+            = f.text_field :name, autofocus: true, placeholder: "例)メルカリ太郎", class: "member-info__body__main__input__box"
         .field
-          = f.label :email
-          %br/
-          %span.member-info__body__main__text メールアドレス
+          = f.label :メールアドレス
           %span.member-info__body__main__mark 必須
           .member-info__body__main__input
             = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "PC・携帯どちらでも可", class: "member-info__body__main__input__box"
         .field
-          = f.label :password
-          - if @minimum_password_length
-            %em
-              (#{@minimum_password_length}  文字以上)
-          %br/
+          = f.label :パスワード
+          %span.member-info__body__main__mark 必須
           .member-info__body__main__input
             = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上", class: "member-info__body__main__input__box"
         .field
-          = f.label :password
-          %em
-            (確認)
-          %br/
+          = f.label :パスワード
+          %span (確認)
+          %span.member-info__body__main__mark 必須
           .member-info__body__main__input
             = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上", class: "member-info__body__main__input__box"
         .actions
           = f.submit "Sign up"
-= render "devise/shared/links"
+
+= render "shared/registration_footer"

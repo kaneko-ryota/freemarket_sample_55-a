@@ -13,29 +13,33 @@
       width: 280px;
       &--mp{
         position: relative;
-        display: block;
         padding: 16px;
         background: #eee;
         font-size: 14px;
         color: black;
         border-top : solid 0.1px #f5f5f5;
         border-bottom : solid 0.1px #f5f5f5;
-        .sideicon{
-          float:right;
+        .mypage-link{
+          display: block;
+          .sideicon{
+            float:right;
+          }
         }
       }
       &--li{
         position: relative;
-        display: block;
         padding: 16px;
         background:white;
         font-size: 14px;
         color: #333;
         border-bottom : solid 0.1px #f5f5f5 ;
         cursor: pointer;
-        .sideicon{
-          float:right;
-          color: #eee;
+        .mypage-link{
+          display: block;
+          .sideicon{
+            float:right;
+            color: #eee;
+          }
         }
       }
       &--li:hover {
