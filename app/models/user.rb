@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :liked_products, through: :likes, source: :product
   has_one :credit
   has_one :address
+
+  validates :name, presence: true
 end
