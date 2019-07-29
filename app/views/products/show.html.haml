@@ -1,9 +1,14 @@
 = render 'shared/main_header'
 = render "shared/ishii_pankuzu"
 %section.item
-  %h1.item__name 渋谷駅
-  %p.item__detail　渋谷駅（しぶやえき）は、東京都渋谷区道玄坂一丁目および同二丁目にある、東日本旅客鉄道（JR東日本）・京王電鉄・東京急行電鉄（東急）・東京地下鉄（東京メトロ）の駅である。
+  %h1.item__name
+    = @product.name
+  %p.item__detail
   .item-content
+    - if @product.trade_status == 2 || @product.trade_status == 3
+      .item-content__item-sold-out-badge
+        .item-content__sold-label
+          SOLD
     .item-content__left
       .item-content__left--photo
         %img.big-photo{src:"https://resources.matcha-jp.com/resize/720x2000/2018/09/20-63194.jpeg"}
@@ -20,8 +25,9 @@
         %tbody
           %tr
             %th 出品者
-            %td 
-              = link_to "hasebeee", "#"
+            %td
+              = link_to "#" do
+                = @product.user.name
               .item-user-rating
                 .item-user-rating__icon
                   = fa_icon 'laugh', class: 'icon-good'
@@ -35,48 +41,60 @@
           %tr
             %th カテゴリー
             %td.item-category
-              = link_to "公共施設", "#"
+              = link_to "#" do
+                = @product.category.name
+                .br
               = link_to "#" do
                 = fa_icon "angle-right"
-                駅
+                = @product.category.name
+                .br
               = link_to "#" do
                 = fa_icon "angle-right"
-                東京都
+                = @product.category.name
           %tr
             %th ブランド
             %td
-              = link_to "Shibuya", "#"
+              = link_to "#" do
+                =@product.brand.name
           %tr
             %th 商品の状態
-            %td 目立つ傷や汚れあり
+            %td
+              =@product.item_status
           %tr
             %th 配送料の負担
-            %td 両者ともになし
+            %td
+              =@product.burden
           %tr
             %th 配送の方法
-            %td 現地にて引き渡し
+            %td
+              =@product.delivery_method
           %tr
             %th 配送元地域
-            %td 
-              = link_to "東京都", "#"
+            %td
+              = link_to "#" do
+                =@product.region
           %tr
             %th 発送日の目安
-            %td 2~3日で発送
+            %td
+              =@product.delivery_date
   .item__price-box
-    .item__price-box--price ¥ 9,999
+    .item__price-box--price
+      ¥
+      =@price
     .item__price-box--tax (税込)
     .item__price-box--shipping-fee 送料込み
-  = link_to "購入画面に進む", "https://www.jreast.co.jp/estation/stations/808.html" , class: 'item-buy-btn' 
+
+  - if @product.trade_status == 2 || @product.trade_status == 3
+    .item-soldout-btn
+      売り切れました
+  - else
+    = link_to "購入画面に進む", purchase_confirmation_product_path(@product) , class: 'item-buy-btn'
+
   .item__description
     %p.item__description--inner
-      工事の終わる見込みがないので売ります。
+      = @product.explain
       %br
-      %br
-      渋谷
-      %br
-      駅
-      %br
-      交通機関
+
 
   .item__button-container
     .item__button-container--left
@@ -133,19 +151,20 @@
   .message__content
     %form.message-form
       %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      %textarea
-      %button
-        %span コメントする
+      %textarea.comment-textarea
+      .comment-submit-button
+        .comment-button-text
+          コメントする
 
 
 %ul.item-prev-next
   %li.item-prev-next__left
-    = link_to "#", class: "prev-next-btn" do
+    = link_to product_path(@product.previous) , class: "prev-next-btn" do
       = fa_icon "angle-left"
-      テラコッタ
+      = @product.previous.name
   %li.item-prev-next__right
-    = link_to "#" , class: "prev-next-btn" do
-      プリキュア
+    = link_to product_path(@product.next) , class: "prev-next-btn" do
+      = @product.next.name
       = fa_icon "angle-right"
 
 
@@ -162,11 +181,31 @@
         %i.fab.fa-pinterest-square
 
 
-%section.item-box-container
-  %h3.item-box-container__title 
-    %span hasebeeさんのその他の出品
-    .item-box-container__content
-      = render "shared/item_box"
-      = render "shared/item_box"
-      = render "shared/item_box"
+%section.product-show-item-box-container
+  %h3.product-show-item-box-container__title
+    %span
+      = "#{@product.user.name}さんのその他の出品"
+    .product-show-item-box-container__content
+      - @products_other.each do |product|
+        =link_to product_path(product) do
+          %section.product-show-item-box
+            %figure.product-show-item-box__photo
+              %img{src:"https://sawamura.site/wp-content/uploads/2018/08/pic_main_472.png"}
+              %figcaption
+                - if product.trade_status == 2 || product.trade_status == 3
+                  .product-show-item-sold-out-badge
+                    .product-show-sold-label
+                      SOLD
+            .product-show-item-box__body
+              %h3.product-show-item-box__body--name
+                = product.name
+              .product-show-item-box__body--num
+                .price
+                  ¥
+                  = product.price.to_s(:delimited)
+                .add-heart
+                  %i.far.fa-heart
+                  %span 12
+
+
 = render "shared/main_footer"
