@@ -1,4 +1,4 @@
-.main{
+.main, .user-show-products{
   .pickup-container{
     padding: 40px 0;
     &__head{
@@ -6,7 +6,7 @@
       font-weight: bold;
       text-align: center;
     }
-    .item-box-container{
+    .item-box-container, .user-show-products-item-box-container{
       width: 940px;
       margin: auto;
       &__title{
@@ -55,7 +55,6 @@
               }
             }
           }
-     
           &__body{
             padding: 16px;
             color: black;
@@ -87,6 +86,12 @@
         color: #0099e8;
         padding: 20px 0 30px;
         text-align: right;
+      }
+    }
+    .user-show-products-item-box-container {
+      width: 700px;
+      &__content {
+        flex-wrap: wrap;
       }
     }
   }

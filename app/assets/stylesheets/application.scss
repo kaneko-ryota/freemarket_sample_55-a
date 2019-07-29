@@ -20,8 +20,9 @@
 @import "registration/top";
 
 // shared
-@import "shared/main_header";
-@import "shared/ishii_pankuzu";
+@import "shared/header";
+@import "shared/pankuzu";
+
 @import "shared/main_footer";
 @import "shared/main_sidebar";
 @import "shared/registration_footer";
@@ -43,4 +44,4 @@
 @import "adresses/address";
 
 // others
-@import "ishii_exhibition_btn";
+@import "exhibition_btn";

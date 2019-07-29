@@ -1,27 +1,33 @@
 = render 'shared/main_header'
 = render "shared/ishii_pankuzu"
 %section.item
-  %h1.item__name 渋谷駅
-  %p.item__detail 渋谷駅（しぶやえき）は、東京都渋谷区道玄坂一丁目および同二丁目にある、東日本旅客鉄道（JR東日本）・京王電鉄・東京急行電鉄（東急）・東京地下鉄（東京メトロ）の駅である。
+  %h1.item__name
+    = @product.name
+  %p.item__detail
   .item-content
+    - if @product.trade_status == 2 || @product.trade_status == 3
+      .item-content__item-sold-out-badge
+        .item-content__sold-label
+          SOLD
     .item-content__left
       .item-content__left--photo
-        %img.big-photo{src:"https://resources.matcha-jp.com/resize/720x2000/2018/09/20-63194.jpeg"}
+        = image_tag("https://resources.matcha-jp.com/resize/720x2000/2018/09/20-63194.jpeg", class: "big-photo")
         .mini-photos
           .mini-photos__active
-            %img.mini-photo{src:"https://resources.matcha-jp.com/resize/720x2000/2018/09/20-63194.jpeg"}
+            = image_tag("https://resources.matcha-jp.com/resize/720x2000/2018/09/20-63194.jpeg", class: "mini-photo")
           .mini-photos__not-active
-            %img.mini-photo{src:"https://tk.ismcdn.jp/mwimgs/6/e/1140/img_6ead3d2a815ac820f1630e7f4b2e26d5109924.jpg"}
-            %img.mini-photo{src:"https://upload.wikimedia.org/wikipedia/commons/5/55/Shibuya_station.jpg"}
-            %img.mini-photo{src:"https://resources.matcha-jp.com/resize/720x2000/2016/11/11-8834.jpeg"}
-            %img.mini-photo{src:"https://tk.ismcdn.jp/mwimgs/3/f/1140/img_3fce81b4877be8898b8fb4e048dade38472548.jpg"}
+            = image_tag("https://tk.ismcdn.jp/mwimgs/6/e/1140/img_6ead3d2a815ac820f1630e7f4b2e26d5109924.jpg", class: "mini-photo")
+            = image_tag("https://upload.wikimedia.org/wikipedia/commons/5/55/Shibuya_station.jpg", class: "mini-photo")
+            = image_tag("https://resources.matcha-jp.com/resize/720x2000/2016/11/11-8834.jpeg", class: "mini-photo")
+            = image_tag("https://tk.ismcdn.jp/mwimgs/3/f/1140/img_3fce81b4877be8898b8fb4e048dade38472548.jpg", class: "mini-photo")
     .item-content__right
       %table.item-content__right--table
         %tbody
           %tr
             %th 出品者
-            %td 
-              = link_to "hasebeee", "#"
+            %td
+              = link_to "#" do
+                = @product.user.name
               .item-user-rating
                 .item-user-rating__icon
                   = fa_icon 'laugh', class: 'icon-good'
@@ -35,48 +41,60 @@
           %tr
             %th カテゴリー
             %td.item-category
-              = link_to "公共施設", "#"
+              = link_to "#" do
+                = @product.category.name
+                .br
               = link_to "#" do
                 = fa_icon "angle-right"
-                駅
+                = @product.category.name
+                .br
               = link_to "#" do
                 = fa_icon "angle-right"
-                東京都
+                = @product.category.name
           %tr
             %th ブランド
             %td
-              = link_to "Shibuya", "#"
+              = link_to "#" do
+                =@product.brand.name
           %tr
             %th 商品の状態
-            %td 目立つ傷や汚れあり
+            %td
+              =@product.item_status
           %tr
             %th 配送料の負担
-            %td 両者ともになし
+            %td
+              =@product.burden
           %tr
             %th 配送の方法
-            %td 現地にて引き渡し
+            %td
+              =@product.delivery_method
           %tr
             %th 配送元地域
-            %td 
-              = link_to "東京都", "#"
+            %td
+              = link_to "#" do
+                =@product.region
           %tr
             %th 発送日の目安
-            %td 2~3日で発送
+            %td
+              =@product.delivery_date
   .item__price-box
-    .item__price-box--price ¥ 9,999
+    .item__price-box--price
+      ¥
+      =@price
     .item__price-box--tax (税込)
     .item__price-box--shipping-fee 送料込み
-  = link_to "購入画面に進む", "https://www.jreast.co.jp/estation/stations/808.html" , class: 'item-buy-btn' 
+
+  - if @product.trade_status == 2 || @product.trade_status == 3
+    .item-soldout-btn
+      売り切れました
+  - else
+    = link_to "購入画面に進む", purchase_confirmation_product_path(@product) , class: 'item-buy-btn'
+
   .item__description
     %p.item__description--inner
-      工事の終わる見込みがないので売ります。
+      = @product.explain
       %br
-      %br
-      渋谷
-      %br
-      駅
-      %br
-      交通機関
+
 
   .item__button-container
     .item__button-container--left
@@ -133,19 +151,20 @@
   .message__content
     %form.message-form
       %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      %textarea
-      %button
-        %span コメントする
+      %textarea.comment-textarea
+      .comment-submit-button
+        .comment-button-text
+          コメントする
 
 
 %ul.item-prev-next
   %li.item-prev-next__left
-    = link_to "#", class: "prev-next-btn" do
+    = link_to product_path(@product.previous) , class: "prev-next-btn" do
       = fa_icon "angle-left"
-      テラコッタ
+      = @product.previous.name
   %li.item-prev-next__right
-    = link_to "#" , class: "prev-next-btn" do
-      プリキュア
+    = link_to product_path(@product.next) , class: "prev-next-btn" do
+      = @product.next.name
       = fa_icon "angle-right"
 
 
@@ -162,11 +181,15 @@
         %i.fab.fa-pinterest-square
 
 
-%section.item-box-container
-  %h3.item-box-container__title 
-    %span hasebeeさんのその他の出品
-    .item-box-container__content
-      = render "shared/item_box"
-      = render "shared/item_box"
-      = render "shared/item_box"
+.user-show-products
+  %section.pickup-container
+    .user-show-products-item-box-container
+      %h3.item-box-container__title
+        = "#{@product.user.name}さんのその他の出品"
+      .user-show-products-item-box-container__content
+        -@products_other.each do |product|
+          =link_to product_path(product), class: "user-product-show-link" do
+            = render partial: "shared/item_box", locals: { product: product}
+
+
 = render "shared/main_footer"

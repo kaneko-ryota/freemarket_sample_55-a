@@ -11,6 +11,9 @@ class CreditsController < ApplicationController
   # クレジット編集内容登録
   end
 
+  def edit
+  end
+
   def destroy
   # クレジット登録内容削除
   end
