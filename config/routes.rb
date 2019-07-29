@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :products do
     resources :comments
     resources :likes, only: [:create, :destroy]
-    collection do
+    member do
       get :purchase_confirmation
     end
   end
