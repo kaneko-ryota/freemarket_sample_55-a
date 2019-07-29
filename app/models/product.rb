@@ -7,6 +7,10 @@ class Product < ApplicationRecord
   belongs_to :category
 
 
+  scope :ladies, -> {where(category_id: 1).order("created_at DESC").limit(4)}
+  scope :mens,  -> {where(category_id: 1).order("created_at DESC").limit(4)}
+end
+
   def previous
     if user.products.order('id desc').where('id < ?', id).first == nil
       user.products.last
