@@ -33,11 +33,11 @@
                 %span やることリスト
             %li
               = link_to "users/show" do
-                %img{src: "//static.mercdn.net/images/member_photo_noimage_thumb.png",class: 'profile_icon'}
+                = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", class: 'profile_icon'
                 %span マイページ
         - else
           %ul
             %li
-              = link_to "新規会員登録", new_user_registration_path
+              = link_to "新規会員登録", new_user_session_path
             %li
-              = link_to "ログイン", new_user_registration_path
+              = link_to "ログイン", new_user_session_path
