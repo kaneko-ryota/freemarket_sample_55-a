@@ -11,15 +11,15 @@
           SOLD
     .item-content__left
       .item-content__left--photo
-        %img.big-photo{src:"https://resources.matcha-jp.com/resize/720x2000/2018/09/20-63194.jpeg"}
+        = image_tag("https://resources.matcha-jp.com/resize/720x2000/2018/09/20-63194.jpeg", class: "big-photo")
         .mini-photos
           .mini-photos__active
-            %img.mini-photo{src:"https://resources.matcha-jp.com/resize/720x2000/2018/09/20-63194.jpeg"}
+            = image_tag("https://resources.matcha-jp.com/resize/720x2000/2018/09/20-63194.jpeg", class: "mini-photo")
           .mini-photos__not-active
-            %img.mini-photo{src:"https://tk.ismcdn.jp/mwimgs/6/e/1140/img_6ead3d2a815ac820f1630e7f4b2e26d5109924.jpg"}
-            %img.mini-photo{src:"https://upload.wikimedia.org/wikipedia/commons/5/55/Shibuya_station.jpg"}
-            %img.mini-photo{src:"https://resources.matcha-jp.com/resize/720x2000/2016/11/11-8834.jpeg"}
-            %img.mini-photo{src:"https://tk.ismcdn.jp/mwimgs/3/f/1140/img_3fce81b4877be8898b8fb4e048dade38472548.jpg"}
+            = image_tag("https://tk.ismcdn.jp/mwimgs/6/e/1140/img_6ead3d2a815ac820f1630e7f4b2e26d5109924.jpg", class: "mini-photo")
+            = image_tag("https://upload.wikimedia.org/wikipedia/commons/5/55/Shibuya_station.jpg", class: "mini-photo")
+            = image_tag("https://resources.matcha-jp.com/resize/720x2000/2016/11/11-8834.jpeg", class: "mini-photo")
+            = image_tag("https://tk.ismcdn.jp/mwimgs/3/f/1140/img_3fce81b4877be8898b8fb4e048dade38472548.jpg", class: "mini-photo")
     .item-content__right
       %table.item-content__right--table
         %tbody
@@ -181,31 +181,15 @@
         %i.fab.fa-pinterest-square
 
 
-%section.product-show-item-box-container
-  %h3.product-show-item-box-container__title
-    %span
-      = "#{@product.user.name}さんのその他の出品"
-    .product-show-item-box-container__content
-      - @products_other.each do |product|
-        =link_to product_path(product) do
-          %section.product-show-item-box
-            %figure.product-show-item-box__photo
-              %img{src:"https://sawamura.site/wp-content/uploads/2018/08/pic_main_472.png"}
-              %figcaption
-                - if product.trade_status == 2 || product.trade_status == 3
-                  .product-show-item-sold-out-badge
-                    .product-show-sold-label
-                      SOLD
-            .product-show-item-box__body
-              %h3.product-show-item-box__body--name
-                = product.name
-              .product-show-item-box__body--num
-                .price
-                  ¥
-                  = product.price.to_s(:delimited)
-                .add-heart
-                  %i.far.fa-heart
-                  %span 12
+.user-show-products
+  %section.pickup-container
+    .user-show-products-item-box-container
+      %h3.item-box-container__title
+        = "#{@product.user.name}さんのその他の出品"
+      .user-show-products-item-box-container__content
+        -@products_other.each do |product|
+          =link_to product_path(product), class: "user-product-show-link" do
+            = render partial: "shared/item_box", locals: { product: product}
 
 
 = render "shared/main_footer"
