@@ -5,4 +5,22 @@ class Product < ApplicationRecord
   belongs_to :user
   belongs_to :brand
   belongs_to :category
+
+
+  def previous
+    if user.products.order('id desc').where('id < ?', id).first == nil
+      user.products.last
+    else
+      user.products.order('id desc').where('id < ?', id).first
+    end
+  end
+
+  def next
+    if user.products.order('id desc').where('id > ?', id).reverse.first == nil
+      user.products.first
+    else
+      user.products.order('id desc').where('id > ?', id).reverse.first
+    end
+  end
+
 end
