@@ -8,12 +8,10 @@ class Product < ApplicationRecord
 
 
   scope :ladies, -> {where(category_id: 1).order("created_at DESC").limit(4)}
-
   scope :mens,  -> {where(category_id: 2).order("created_at DESC").limit(4)}
-end
+  scope :chanel,  -> {where(brand_id: 2).order("created_at DESC").limit(4)}
+  scope :nike,  -> {where(brand_id: 3).order("created_at DESC").limit(4)}
 
-  scope :mens,  -> {where(category_id: 1).order("created_at DESC").limit(4)}
-end
 
   def previous
     if user.products.order('id desc').where('id < ?', id).first == nil
