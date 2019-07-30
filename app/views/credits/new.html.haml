@@ -4,14 +4,14 @@
   .credit-contents
     %h2.credit-contents__head
       クレジットカード情報入力
-    %form.credit-contents__form
+    %form#charge-form.credit-contents__form
       .credit-contents__form-inner
         .credit-contents__form-inner--group
           %label
             カード番号
             %span.require
               必須
-          %input.text-form{type:"text",placeholder:"半角数字のみ",maxlength:"19"}
+          %input#card-number.text-form{type:"string",placeholder:"半角数字のみ",maxlength:"16",name:"number"}
           %ul
           %ul.credit-contents__form-inner--group--card-group
             %li.card-list
@@ -35,8 +35,8 @@
               必須
           %br
           .credit-contents__form-inner--group--select-wrap
-            %select.credit-contents__form-inner--group--select-wrap--box
-              %option{value:""}01
+            %select#exp-date1.credit-contents__form-inner--group--select-wrap--box{name:"exp_month",type:"string"}
+              %option{value:"1"}01
               %option{value:""}02
               %option{value:""}03
               %option{value:""}04
@@ -49,9 +49,9 @@
               %option{value:""}11
               %option{value:""}12
             %span 月
-          .credit-contents__form-inner--group--select-wrap
-            %select.credit-contents__form-inner--group--select-wrap--box
-              %option{value:""}19
+          .credit-contents__form-inner--group--select-wrap{name:"exp_year",type:"string"}
+            %select#exp-date2.credit-contents__form-inner--group--select-wrap--box
+              %option{value:"2019"}19
               %option{value:""}20
               %option{value:""}21
               %option{value:""}22
@@ -68,9 +68,9 @@
             セキュリティコード
             %span.require
               必須
-          %input.text-form{type:"text",placeholder:"カード背面4桁もしくは3桁の番号"}
+          %input#cvc.text-form{type:"string",placeholder:"カード背面4桁もしくは3桁の番号",name:"payment-cvc",maxlength:"4"}
           .credit-contents__form-inner--group--seqcode-text
             %span.question ?
             コードの裏面の番号とは？
-        %button{type:"button"}追加する
+        %button#submit-button{type:"submit"}追加する
 =render 'shared/registration_footer'
