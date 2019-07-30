@@ -1,9 +1,8 @@
 class ApplicationController < ActionController::Base
-  # before_action :authenticate_user!
-
-  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
+  before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
 
 
@@ -26,3 +25,4 @@ class ApplicationController < ActionController::Base
     end
   end
 end
+
