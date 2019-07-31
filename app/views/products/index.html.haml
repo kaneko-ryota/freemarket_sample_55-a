@@ -20,13 +20,13 @@
     %section.item-box-container
       %h3.item-box-container__title シャネル新着アイテム
       .item-box-container__content
-        -# = render partial: "shared/item_box", collection: @chanels, as: :product
+        = render partial: "shared/item_box", collection: @chanels, as: :product
       .item-box-container__view-all すべての商品を見る
 
     %section.item-box-container
       %h3.item-box-container__title ナイキ新着アイテム
       .item-box-container__content
-        -# = render partial: "shared/item_box", collection: @nikes, as: :product
+        = render partial: "shared/item_box", collection: @nikes, as: :product
       .item-box-container__view-all すべての商品を見る
 = render "shared/main_footer"
 = render "shared/exhibition_btn"
