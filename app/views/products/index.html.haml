@@ -23,17 +23,17 @@
     %section.item-box-container
       %h3.item-box-container__title シャネル新着アイテム
       .item-box-container__content
-        - @chanel.each do |product|
-          = link_to product_path(product), class: "user-product-show-link" do
-            = render partial: "shared/item_box", locals: {product: product}
+
+        = render partial: "shared/item_box", collection: @chanels, as: :product
+
       .item-box-container__view-all すべての商品を見る
 
     %section.item-box-container
       %h3.item-box-container__title ナイキ新着アイテム
       .item-box-container__content
-        - @nike.each do |product|
-          = link_to product_path(product), class: "user-product-show-link" do
-            = render partial: "shared/item_box", locals: {product: product}
+
+        = render partial: "shared/item_box", collection: @nikes, as: :product
+
       .item-box-container__view-all すべての商品を見る
 = render "shared/main_footer"
 = render "shared/exhibition_btn"

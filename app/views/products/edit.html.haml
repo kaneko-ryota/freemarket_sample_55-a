@@ -1,0 +1,120 @@
+= render "shared/registration_header"
+.wrapper
+  .inputform
+    =form_for @product do |f|
+      .inputform__head 商品の情報を入力
+      .upload
+        %p
+          出品画像
+          %span.option 必須
+        %p.maxup 最大10枚までアップロードできます
+        .upload__box クリックしてファイルをアップロード
+      .discription
+        .discription__head
+          %p
+            商品名
+            %span.option 必須
+          .discription__text
+            = f.text_field :name, placeholder: "商品名（必須４０文字まで）"
+        .discription__body
+          %p
+            商品の説明
+            %span.option 必須
+        .discription__box
+          =f.text_area :explain, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+      .detail
+        .detail__contents
+          .detail__contents__left
+            %p 商品の詳細
+          .detail__contents__right
+            .detail__contents__right__1
+              %p
+                カテゴリー
+                %span.option 必須
+              .detail__contents__right__1--select
+                = f.select :category_id, [["---", ""], ["レディース", "1"], ["メンズ", "2"], ["ベビー・キッズ", "3"], ["インテリア・住まい・小物", "4"], ["本・音楽・ゲーム", "5"], ["おもちゃ・ホビー・グッズ", "6"], ["コスメ・香水・美容", "7"], ["家電・スマホ・カメラ", "8"], ["スポーツ・レジャー", "9"], ["ハンドメイド", "10"], ["チケット", "11"], ["自動車・オートバイ", "12"], ["その他", "13"]], {}, {class: "category-select-default"}
+
+            .detail__contents__right__1.size-select-box.category-first-hide
+              %p
+                サイズ
+                %span.option 必須
+              .detail__contents__right__1--select
+                = f.select :size, [["---", ""], ["S"], ["M"], ["L"]], {}, {class: "select-default"}
+
+            .detail__contents__right__1.brand-select-box.category-first-hide
+              %p
+                ブランド
+                %span.option 必須
+              .detail__contents__right__1--select
+                = f.select :brand_id, [["---", ""], ["シャネル", "1"], ["ナイキ", "2"], ["ルイヴィトン", "3"], ["シュプリーム", "4"], ["アディダス", "5"], ["その他", "6"]], {}, {class: "select-default"}
+
+            .detail__contents__right__2
+              %p
+                商品の状態
+                %span.option 必須
+              .detail__contents__right__2--select
+                = f.select :item_status, [["---", ""], ["新品、未使用", "新品、未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い"]], {}, {class: "select-default"}
+
+      .delivery
+        .delivery__contents
+          .delivery__contents__left
+            %p 配送について
+            =link_to "?", "/jp/help_center/article/68/", target: "_blank", class:"form-question"
+          .delivery__contents__right
+            %p
+              配送料の負担
+              %span.option 必須
+            .delivery__contents__right--1
+              = f.select :burden, [["---", ""], ["送料込み(出品者負担)"], ["着払い(購入者負担)"]], {}, {class: "select-default"}
+
+            %p
+              配送の方法
+              %span.option 必須
+            .delivery__contents__right--1
+              = f.select :delivery_method, [["---", ""], ["未定"], ["クロネコヤマト"], ["ゆうパック"], ["ゆうメール"]], {}, {class: "select-default"}
+
+            %p
+              発送元の地域
+              %span.option 必須
+            .delivery__contents__right--2
+              = f.select :region, [["---", ""], ["北海道"], ["青森県"], ["岩手県"], ["宮城県"], ["秋田県"], ["山形県"], ["福島県"]], {}, {class: "select-default"}
+
+            %p
+              発送までの日数
+              %span.option 必須
+            .delivery__contents__right--3
+              = f.select :delivery_date, [["---", ""], ["1~2日で発送"], ["2~3日で発送"], ["4~7日で発送"]], {}, {class: "select-default"}
+
+      .price
+        .price__contents
+          .price__contents__left
+            %p 販売価格(300〜9,999,999)
+            =link_to "?", "/jp/help_center/article/68/", target: "_blank", class:"form-question"
+          .price__contents__right
+            .price__contents__right__in
+              %p.kakaku
+                価格
+                %span.option 必須
+              .price__contents__right__in--put
+                = f.text_field :price, placeholder: "例)300", class: "price__contents__right__in--put__box", style: "text-align:right"
+            .price__contents__right__fee
+              %span.price__contents__right__fee__left 販売手数料 (10%)-
+              %span.price__contents__right__fee__right
+                ¥
+                %span.price__contents__right__fee__right__val
+                  \-
+            .price__contents__right__benefit
+              %span.price__contents__right__benefit__left 販売利益
+              %span.price__contents__right__benefit__right
+                ¥
+                %span.price__contents__right__benefit__right__val
+                  \-
+      .btn
+        .btn__caution
+          %p.btn__caution__1 禁止されている出品、行為を必ずご確認ください
+          %p.btn__caution__2 またブランド品でシリアルナンバーがある場合はご記載ください。偽ブランドの偽ブランドの販売は犯罪であり偽ブランドの販売は犯罪であり処罰される可能性があります。
+          %p.btn__caution__3 また、出品をもちまして出品をもちまして加盟店規約に出品をもちまして加盟店規約に同意したことになります。
+        = f.submit "変更する", class: "btn__red"
+
+        =link_to "もどる", "#",class:"btn__gray"
+= render "shared/registration_footer"
