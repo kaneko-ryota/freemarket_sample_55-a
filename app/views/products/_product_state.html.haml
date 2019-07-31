@@ -1,7 +1,6 @@
 .state-box
-  =link_to "商品の編集", "#" ,class:"state-box__edit-red"
+  =link_to "商品の編集", edit_product_path ,class:"state-box__edit-red"
   %p or
   %form{ method: "POST", novalidate: "novalidate",class:"state-box__restart-red"}
     出品を再開
-  %button{method: "destroy", class: "state-box__delete-gray"}
-    この商品を削除する
+  = link_to "この商品を削除する", product_path(@product.id), method: :delete, class: "state-box__delete-gray"
