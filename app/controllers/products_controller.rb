@@ -16,8 +16,9 @@ class ProductsController < ApplicationController
   def index
     @products_ladies = Product.ladies
     @products_mens = Product.mens
-    @chanel = Product.chanel
-    @nike = Product.nike
+
+    @chanels = Product.chanel
+    @nikes = Product.nike
   end
 
   def show
@@ -25,6 +26,29 @@ class ProductsController < ApplicationController
     @price = @product.price.to_s(:delimited)
     @user = @product.user
     @products_other = @user.products.where.not(id: params[:id]).order("id desc")
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      redirect_to controller: :products, action: :show
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    if @product.user_id == current_user.id
+      @product.destroy
+      redirect_to products_path
+    else
+      render :index
+    end
   end
 
   def purchase_confirmation

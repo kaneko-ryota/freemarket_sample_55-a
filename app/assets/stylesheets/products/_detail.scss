@@ -289,42 +289,46 @@
       }
     }
   }
-  .message-form{
-    p{
-      padding: 8px;
-      font-size: 0.8rem;
-      background: #fff6de;
+}
+.message-form{
+  width: 700px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  p{
+    padding: 8px;
+    font-size: 0.8rem;
+    background: #fff6de;
+    width: 684px;
+    margin:0 auto;
+  }
+  textarea{
+    box-sizing:border-box;
+    width: 700px;
+    min-height: 104px;
+    margin: 8px 0 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .comment-submit-button {
+    width: 100%;
+    margin: 8px 0 0;
+    text-align: center;
+    background: #aaa;
+    border: 1px solid #aaa;
+    line-height: 48px;
+    &__cursor {
+      cursor: pointer;
     }
-    textarea{
-      box-sizing:border-box;
-      min-width: 100%;
-      max-width: 100%;
-      min-height: 104px;
-      margin: 8px 0 0;
-      padding: 10px;
-      border: 1px solid #ccc;
-      background: #fff;
-      font-size: 16px;
-      line-height: 1.5;
-    }
-    .comment-submit-button {
-      width: 100%;
-      margin: 8px 0 0;
-      text-align: center;
-      background: #aaa;
-      border: 1px solid #aaa;
-      line-height: 48px;
-      &__cursor {
-        cursor: pointer;
-      }
-      span{
-        font-size: 14px;
-      }
-    }
-    .comment-button-text {
-      color: white;
+    span{
       font-size: 14px;
     }
+  }
+  .comment-button-text {
+    color: white;
+    font-size: 14px;
   }
 }
 

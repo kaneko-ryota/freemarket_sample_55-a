@@ -8,11 +8,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :user_registrations do
+  resources :signup do
     collection do
-      get :new_registration
+      get :top
       get :member_info
-      get :phone_number
+      get :sms
+      get :sms_authentication
+      get :user_info
+      get :credit
       get :complete
     end
   end
@@ -21,7 +24,8 @@ Rails.application.routes.draw do
     resources :comments
     resources :likes, only: [:create, :destroy]
     member do
-      get :purchase_confirmation
+      get :purchase_confirmation  
+      get :product_state
     end
   end
   resources :addresses
@@ -30,4 +34,5 @@ Rails.application.routes.draw do
   resources :brands
   resources :categories
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end

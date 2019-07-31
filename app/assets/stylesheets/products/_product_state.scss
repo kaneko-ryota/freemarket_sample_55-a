@@ -1,0 +1,33 @@
+@import "font-awesome";
+.state-box{
+  margin: 24px auto;
+  height: 262px;
+  width: 668px;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 8px 16px;
+  &__edit-red{
+    height: 50px;
+    width: 100%;
+    margin: 16px 0;
+    line-height: 50px;
+    background-color: red;
+    display: inline-block;
+  }
+  &__restart-red{
+    height: 50px;
+    width:  100%;
+    margin: 16px 0;
+    line-height: 50px;
+    background-color: red;
+  }
+  &__delete-gray{
+    height: 50px;
+    width:  100%;
+    margin: 16px 0;
+    line-height: 50px;
+    background-color: gray;
+    font-size:16px;
+    display: inline-block;
+  }
+}
