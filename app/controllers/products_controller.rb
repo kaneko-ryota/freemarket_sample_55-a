@@ -45,7 +45,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     if @product.user_id == current_user.id
       @product.destroy
-      redirect_to controller: :products, action: :index
+      redirect_to products_path
     else
       render :index
     end

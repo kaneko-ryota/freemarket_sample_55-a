@@ -3,4 +3,4 @@
   %p or
   %form{ method: "POST", novalidate: "novalidate",class:"state-box__restart-red"}
     出品を再開
-  = link_to "この商品を削除する", product_path(@product.id), method: :delete, class: "state-box__delete-gray"
+  = link_to "この商品を削除する", product_path(@product), method: :delete, class: "state-box__delete-gray"
