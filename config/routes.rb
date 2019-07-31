@@ -8,11 +8,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :user_registrations do
+  resources :signup do
     collection do
-      get :new_registration
+      get :top
       get :member_info
-      get :phone_number
+      get :sms
+      get :sms_authentication
+      get :user_info
+      get :credit
       get :complete
     end
   end
