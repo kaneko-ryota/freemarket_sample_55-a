@@ -3,10 +3,11 @@ class CreditsController < ApplicationController
   require "payjp"
   
   def index
-  # クレジット一覧
+
   end
+  
   def new
-    credit = Credit.where(user_id: current_user.id).first
+
   end
 
   def create    
@@ -16,7 +17,7 @@ class CreditsController < ApplicationController
   end
 
   def destroy
-  # クレジット登録内容削除
+    
   end
 
 end
