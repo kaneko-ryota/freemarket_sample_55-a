@@ -1,18 +1,21 @@
 = render "shared/main_header"
-= render "shared/pankuzu"
 .main
   %section.pickup-container
     %h2.pickup-container__head ピックアップカテゴリー
     %section.item-box-container
       %h3.item-box-container__title レディース新着アイテム
       .item-box-container__content
-        = render partial: "shared/item_box", collection: @products_ladies, as: :product
+        - @products_ladies.each do |product|
+          = link_to product_path(product), class: "user-product-show-link" do
+            = render partial: "shared/item_box", locals: {product: product}
       .item-box-container__view-all すべての商品を見る
 
     %section.item-box-container
       %h3.item-box-container__title メンズ新着アイテム
       .item-box-container__content
-        = render partial: "shared/item_box", collection: @products_mens, as: :product
+        - @products_mens.each do |product|
+          = link_to product_path(product), class: "user-product-show-link" do
+            = render partial: "shared/item_box", locals: {product: product}
       .item-box-container__view-all すべての商品を見る
 
   %section.pickup-container
@@ -20,13 +23,17 @@
     %section.item-box-container
       %h3.item-box-container__title シャネル新着アイテム
       .item-box-container__content
+
         = render partial: "shared/item_box", collection: @chanels, as: :product
+
       .item-box-container__view-all すべての商品を見る
 
     %section.item-box-container
       %h3.item-box-container__title ナイキ新着アイテム
       .item-box-container__content
+
         = render partial: "shared/item_box", collection: @nikes, as: :product
+
       .item-box-container__view-all すべての商品を見る
 = render "shared/main_footer"
 = render "shared/exhibition_btn"

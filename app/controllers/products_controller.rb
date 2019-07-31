@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
   def index
     @products_ladies = Product.ladies
     @products_mens = Product.mens
+
     @chanels = Product.chanel
     @nikes = Product.nike
   end
