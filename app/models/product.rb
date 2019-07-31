@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   belongs_to :user
   belongs_to :brand
   belongs_to :category
+  has_one :order
 
 
   scope :ladies, -> {where(category_id: 1).order("created_at DESC").limit(4)}

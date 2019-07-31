@@ -15,7 +15,7 @@
             商品名
             %span.option 必須
           .discription__text
-            = f.text_field :name, placeholder: "商品名（必須４０文字まで）"
+            = f.text_field :name, placeholder: "商品名（必須４０文字まで）", autocomplete: "off"
         .discription__body
           %p
             商品の説明
@@ -96,7 +96,7 @@
                 価格
                 %span.option 必須
               .price__contents__right__in--put
-                = f.text_field :price, placeholder: "例)300", class: "price__contents__right__in--put__box", style: "text-align:right"
+                = f.text_field :price, placeholder: "例)300", autocomplete: "off", class: "price__contents__right__in--put__box", style: "text-align:right"
             .price__contents__right__fee
               %span.price__contents__right__fee__left 販売手数料 (10%)-
               %span.price__contents__right__fee__right
