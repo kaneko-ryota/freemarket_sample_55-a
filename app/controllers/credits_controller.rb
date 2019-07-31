@@ -6,18 +6,13 @@ class CreditsController < ApplicationController
   # クレジット一覧
   end
   def new
-    # card = Card.where(user_id: current_user.id)
+    credit = Credit.where(user_id: current_user.id).first
   end
 
-  def create
+  def create    
     Payjp.api_key = "sk_test_cf6acf8c965e34aca314f741"
-    customer = Payjp::Charge.create(card: params[:payjpToken])
-    @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_token: params[:payjpToken])
-    if @card.save
-      redirect_to root_path
-    else
-      redirect_to new_credit_path
-    end
+    customer = Payjp::Customer.create(card: params[:payjp_Token])
+    @credit = Credit.create(user_id: current_user.id, customer_id: customer.id, card_token: params[:payjp_Token])
   end
 
   def destroy
