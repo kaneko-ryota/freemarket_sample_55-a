@@ -32,7 +32,7 @@
                 = fa_icon "check"
                 %span やることリスト
             %li
-              = link_to "users/show" do
+              = link_to user_path(current_user) do
                 = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", class: 'profile_icon'
                 %span マイページ
         - else
