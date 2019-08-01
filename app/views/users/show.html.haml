@@ -2,55 +2,125 @@
 - breadcrumb :mypage, @user
 .pan
   = breadcrumbs pretext: "",separator: " &rsaquo; "
-.default
-  .contents
-    = render "shared/main_sidebar"
-    .contents__main
-      .contents__main__user
-        .user
-          = link_to "https://www.mercari.com/jp/u/934297861/" do
-            %figure
-              %img{alt: "", height: "60", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60"}/
-            %h2.bold ダイチ
-            .mypage-number
-              %div
-                評価
-                %span.bold 0
-              %div
-                出品数
-                %span.bold 0
 
-      .infotodo
-        .infotodo--info お知らせ
-        .infotodo--todo やることリスト
-      %ul.tab
-        %li.tab--item
-          %img.lazyloaded{alt: "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png"}/
-          .textbox
-            .textbox__text お知らせですお知らせですお知らせですお知らせですお知らせ
-            .textbox__time
-              .textbox__time__icon
-              .textbox__time__timeago 10時間前
-        %li.tab--item
-          %img.lazyloaded{alt: "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png"}/
-          .textbox
-            .textbox__text お知らせですお知らせですお知らせですお知らせですお知らせ
-            .textbox__time
-              .textbox__time__icon
-              .textbox__time__timeago 10時間前
-        %li.tab--item
-          %img.lazyloaded{alt: "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png"}/
-          .textbox
-            .textbox__text お知らせですお知らせですお知らせですお知らせですお知らせ
-            .textbox__time
-              .textbox__time__icon
-              .textbox__time__timeago 10時間前
-        %li.tab--list 
-          = link_to "一覧を見る", '#',class:'itiran'
-      .bought 購入した商品
-      .deal 取引中
-      .past 過去の取引
-      .hako 
-        .hako__noitem 取引中の商品がありません
+.default
+  .mypage-contents
+    = render "shared/main_sidebar"
+    .mypage-contents__main
+      .mypage-contents__main__user
+        = link_to "https://www.mercari.com/jp/u/934297861/" do
+          .mypage-contents__main__user__avatar
+            %img{alt: "", height: "60", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60"}/
+          %h2.mypage-contents__main__user__name
+            = @user.name
+          %span.mypage-contents__main__user__evaluation
+            評価
+            %span.mypage-contents__main__user__evaluation-count
+              0
+          %span.mypage-contents__main__user__exhibition-number
+            出品数
+            %span.mypage-contents__main__user__exhibition-number-count
+              = @user_products.where(trade_status: 0).count
+
+      .mypage-main-top
+        .switch-tab
+          .switch-tab__left お知らせ
+          .switch-tab__right やることリスト
+
+        .tab
+          .tab--item.during-deal-item
+            .tab--item__left
+              = image_tag("//static.mercdn.net/images/mercari_profile.png", class: "lazyloaded")
+            .tab--item__right
+              お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。
+              .tab--item__right__time
+                %i.far.fa-clock
+                10時間前
+
+          .tab--item.during-deal-item
+            .tab--item__left
+              = image_tag("//static.mercdn.net/images/mercari_profile.png", class: "lazyloaded")
+            .tab--item__right
+              お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。
+              .tab--item__right__time
+                %i.far.fa-clock
+                10時間前
+
+          .tab--item.during-deal-item
+            .tab--item__left
+              = image_tag("//static.mercdn.net/images/mercari_profile.png", class: "lazyloaded")
+            .tab--item__right
+              お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。
+              .tab--item__right__time
+                %i.far.fa-clock
+                10時間前
+
+          .tab--list.during-deal-item-btn
+            = link_to "一覧を見る", '#', class: "look-list-btn"
+
+
+          .tab--things-to-do-list.past
+            .tab--things-to-do-list__image
+              = image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?2787198863", class: "tab--things-to-do-list__image__color")
+            .tab--things-to-do-list__textbox
+              現在、やることリストはありません
+
+          / .tab__list__hide.past-finished-deals
+          /   = link_to "一覧を見る", '#', class: "look-list-btn"
+
+
+
+      .mypage-main-bottom
+        .bought 購入した商品
+
+        .switch-tab
+          .switch-tab__left 取引中
+          .switch-tab__right 過去の取引
+
+
+        .tab
+          - @deals.each do |deal|
+            .tab--item.during-deal-item
+              .tab--item__left
+                = image_tag("//static.mercdn.net/images/mercari_profile.png", class: "lazyloaded")
+              .tab--item__right
+                = "「#{deal.name}」を購入しました。受け取り評価をしてください。"
+                .tab--item__right__product
+                  %span.tab--item__right__product-status
+                    受取評価待ち
+
+          - if @deals.count == 0
+            .tab--things-to-do-list__active.during-deal
+              .tab--things-to-do-list__image
+                = image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?2787198863", class: "tab--things-to-do-list__image__color")
+              .tab--things-to-do-list__textbox
+                取引中の商品はありません
+          - else
+            .tab__list.during-deal-item-btn
+              = link_to "一覧を見る", '#', class: "look-list-btn"
+
+        .tab
+          - @finished_deals.each do |finished_deal|
+            .tab--item__hide.past-item
+              .tab--item__left
+                = image_tag("//static.mercdn.net/images/mercari_profile.png", class: "lazyloaded")
+              .tab--item__right
+                = "「#{finished_deal.name}」を購入しました。取引が完了しました。"
+                .tab--item__right__product
+                  %span.tab--item__right__product-status
+                    取引完了
+
+          - if @finished_deals.count == 0
+            .tab--things-to-do-list.past
+              .tab--things-to-do-list__image
+                = image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?2787198863", class: "tab--things-to-do-list__image__color")
+              .tab--things-to-do-list__textbox
+                過去の取引はありません
+          - else
+            .tab__list__hide.past-finished-deals
+              = link_to "一覧を見る", '#', class: "look-list-btn"
+
+
+
 = render "shared/main_footer"
 = render "shared/exhibition_btn"

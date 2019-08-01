@@ -1,11 +1,9 @@
 .entry{
-  width: 1020px;
-  margin: 40px 210px 40px 210px;
   overflow: auto;
   .entry-wrap{
+    margin: 40px auto;
     background-color: #fff;
     width: 700px;
-    float: right;
     &__head{
       font-size: 24px;
       padding: 8px 24px;

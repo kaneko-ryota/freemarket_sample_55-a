@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190727041630) do
+ActiveRecord::Schema.define(version: 20190730111601) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",       null: false
@@ -64,6 +64,15 @@ ActiveRecord::Schema.define(version: 20190727041630) do
     t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
+  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "product_id", null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_orders_on_product_id", using: :btree
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+  end
+
   create_table "product_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "product_id", null: false
     t.datetime "created_at", null: false
@@ -83,7 +92,7 @@ ActiveRecord::Schema.define(version: 20190727041630) do
     t.integer  "price",                                     null: false
     t.integer  "trade_status",                  default: 0, null: false
     t.integer  "saler_id",                                  null: false
-    t.integer  "purchase_id"
+    t.integer  "buyer_id"
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
     t.integer  "category_id"
@@ -116,5 +125,7 @@ ActiveRecord::Schema.define(version: 20190727041630) do
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
+  add_foreign_key "orders", "products"
+  add_foreign_key "orders", "users"
   add_foreign_key "product_images", "products"
 end
