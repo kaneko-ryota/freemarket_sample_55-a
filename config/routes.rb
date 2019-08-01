@@ -3,19 +3,26 @@ Rails.application.routes.draw do
   root to: 'products#index'
   resources :users do
     collection do
-      get :new_registration
-      get :member_info
       get :profile
-      get :phone_number
-      get :complete
       get :logout
     end
   end
+
+  resources :user_registrations do
+    collection do
+      get :new_registration
+      get :member_info
+      get :phone_number
+      get :complete
+    end
+  end
+
   resources :products do
     resources :comments
     resources :likes, only: [:create, :destroy]
-    collection do
-      get :purchase_confirmation
+    member do
+      get :purchase_confirmation  
+      get :product_state
     end
   end
   resources :addresses
@@ -25,4 +32,5 @@ Rails.application.routes.draw do
   resources :brands
   resources :categories
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end

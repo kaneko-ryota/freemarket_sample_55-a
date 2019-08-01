@@ -1,9 +1,4 @@
-*{
-  color: #333;
-}.main-credit{
-  // margin: 40px auto 0;
-  // width: 1020px;
-  // background: pink;
+.main-credit{
   overflow: auto;
 }
 .sidebar{
@@ -73,7 +68,6 @@
       line-height: 14px;
       text-align: center;
     }
-    
   }
   ul{
     margin-top: 8px;
@@ -85,10 +79,7 @@
   .card-list:nth-of-type(n+2){
     margin: 0 0 0 8px;
   }
-  
-  
-  
-  
+
   .text-form{
     width: 309px;
     margin: 8px 0 0;
@@ -104,10 +95,7 @@
       border-color: #0099e8;
     }
   }
-  
-  
-  
-  
+
   label{
     font-weight: bold;
     display: inline-block;

@@ -47,6 +47,7 @@
       height: 44px;
       margin: 8px 0 0;
       line-height: 32px;
+      position: relative;
       &--left{
         height: 44px;
         float: left;
@@ -90,6 +91,62 @@
           }
         }
       }
+    }
+  }
+}
+
+.inner__nav-box--left--category, .inner__nav-box--left--brand {
+  height: 45px;
+  cursor: pointer;
+}
+
+.category-navigation {
+  position: absolute;
+  top: 43px;
+  width: 200px;
+  background-color: #ffffff;
+  z-index: 200;
+  border-right: 1px solid #eeeeee;
+  border-left: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+  cursor: pointer;
+  display: none;
+  &__bar {
+    &__list {
+      padding-left: 10px;
+      height: 44px;
+      line-height: 50px;
+      font-size: 13px;
+    }
+    &__list:hover {
+      background-color: #ea352d;
+      color: #ffffff;
+    }
+  }
+}
+
+.brand-navigation {
+  position: absolute;
+  top: 43px;
+  left: 143px;
+  width: 200px;
+  background-color: #ffffff;
+  z-index: 200;
+  border-right: 1px solid #eeeeee;
+  border-left: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+  cursor: pointer;
+  display: none;
+  &__bar {
+    &__list {
+      padding-left: 10px;
+      height: 44px;
+      line-height: 50px;
+      font-size: 13px;
+    }
+    &__list:hover {
+      background-color: #ea352d;
+      color: #ffffff;
     }
   }
 }
