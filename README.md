@@ -12,11 +12,12 @@
 |profile|text|-------|
 
 ## association
-- has_many: :products
-- has_many: comments
-- has_many: liked_products, through: :likes, source: :product
-- has_one: credit
-- has_one: address
+- has_many :products
+- has_many :comments
+- has_many :liked_products, through: :likes, source: :product
+- has_one :credit
+- has_one :address
+- has_many :orders
 
 * パスワードとメールアドレスはdeviseファイルで編集
 --------------------------------------------------------------------
@@ -68,7 +69,7 @@
 |price|integer|null:false|
 |trade_status|integer|null:false,defalut: 0|
 |saler_id|integer|null:false|
-|purchase_id|integer|---------|
+|buyer_id|integer|---------|
 
 ## association
 - has_many :comments
@@ -77,9 +78,11 @@
 - belongs_to :brand
 - belongs_to :category
 - has_many :images
+- has_one :order
 
-* price modelで数字制限 validates: price, length]{in: 300..9999999}
-* trade_status modelでenum trade_status: { 出品中止: 0, 出品中: 1, 取引中: 2, 取引終了: 3}
+* price　modelで数字制限 validates: price, length]{in: 300..9999999}
+* trade_status modelでenum trade_status: { 出品中: 0, 出品停止: 1, 取引中: 2, 取引終了: 3}
+
 
 ---------------------------------------------------------------------
 # product_images table
@@ -135,4 +138,15 @@
 ## association
 - belongs_to :user
 - belongs_to :product
+
+----------------------------------------------------------------------
+# orders table
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null:false,foreign_key:true|
+|product_id|references|null:false,foreign_key:true|
+
+## association
+- belongs_to :product
+- belongs_to :user
 

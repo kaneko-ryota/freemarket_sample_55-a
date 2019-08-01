@@ -10,7 +10,7 @@
         %input{type: "text", name: "phone", placeholder: "携帯電話の番号を入力", class: "tell-main__body__bottom__phone-number__box"}
       .tell-main__body__bottom__sentence
         本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-      =link_to "#" do
+      =link_to (sms_authentication_signup_index_path) do
         .tell-main__body__bottom__btn
           SMSを送信する
       .tell-main__body__bottom__sentence
