@@ -83,6 +83,7 @@
 * price　modelで数字制限 validates: price, length]{in: 300..9999999}
 * trade_status modelでenum trade_status: { 出品中: 0, 出品停止: 1, 取引中: 2, 取引終了: 3}
 
+
 ---------------------------------------------------------------------
 # product_images table
 |Column|Type|Options|

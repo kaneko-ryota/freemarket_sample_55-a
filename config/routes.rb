@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   end
   resources :addresses
   resources :credits
+
   resources :product_images
   resources :brands
   resources :categories
