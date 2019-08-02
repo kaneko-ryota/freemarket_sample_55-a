@@ -310,7 +310,6 @@ DEPENDENCIES
   mini_magick
   mysql2 (>= 0.3.18, < 0.6.0)
   payjp
-
   pry-rails
   puma (~> 3.0)
   rails (~> 5.0.7, >= 5.0.7.2)
