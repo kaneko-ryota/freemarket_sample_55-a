@@ -10,19 +10,20 @@
 @import "products/purchase_confirmation";
 @import "products/sell";
 @import "products/top_page";
+@import "products/product_state";
 
 // registration
-@import "registration/authentication";
-@import "registration/complete";
-@import "registration/login_display";
-@import "registration/member_info";
-@import "registration/tell_number_confirmation";
-@import "registration/top";
+@import "signup/sms_authentication";
+@import "signup/complete";
+@import "signup/login_display";
+@import "signup/member_info";
+@import "signup/sms";
+@import "signup/top";
+@import "signup/user_info";
 
 // shared
 @import "shared/main_header";
 @import "shared/pankuzu";
-
 @import "shared/main_footer";
 @import "shared/main_sidebar";
 @import "shared/registration_footer";
@@ -32,7 +33,6 @@
 @import "user/logout";
 @import "user/mypage";
 @import "user/profile";
-@import "user/user_info";
 
 // category
 @import "categories/category_list";

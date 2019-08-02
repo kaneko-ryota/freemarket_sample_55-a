@@ -1,5 +1,5 @@
 = render 'shared/main_header'
-= render "shared/ishii_pankuzu"
+- breadcrumb :detail, @product
 %section.item
   %h1.item__name
     = @product.name
@@ -109,52 +109,54 @@
       = link_to "#", class: "policy-safe"  do
         = fa_icon "lock"
         %span あんしん・あんぜんへの取り組み
+- if @product.saler_id == current_user.id
+  = render "products/product_state"
+- else
+  .message
+    .message__content
+      %ul.message__content--items
+        %li.message-item
+          = link_to "#" , class: "message-user" do
+            %figure
+              %img.message-user-icon{src: "https://images-na.ssl-images-amazon.com/images/I/41l7ijWCGSL._SY355_.jpg"}
+              %figcaption
+                koike
 
+          .message-item__body
+            = fa_icon "caret-left 2x", class: "baloon-icon";
+            .message-item__body--text 400円での購入は可能ですか？
+            .message-item__body--icons
+              %time
+                %i.far.fa-clock
+                %span 1日前
+              %button
+                %i.far.fa-flag
 
-.message
-  .message__content
-    %ul.message__content--items
-      %li.message-item
-        = link_to "#" , class: "message-user" do
-          %figure
-            %img.message-user-icon{src: "https://images-na.ssl-images-amazon.com/images/I/41l7ijWCGSL._SY355_.jpg"}
-            %figcaption
-              koike
-
-        .message-item__body
-          = fa_icon "caret-left 2x", class: "baloon-icon";
-          .message-item__body--text 400円での購入は可能ですか？
-          .message-item__body--icons
-            %time
-              %i.far.fa-clock
-              %span 1日前
-            %button
-              %i.far.fa-flag
-
-      %li.message-item
-        = link_to "#" , class: "message-user" do
-          %figure
-            %img.message-user-icon{src: "https://images-na.ssl-images-amazon.com/images/I/41MxiNH7ODL._SX355_.jpg"}
-            %figcaption
-              hasebeee
-            .message-is-seller
-              出品者
-        .message-item__body
-          = fa_icon "caret-left 2x", class: "baloon-icon";
-          .message-item__body--text 通報しました
-          .message-item__body--icons
-            %time
-              %i.far.fa-clock
-              %span 1日前
-            %button
-              %i.far.fa-flag
-  .message__content
-    %form.message-form
-      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      %textarea.comment-textarea
-      .comment-submit-button
-        .comment-button-text
-          コメントする
+        %li.message-item
+          = link_to "#" , class: "message-user" do
+            %figure
+              %img.message-user-icon{src: "https://images-na.ssl-images-amazon.com/images/I/41MxiNH7ODL._SX355_.jpg"}
+              %figcaption
+                hasebeee
+              .message-is-seller
+                出品者
+          .message-item__body
+            = fa_icon "caret-left 2x", class: "baloon-icon";
+            .message-item__body--text 通報しました
+            .message-item__body--icons
+              %time
+                %i.far.fa-clock
+                %span 1日前
+              %button
+                %i.far.fa-flag
+  
+.message__content
+  %form.message-form
+    %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    %textarea.comment-textarea
+    .comment-submit-button
+      .comment-button-text
+        コメントする
 
 
 %ul.item-prev-next
@@ -190,6 +192,5 @@
         -@products_other.each do |product|
           =link_to product_path(product), class: "user-product-show-link" do
             = render partial: "shared/item_box", locals: { product: product}
-
 
 = render "shared/main_footer"

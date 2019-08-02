@@ -5,6 +5,15 @@ class Product < ApplicationRecord
   belongs_to :user
   belongs_to :brand
   belongs_to :category
+  has_one :order
+
+
+  scope :ladies, -> {where(category_id: 1).order("created_at DESC").limit(4)}
+  scope :mens,  -> {where(category_id: 2).order("created_at DESC").limit(4)}
+
+  scope :chanel, -> {where(category_id: 1).order("created_at DESC").limit(4)}
+  scope :nike, -> {where(category_id: 2).order("created_at DESC").limit(4)}
+
 
 
   def previous
