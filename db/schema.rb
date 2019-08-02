@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190730111601) do
 
+ActiveRecord::Schema.define(version: 20190801120233) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",       null: false
@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20190730111601) do
     t.string   "name",                                              null: false
     t.string   "name_kana"
     t.string   "nickname"
-    t.integer  "birthday"
+    t.date     "birthday"
     t.string   "phone_number"
     t.text     "profile",                limit: 65535
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get :user_info
       get :credit
       get :complete
+      get :save_session1
     end
   end
 
