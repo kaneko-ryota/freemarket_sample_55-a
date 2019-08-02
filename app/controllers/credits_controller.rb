@@ -1,18 +1,26 @@
 class CreditsController < ApplicationController
 
+  require "payjp"
+  
   def index
-  # クレジット一覧
+
   end
+  
   def new
-  # クレジット編集画面
+
   end
 
-  def create
-  # クレジット編集内容登録
+  def create    
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    customer = Payjp::Customer.create(card: params[:payjp_Token])
+    @credit = Credit.create(user_id: current_user.id, customer_id: customer.id, card_token: params[:payjp_Token])
+  end
+
+  def edit
   end
 
   def destroy
-  # クレジット登録内容削除
+
   end
 
 end

@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :products
   has_many :comments
   has_many :liked_products, through: :likes, source: :product
+  has_many :orders
   has_one :credit
   has_one :address
 
