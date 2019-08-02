@@ -15,7 +15,7 @@
             商品名
             %span.option 必須
           .discription__text
-            = f.text_field :name, placeholder: "商品名（必須４０文字まで）", autocomplete: "off"
+            = f.text_field :name, placeholder: "商品名（必須４０文字まで）"
         .discription__body
           %p
             商品の説明
@@ -96,7 +96,7 @@
                 価格
                 %span.option 必須
               .price__contents__right__in--put
-                = f.text_field :price, placeholder: "例)300", autocomplete: "off", class: "price__contents__right__in--put__box", style: "text-align:right"
+                = f.text_field :price, placeholder: "例)300", class: "price__contents__right__in--put__box", style: "text-align:right"
             .price__contents__right__fee
               %span.price__contents__right__fee__left 販売手数料 (10%)-
               %span.price__contents__right__fee__right
@@ -114,7 +114,7 @@
           %p.btn__caution__1 禁止されている出品、行為を必ずご確認ください
           %p.btn__caution__2 またブランド品でシリアルナンバーがある場合はご記載ください。偽ブランドの偽ブランドの販売は犯罪であり偽ブランドの販売は犯罪であり処罰される可能性があります。
           %p.btn__caution__3 また、出品をもちまして出品をもちまして加盟店規約に出品をもちまして加盟店規約に同意したことになります。
-        = f.submit "出品する", class: "btn__red"
+        = f.submit "変更する", class: "btn__red"
 
         =link_to "もどる", "#",class:"btn__gray"
 = render "shared/registration_footer"
