@@ -73,4 +73,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'fog-aws'
   gem "payjp"
   gem "gretel"
+  gem "pry-rails"
 
