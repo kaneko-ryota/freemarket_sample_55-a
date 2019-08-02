@@ -18,7 +18,7 @@ class SignupController < ApplicationController
     session[:birthday] = @user.birthday
     
     if @user.valid?
-      redirect_to (sms_signup_index_path)
+      redirect_to sms_signup_index_path
     else
       render 'member_info'
     end
@@ -60,7 +60,7 @@ class SignupController < ApplicationController
 
     if @user.save
       session[:id] = @user.id
-      redirect_to (complete_signup_index_path)
+      redirect_to complete_signup_index_path
     else
     end
   end
@@ -72,7 +72,7 @@ private
 
   def user_signed_in
     if user_signed_in?
-      redirect_to (root_path)
+      redirect_to root_path
     end
   end
 end
