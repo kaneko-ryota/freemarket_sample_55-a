@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
+ActiveRecord::Schema.define(version: 20190801103833) do
+
+
 ActiveRecord::Schema.define(version: 20190801120233) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -52,7 +55,8 @@ ActiveRecord::Schema.define(version: 20190801120233) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "customer_id", null: false
-    t.string   "card_token",  null: false
+    t.string   "card_id",     null: false
+
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
