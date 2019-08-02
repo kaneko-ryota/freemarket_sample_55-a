@@ -11,4 +11,7 @@ class User < ApplicationRecord
   has_one :address
 
   validates :name, presence: true
+  validates :name_kana, presence: true
+  validates :nickname, presence: true
+  validates :birthday, presence: true
 end
