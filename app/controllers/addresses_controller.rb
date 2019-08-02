@@ -8,10 +8,7 @@ class AddressesController < ApplicationController
 
   def create
     @address = Address.new(address_params)
-    if @address.save
-    else
-      render "user_info"
-    end
+    render "user_info" unless @address.save
   end
 
   private
