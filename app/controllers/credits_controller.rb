@@ -7,20 +7,23 @@ class CreditsController < ApplicationController
   end
   
   def new
-
   end
 
   def create    
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-    customer = Payjp::Customer.create(card: params[:payjp_Token])
-    @credit = Credit.create(user_id: current_user.id, customer_id: customer.id, card_token: params[:payjp_Token])
+    customer = Payjp::Customer.create
+    card = customer.cards.create(card: params[:payjp_Token])
+    @credit = Credit.create(
+      user_id:     current_user.id,
+      customer_id: customer.id,
+      card_id:     card.id
+      )
   end
 
   def edit
   end
 
   def destroy
-
   end
 
 end

@@ -31,8 +31,11 @@ Rails.application.routes.draw do
     end
   end
   resources :addresses
-  resources :credits
-
+  resources :credits do
+    collection do
+      post "pay" => "credits#pay"
+    end
+  end
   resources :product_images
   resources :brands
   resources :categories

@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  before_action :set_params,  except: [:index, :new, :create]
+  before_action :set_product,  except: [:index, :new, :create]
 
   def index
     @products_ladies = Product.ladies
@@ -52,17 +52,30 @@ class ProductsController < ApplicationController
   def purchase_confirmation
   end
 
-  def buy  
-    @product.update(user_id: current_user.id,buyer_id: current_user.id, trade_status: "2")
+  require "payjp"
+
+  def buy 
+    @product.update(
+      user_id: current_user.id,
+      buyer_id: current_user.id,
+      trade_status: "2"
+    )
+    
+    credit = Credit.find_by(user_id: current_user.id)
+    charge = Payjp::Charge.create(
+      amount:   @product.price,
+      customer: credit.customer_id,
+      currency: 'jpy'
+      )     
     redirect_to root_path
   end
-
+  
   private
   def product_params
     params.require(:product).permit(:name, :explain, :size, :item_status, :burden, :delivery_method, :region, :delivery_date, :price, :trade_status, :saler_id, :purchase_id, :category_id, :brand_id, :user_id).merge(user_id: current_user.id, saler_id: current_user.id)
   end
 
-  def set_params
+  def set_product
     @product = Product.find(params[:id])
   end
 
