@@ -30,5 +30,13 @@ crumb :logout do
   parent :mypage
 end
 
+crumb :category do
+  link "カテゴリー一覧", categories_path
+end
+
+crumb :categorydetail do |category|
+  link "category", category_path
+  parent :category
+end
 
 

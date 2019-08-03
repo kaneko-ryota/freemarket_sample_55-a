@@ -1,0 +1,73 @@
+= render 'shared/main_header'
+- breadcrumb :category
+.pan
+  = breadcrumbs pretext: "",separator: " &rsaquo; "
+.category-con
+  .category-con__head カテゴリー一覧
+  .category-con__top
+    %ul
+      %li
+      =link_to "レディース", root_path, class:"category-con__top__name"
+      %li
+      =link_to "メンズ", "#", class:"category-con__top__name"
+      %li
+      =link_to "ベビー・キッズ", "#", class:"category-con__top__name"
+      %li
+      =link_to "インテリア・住まい・小物", "#", class:"category-con__top__name"
+      %li
+      =link_to "本・音楽・ゲーム", "#", class:"category-con__top__name"
+      %li
+      =link_to "おもちゃ・ホビー・グッズ", "#", class:"category-con__top__name"
+      %li
+      =link_to "コスメ・香水・美容", "#", class:"category-con__top__name"
+      %li
+      =link_to "家電・スマホ・カメラ", "#", class:"category-con__top__name"
+      %li
+      =link_to "スポーツ・レジャー", "#", class:"category-con__top__name"
+      %li
+      =link_to "ハンドメイド", "#", class:"category-con__top__name"
+      %li
+      =link_to "チケット", "#", class:"category-con__top__name"
+      %li
+      =link_to "自動車・オートバイ", "#", class:"category-con__top__name"
+      %li
+      =link_to "その他", "#", class:"category-con__top__name"
+  .category-con__red レディース
+  .category-con__detail.clearfix
+    =link_to "すべて", "#",class: "subete"
+  .category-con__red メンズ
+  .category-con__detail.clearfix
+    =link_to "すべて", "#",class: "subete"
+  .category-con__red ベビー・キッズ
+  .category-con__detail.clearfix
+    =link_to "すべて", "#",class: "subete"
+  .category-con__red インテリア・住まい・小物
+  .category-con__detail.clearfix
+    =link_to "すべて", "#",class: "subete"
+  .category-con__red 本・音楽・ゲーム
+  .category-con__detail.clearfix
+    =link_to "すべて", "#",class: "subete"
+  .category-con__red おもちゃ・ホビー・グッズ
+  .category-con__detail.clearfix
+    =link_to "すべて", "#",class: "subete"
+  .category-con__red コスメ・香水・美容
+  .category-con__detail.clearfix
+    =link_to "すべて", "#",class: "subete"
+  .category-con__red 家電・スマホ・カメラ
+  .category-con__detail.clearfix
+    =link_to "すべて", "#",class: "subete"
+  .category-con__red スポーツ・レジャー
+  .category-con__detail.clearfix
+    =link_to "すべて", "#",class: "subete"
+  .category-con__red ハンドメイド
+  .category-con__detail.clearfix
+    =link_to "すべて", "#",class: "subete"
+  .category-con__red チケット
+  .category-con__detail.clearfix
+    =link_to "すべて", "#",class: "subete"
+  .category-con__red 自動車・オートバイ
+  .category-con__detail.clearfix
+    =link_to "すべて", "#",class: "subete"
+  .category-con__red その他
+  .category-con__detail.clearfix
+    =link_to "すべて", "#",class: "subete"
