@@ -1,4 +1,7 @@
 = render "shared/main_header"
+- breadcrumb :mypage, @user
+.pan
+  = breadcrumbs pretext: "",separator: " &rsaquo; "
 
 .default
   .mypage-contents

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get :user_info
       get :credit
       get :complete
+      get :save_session1
     end
   end
 
@@ -25,14 +26,18 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
     member do
       get :purchase_confirmation  
+      get :buy
       get :product_state
     end
   end
   resources :addresses
-  resources :credits
+  resources :credits do
+    collection do
+      post "pay" => "credits#pay"
+    end
+  end
   resources :product_images
   resources :brands
   resources :categories
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
 end

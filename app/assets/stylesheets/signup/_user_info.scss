@@ -28,7 +28,6 @@
         }
       }
       .group-about-user-registration{
-        
         &__link{
           color: #0099e8;
           text-decoration: none;
@@ -82,6 +81,15 @@
       }
       
     }
+    .essential{
+      padding: 2px 4px;
+      margin: 0 0 0 8px;
+      font-size: 12px;
+      border-radius: 2px;
+      color: #fff;
+      vertical-align: top;
+      background: #ea352d;
+    }
     .optional{
       padding: 2px 4px;
       margin: 0 0 0 8px;
@@ -91,7 +99,7 @@
       vertical-align: top;
       background: #ccc;
     }
-    button{
+    .next-step-btn{
       width: 100%;
       height: 48px;
       background-color: #ea352d;
