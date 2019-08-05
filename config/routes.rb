@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   root to: 'products#index'
   resources :users do
     collection do
-      get :profile
       get :logout
+    end
+    member do
+      get :profile
     end
   end
 
