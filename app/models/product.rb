@@ -1,11 +1,12 @@
 class Product < ApplicationRecord
   has_many :comments
   has_many :liked_users, through: :likes, source: :user
-  has_many :images
+  has_many :product_images
   belongs_to :user
   belongs_to :brand
   belongs_to :category
   has_one :order
+  accepts_nested_attributes_for :product_images, allow_destroy: true
 
 
   scope :ladies, -> {where(category_id: 1).order("created_at DESC").limit(4)}
