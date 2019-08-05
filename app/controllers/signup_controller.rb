@@ -74,7 +74,6 @@ class SignupController < ApplicationController
       customer_id: customer.id,
       card_id:     card.id
       )
-      # redirect_to complete_signup_index_path
   end
 
 private
