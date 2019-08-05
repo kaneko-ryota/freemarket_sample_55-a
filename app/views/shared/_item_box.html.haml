@@ -1,6 +1,8 @@
 %section.item-box
   %figure.item-box__photo
-    = image_tag("https://sawamura.site/wp-content/uploads/2018/08/pic_main_472.png")
+    - product.product_images.each_with_index do |image, index|
+      - if index == 0
+        = image_tag("#{image.image.url}")
     %figcaption
       - if product.trade_status == 2 || product.trade_status == 3
         .item-sold-out-badge
