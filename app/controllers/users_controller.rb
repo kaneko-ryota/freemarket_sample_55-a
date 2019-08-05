@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :set_user
+
   def show
     @user = current_user
     @user_products = @user.products
@@ -11,13 +13,14 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to profile_user_path
+    if @user.update(user_params)
+      redirect_to profile_user_path
+    else
+      render :show
+    end
   end
 
   def logout
@@ -28,4 +31,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:nickname, :profile)
   end
 
+  def set_user
+    @user = User.find(params[:id])
+  end
 end
