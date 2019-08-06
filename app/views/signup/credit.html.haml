@@ -4,7 +4,7 @@
   .credit-contents
     %h2.credit-contents__head
       クレジットカード情報入力
-    = form_for(@user, url: credit_signup_index_path, method: :post, html:{class: "credit-contents__form"}) do |f|
+    = form_for(@credit, url: credit_signup_index_path, method: :post, html:{class: "credit-contents__form"}) do |f|
       .credit-contents__form-inner
         .credit-contents__form-inner--group
           %label
