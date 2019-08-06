@@ -70,7 +70,7 @@
     .mypage__head 設定
     %ul.mypage__list
       %li.mypage__list--li
-        = link_to profile_user_path , class: "mypage-link" do
+        = link_to profile_user_path(current_user) , class: "mypage-link" do
           %span プロフィール
           =fa_icon 'angle-right',class:'sideicon fa-lg'
       %li.mypage__list--li
