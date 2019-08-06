@@ -10,9 +10,9 @@
       .mypage-contents__main__user
         = link_to "https://www.mercari.com/jp/u/934297861/" do
           .mypage-contents__main__user__avatar
-            %img{alt: "", height: "60", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60"}/
+            = image_tag("//static.mercdn.net/images/member_photo_noimage_thumb.png", height: "60", width: "60")
           %h2.mypage-contents__main__user__name
-            = @user.nickname
+            = current_user.nickname
           %span.mypage-contents__main__user__evaluation
             評価
             %span.mypage-contents__main__user__evaluation-count

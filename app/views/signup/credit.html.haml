@@ -4,14 +4,14 @@
   .credit-contents
     %h2.credit-contents__head
       クレジットカード情報入力
-    = form_for(@user, url: credit_signup_index_path, method: :post, html:{class: "credit-contents__form"}) do |f|
+    = form_for(@credit, url: complete_signup_index_path, method: :get, html:{id:"charge-form", class: "credit-contents__form form"}) do |f|
       .credit-contents__form-inner
         .credit-contents__form-inner--group
           %label
             カード番号
             %span.require
               必須
-          %input.text-form{type:"text",placeholder:"半角数字のみ",maxlength:"19"}
+          %input.text-form#payment_card_no{type:"text",placeholder:"半角数字のみ",maxlength:"16",name:"number"}
           %ul
           %ul.credit-contents__form-inner--group--card-group
             %li.card-list
@@ -35,42 +35,42 @@
               必須
           %br
           .credit-contents__form-inner--group--select-wrap
-            %select.credit-contents__form-inner--group--select-wrap--box
-              %option{value:""}01
-              %option{value:""}02
-              %option{value:""}03
-              %option{value:""}04
-              %option{value:""}05
-              %option{value:""}06
-              %option{value:""}07
-              %option{value:""}08
-              %option{value:""}09
-              %option{value:""}10
-              %option{value:""}11
-              %option{value:""}12
+            %select#exp_month.credit-contents__form-inner--group--select-wrap--box{name:"exp-month",type:"text"}
+              %option{value:"1"}01
+              %option{value:"2"}02
+              %option{value:"3"}03
+              %option{value:"4"}04
+              %option{value:"5"}05
+              %option{value:"6"}06
+              %option{value:"7"}07
+              %option{value:"8"}08
+              %option{value:"9",selected:"selected"}09
+              %option{value:"10"}10
+              %option{value:"11"}11
+              %option{value:"12"}12
             %span 月
           .credit-contents__form-inner--group--select-wrap
-            %select.credit-contents__form-inner--group--select-wrap--box
-              %option{value:""}19
-              %option{value:""}20
-              %option{value:""}21
-              %option{value:""}22
-              %option{value:""}23
-              %option{value:""}24
-              %option{value:""}25
-              %option{value:""}26
-              %option{value:""}27
-              %option{value:""}28
-              %option{value:""}29
+            %select#exp_year.credit-contents__form-inner--group--select-wrap--box{name:"exp-year",type:"text"}
+              %option{value:"2019"}19
+              %option{value:"2020"}20
+              %option{value:"2021"}21
+              %option{value:"2022",selected:"selected"}22
+              %option{value:"2023"}23
+              %option{value:"2024"}24
+              %option{value:"2025"}25
+              %option{value:"2026"}26
+              %option{value:"2027"}27
+              %option{value:"2028"}28
+              %option{value:"2029"}29
             %span 年
         .credit-contents__form-inner--group
           %label
             セキュリティコード
             %span.require
               必須
-          %input.text-form{type:"text",placeholder:"カード背面4桁もしくは3桁の番号"}
+          %input#cvc_code.text-form.cvc{type:"text",placeholder:"カード背面4桁もしくは3桁の番号",name:"cvc",maxlength:"4"}
           .credit-contents__form-inner--group--seqcode-text
             %span.question ?
             コードの裏面の番号とは？
-        %button{type:"button"}次へ進む
+        %button#submit-button{type:"submit"}追加する
 =render 'shared/registration_footer'

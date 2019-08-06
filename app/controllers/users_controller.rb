@@ -3,8 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user
 
   def show
-    @user = current_user
-    @user_products = @user.products
+    @user_products = current_user.products
     @deals = Product.where(buyer_id: current_user.id, trade_status: 2)
     @finished_deals = Product.where(buyer_id: current_user.id, trade_status: 3)
   end
