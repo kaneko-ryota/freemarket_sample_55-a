@@ -50,6 +50,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'pry-rails'
+  gem 'omniauth'
+  gem 'omniauth-google-oauth2'
+  gem 'omniauth-facebook'
 end
 
 group :development do
@@ -73,4 +76,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'fog-aws'
   gem "payjp"
   gem "gretel"
-
+  gem 'dotenv-rails'
+  gem "recaptcha", require: "recaptcha/rails"
+  gem "moji"
+  gem 'rails-i18n'
