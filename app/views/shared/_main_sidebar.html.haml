@@ -2,7 +2,7 @@
   .mypage
     %ul.mypage__list
       %li.mypage__list--mp
-        = link_to user_path, class: "mypage-link" do
+        = link_to user_path(current_user), class: "mypage-link" do
           %span マイページ
           =fa_icon 'angle-right',class:'sideicon fa-lg'
       %li.mypage__list--li
