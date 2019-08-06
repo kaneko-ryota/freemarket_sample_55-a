@@ -1,5 +1,8 @@
 class SignupController < ApplicationController
-  # before_action :user_signed_in
+
+  require "moji"
+  before_action :user_signed_in, only: [:save_session1, :sms, :sms, :sms_authentication]
+
   def top
   end
 
@@ -8,21 +11,28 @@ class SignupController < ApplicationController
   end
 
   def save_session1
+    #MEMO tr_s!メソッドを使って入力された英数字を半角から全角に変換しています
+    user_params[:name_last].tr_s!("0-9a-zA-Z  ()-", "０-９ａ-ｚＡ-Ｚ 　（）－−")
+    user_params[:name_first].tr_s!("0-9a-zA-Z  ()-", "０-９ａ-ｚＡ-Ｚ 　（）－−")
+    user_params[:name_kana_first].tr_s!("0-9a-zA-Z  ()-", "０-９ａ-ｚＡ-Ｚ 　（）－−")
+    user_params[:name_kana_last].tr_s!("0-9a-zA-Z  ()-", "０-９ａ-ｚＡ-Ｚ 　（）－−")
+    #MEMO Mojiというgemを使ってユーザーの入力した名前を半角から全角に、カナ文字はひらがなからカタカナに変換しています(日本語に限る)
+    user_params[:name_last].replace(Moji.han_to_zen(user_params[:name_last]))
+    user_params[:name_first].replace(Moji.han_to_zen(user_params[:name_first]))
+    user_params[:name_kana_first].replace(Moji.han_to_zen(user_params[:name_kana_first]))
+    user_params[:name_kana_first].replace(Moji.hira_to_kata(user_params[:name_kana_first]))
+    user_params[:name_kana_last].replace(Moji.han_to_zen(user_params[:name_kana_last]))
+    user_params[:name_kana_last].replace(Moji.hira_to_kata(user_params[:name_kana_last]))
+
     @user = User.new(user_params)
-    session[:name] = user_params[:name]
-    session[:name_kana] = user_params[:name_kana]
-    session[:email] = user_params[:email]
-    session[:password] = user_params[:password]
-    session[:password_confirmation] = user_params[:password_confirmation]
-    session[:nickname] = user_params[:nickname]
-    session[:birthday] = @user.birthday
-    
-    if @user.valid?
+    #FIXME: @user.valid?がfalseだった場合に右の条件が読まれず、recaptcha用のエラー文が表示されない
+    if @user.valid? && verify_recaptcha(model: @user)
+      session[:user_session] = user_params
       redirect_to sms_signup_index_path
     else
+      #FIXME render時に入力した情報がURLに表示されてしまう
       render 'member_info'
     end
-
   end
 
   def sms
@@ -49,19 +59,15 @@ class SignupController < ApplicationController
 
   def create
     @user = User.new(
-    name: session[:name],
-    name_kana: session[:name_kana],
-    email: session[:email],
-    password: session[:password],
-    password_confirmation: session[:password_confirmation],
-    nickname: session[:nickname],
-    birthday: session[:birthday]
+      user_params = session[:user_session]
   )
 
     if @user.save
       session[:id] = @user.id
-      redirect_to complete_signup_index_path
+      sign_in User.find(session[:id]) unless user_signed_in?
+      redirect_to user_info_signup_index_path
     else
+      render top_signup_index_path
     end
   end
 
@@ -78,7 +84,7 @@ class SignupController < ApplicationController
 
 private
   def user_params
-    params.require(:user).permit(:name, :name_kana, :email, :password, :password_confirmation, :nickname, :birthday)
+    params.require(:user).permit(:name_last, :name_first, :name_kana_last, :name_kana_first, :email, :password, :password_confirmation, :nickname, :birthday)
   end
 
   def user_signed_in

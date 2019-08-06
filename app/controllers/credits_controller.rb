@@ -1,10 +1,10 @@
 class CreditsController < ApplicationController
 
   require "payjp"
-  
+
   def index
   end
-  
+
   def new
     @credit = Credit.new
     @credit.save

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :set_user
+  before_action :set_user, except: :logout
 
   def show
     @user_products = current_user.products
