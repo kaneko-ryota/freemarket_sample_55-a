@@ -8,7 +8,11 @@ class AddressesController < ApplicationController
 
   def create
     @address = Address.new(address_params)
-    render "user_info" unless @address.save
+    if @address.save
+      redirect_to complete_signup_index_path
+    else
+      render "user_info"
+    end
   end
 
   private

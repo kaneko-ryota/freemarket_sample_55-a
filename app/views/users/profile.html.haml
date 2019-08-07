@@ -4,13 +4,14 @@
   .profile-wrap
     %h2.profile-wrap__head
       プロフィール
-    %form.profile-wrap__form
-      .profile-wrap__form--nickname
-        %figure.nickname-image
-          %img.nickname-image__box{src:"https://static.mercdn.net/images/member_photo_noimage_thumb.png",width:"60",height:"60"}
-        %input.nickname-text-box{type:"text",name:"nickname",placeholder:"例)AYA☆セール中"}
-      .profile-wrap__form--textarea
-        %textarea.textarea-box{placeholder:"例)こんにちは！ご覧いただきありがとうございます！お気に入りの商品がありましたら、お声をかけてください。"}
-        %button.textarea-submit{type:"submit"}変更する
+    = form_for(@user, url: user_path, method: :patch) do |f|
+      .profile-wrap__form
+        .profile-wrap__form--nickname
+          %figure.nickname-image
+            %img.nickname-image__box{src:"https://static.mercdn.net/images/member_photo_noimage_thumb.png",width:"60",height:"60"}
+          = f.text_field :nickname,placeholder:"例)AYA☆セール中", autocomplete: "off", class: "nickname-text-box"
+        .profile-wrap__form--textarea
+          = f.text_area :profile, placeholder:"例)こんにちは！ご覧いただきありがとうございます！お気に入りの商品がありましたら、お声をかけてください。", class: "textarea-box"
+          = f.submit "変更する" , class: "textarea-submit"
 = render "shared/main_footer"
 = render "shared/exhibition_btn"

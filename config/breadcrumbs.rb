@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :mypage do |user|
-  link "マイページ", user_path(current_user)
+  # link "マイページ", user_path(current_user)
 end
 
 crumb :detail do |product|
@@ -16,7 +16,7 @@ crumb :profile do
 end
 
 crumb :credit do
-  link "支払い方法", new_credits_path
+  link "支払い方法", new_credit_path
   parent :mypage
 end
 
