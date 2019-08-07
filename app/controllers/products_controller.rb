@@ -17,8 +17,8 @@ class ProductsController < ApplicationController
     @products_ladies = Product.ladies
     @products_mens = Product.mens
 
-    @chanels = Product.chanel
-    @nikes = Product.nike
+    @chanels = Product.chanels
+    @nikes = Product.nikes
   end
 
   def show
@@ -26,6 +26,7 @@ class ProductsController < ApplicationController
     @price = @product.price.to_s(:delimited)
     @user = @product.user
     @products_other = @user.products.where.not(id: params[:id]).order("id desc")
+    @comment = Comment.new
   end
 
   def edit

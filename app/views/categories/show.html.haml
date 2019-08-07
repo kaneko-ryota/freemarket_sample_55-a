@@ -18,7 +18,8 @@
         %span.category-item-box-container__parts__text
           時計
       %h3.category-item-box-container__title レディース新着アイテム
-      .category-item-box-container__content
+      -# .category-item-box-container__content
+      .item-box-container__content
         - @products.each do |product|
           = link_to product_path(product), class: "user-product-show-link" do
             = render partial: "shared/item_box", locals: {product: product}
