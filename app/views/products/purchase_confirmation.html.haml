@@ -9,10 +9,10 @@
           .main__body__product__contents__detail__image
             =image_tag "stadium.jpg", size: "64x64"
           .main__body__product__contents__detail__text
-            スタジアム
+            = @product.name
           .main__body__product__contents__detail__price
             %p.main__body__product__contents__detail__price__num
-              ¥8,000
+              = "#{@product.price}円"
               %sapn.main__body__product__contents__detail__price__num__shipping 送料込み
 
           =link_to "#" do
@@ -22,9 +22,9 @@
             %p.main__body__product__contents__detail__fee__text
               支払い金額
             %p.main__body__product__contents__detail__fee__num
-              ¥8,000
+              = "#{@product.price}円"
 
-          =link_to "#" do
+          =link_to action: :buy do
             .main__body__product__contents__detail__buy-btn
               購入する
 

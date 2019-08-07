@@ -1,7 +1,8 @@
 = render "shared/main_header"
-= render "shared/ishii_pankuzu"
 = render "shared/exhibition_btn"
-
+- breadcrumb :categorydetail
+.pan
+  = breadcrumbs pretext: "",separator: " &rsaquo; "
 .category-main
   %section.category-pickup-container
     %section.category-item-box-container
@@ -17,31 +18,10 @@
         %span.category-item-box-container__parts__text
           時計
       %h3.category-item-box-container__title レディース新着アイテム
-      .category-item-box-container__content
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-        = render "shared/category_item_box"
-
+      -# .category-item-box-container__content
+      .item-box-container__content
+        - @products.each do |product|
+          = link_to product_path(product), class: "user-product-show-link" do
+            = render partial: "shared/item_box", locals: {product: product}
 
 = render "shared/main_footer"

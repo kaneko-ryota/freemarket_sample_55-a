@@ -10,12 +10,12 @@
             %i.fas.fa-envelope.fa-lg.new-registration__body__bottom__mail-btn__icon
             メールアドレスで登録する
       .new-registration__body__bottom__facebook-btn
-        =link_to "#" do
+        =link_to user_facebook_omniauth_authorize_path do
           .new-registration__body__bottom__facebook-btn__scope
             %i.fab.fa-facebook-square.fa-2x.new-registration__body__bottom__facebook-btn__icon
             Facebookで登録する
       .new-registration__body__bottom__google-btn
-        =link_to "#" do
+        =link_to user_google_oauth2_omniauth_authorize_path do
           .new-registration__body__bottom__google-btn__scope
             %i.fab.fa-google.fa-lg.new-registration__body__bottom__google-btn__icon
             Googleで登録する
