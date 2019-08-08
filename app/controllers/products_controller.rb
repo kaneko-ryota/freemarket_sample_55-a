@@ -39,6 +39,7 @@ class ProductsController < ApplicationController
     @user = @product.user
     @products_other = @user.products.where.not(id: params[:id]).order("id desc")
     @comment = Comment.new
+    @product = Product.find(params[:id])
   end
 
   def edit

@@ -7,8 +7,16 @@
         %p
           出品画像
           %span.option 必須
-        %p.maxup 最大10枚までアップロードできます
-        .upload__box クリックしてファイルをアップロード
+        .subtitle 最大10枚までアップロードできます
+
+        = f.fields_for :product_images, @product.product_images.first do |image|
+          .sell-form__image__container
+            .sell-form__image__container__chirdren
+              #preview
+              .sell-form__image__container__input
+                = image.label :image, for: "upload-image" do
+                  .input-area
+                    = image.file_field :image, multiple: true, name: 'item_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
       .discription
         .discription__head
           %p
