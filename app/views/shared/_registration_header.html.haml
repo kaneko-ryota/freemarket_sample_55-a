@@ -1,3 +1,24 @@
+:ruby
+  steps = ["会員情報", "電話番号認証", "お届け先住所入力", "支払い方法", "完了"]
+
 .registration-header
   = link_to root_path do
     = image_tag :"//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3135490372"
+  - if controller_name == 'signup' && action_name != 'top'
+    %nav.signup-bar
+      %ol.signup-bar__menus
+        -# MEMO: stepsの配列の数だけ処理を行い、配列の数がstep_numよりも小さい、もしくは大きかった場合にプログレスバーが赤くなります
+        -# MEMO2: = stepの記述で配列内の文字列を表示しています
+        - steps.each_with_index do |step, i|
+          - if i < @step_num
+            %li
+              = step
+              .progress-status.progress-status__active
+          - elsif i == @step_num
+            %li.active-nav
+              = step
+              .progress-status.progress-status__active
+          - else
+            %li
+              = step
+              .progress-status
