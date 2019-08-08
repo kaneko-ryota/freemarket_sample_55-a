@@ -27,7 +27,7 @@
             %th 出品者
             %td
               = link_to "#" do
-                = @product.user.name
+                = @product.user.nickname
               .item-user-rating
                 .item-user-rating__icon
                   = fa_icon 'laugh', class: 'icon-good'
@@ -187,7 +187,7 @@
   %section.pickup-container
     .user-show-products-item-box-container
       %h3.item-box-container__title
-        = "#{@product.user.name}さんのその他の出品"
+        = "#{@product.user.nickname}さんのその他の出品"
       .user-show-products-item-box-container__content
         -@products_other.each do |product|
           =link_to product_path(product), class: "user-product-show-link" do
