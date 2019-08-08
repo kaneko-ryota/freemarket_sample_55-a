@@ -6,10 +6,13 @@
     .tell-authentication__body__second
       .tell-authentication__body__second__text
         認証番号
-      .tell-authentication__body__second__number
-        %input{type: "text", name: "phone", placeholder: "認証番号を入力", class: "tell-authentication__body__second__number__box"}
+      = form_for(@user, url: signup_index_path, method: :post, html:{class: "tell-authentication__body__second__number"}) do |f|
+        = f.text_field :verification_code_confirmation, placeholder: "認証番号を入力"
+        - if @user.errors.any?
+          - @user.errors.full_messages_for(:verification_code_confirmation).each do |message|
+            %li.error-message= message
+        .tell-authentication__body__second__sentence
           SMSで届いた認証番号を入力してください
-        = form_for(@user, url: signup_index_path, method: :post, html:{class: "tell-authentication__body__second__sentence"}) do |f|
           = f.submit "認証して完了", class: "tell-authentication__body__second__btn"
 
     .tell-authentication__body__third

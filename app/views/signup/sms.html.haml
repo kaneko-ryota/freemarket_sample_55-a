@@ -6,13 +6,11 @@
     .tell-main__body__bottom
       .tell-main__body__bottom__text
         携帯電話の番号
-      .tell-main__body__bottom__phone-number
-        %input{type: "text", name: "phone", placeholder: "携帯電話の番号を入力", class: "tell-main__body__bottom__phone-number__box"}
-      .tell-main__body__bottom__sentence
-        本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-      =link_to sms_authentication_signup_index_path do
-        .tell-main__body__bottom__btn
-          SMSを送信する
+      = form_for @user, url: sms_authentication_signup_index_path, method: :get, html: {class: "tell-main__body__bottom__phone-number"} do |f|
+        = f.text_field :phone_number, placeholder: "携帯電話の番号を入力", class: "tell-main__body__bottom__phone-number__box"
+        .tell-main__body__bottom__phone-number__sentence
+          本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+          = f.submit "SMSを送信する", class: "tell-main__body__bottom__phone-number__sentence__btn"
       .tell-main__body__bottom__sentence
         ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
 

@@ -8,6 +8,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
 
+  attr_accessor :verification_code_confirmation
+
   has_many :products
   has_many :comments
   has_many :liked_products, through: :likes, source: :product
