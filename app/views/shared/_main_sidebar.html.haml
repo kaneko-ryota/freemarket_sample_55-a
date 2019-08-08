@@ -18,7 +18,7 @@
           %span いいね！一覧
           =fa_icon 'angle-right',class:'sideicon fa-lg'
       %li.mypage__list--li
-        = link_to new_product_path , class: "mypage-link" do
+        = link_to new_product_path(current_user), class: "mypage-link" do
           %span 出品する
           =fa_icon 'angle-right',class:'sideicon fa-lg'
       %li.mypage__list--li

@@ -79,4 +79,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem "recaptcha", require: "recaptcha/rails"
   gem "moji"
   gem 'rails-i18n'
+  gem 'twilio-ruby'
   gem 'omniauth'

@@ -74,7 +74,7 @@
       %span.member-info__body__main__text 生年月日
       %span.member-info__body__main__mark 必須
       .member-info__body__main__input
-        = f.date_select :birthday, {start_year: 1900, end_year: (Time.current.year), include_blank: true, use_month_numbers: true, date_separator: '/' }, {class: "member-info__body__main__input__box-date"}
+        = f.date_select :birthday, {start_year: Time.current.year, end_year: 1900, include_blank: true, use_month_numbers: true, date_separator: '/' }, {class: "member-info__body__main__input__box-date"}
         - if @user.errors.any?
           - @user.errors.full_messages_for(:birthday).each do |message|
             %li.error-message= message
