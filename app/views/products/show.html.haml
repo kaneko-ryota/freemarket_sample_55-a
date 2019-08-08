@@ -111,52 +111,43 @@
         %span あんしん・あんぜんへの取り組み
 - if @product.saler_id == current_user.id
   = render "products/product_state"
-- else
-  .message
-    .message__content
-      %ul.message__content--items
+
+
+.message
+  .message__content
+    %ul.message__content--items
+
+      - @comments.each do |comment|
+
         %li.message-item
           = link_to "#" , class: "message-user" do
-            %figure
+            %figure{:class => "#{(comment.user == current_user)? "figure-myself" : "figure-others"}"}
               %img.message-user-icon{src: "https://images-na.ssl-images-amazon.com/images/I/41l7ijWCGSL._SY355_.jpg"}
-              %figcaption
-                koike
+              %div{:class => "#{(comment.user == current_user)? "figcaption-myself" : "figcaption-others"}"}
+                = comment.user.nickname
 
-          .message-item__body
-            = fa_icon "caret-left 2x", class: "baloon-icon";
-            .message-item__body--text 400円での購入は可能ですか？
-            .message-item__body--icons
+          %div{:class => "#{(comment.user == current_user)? "message-item__body-myself" : "message-item__body-others"}"}
+            %i{:class => "#{(comment.user == current_user)? "fas fa-caret-right fa-2x baloon-icon" : "fas fa-caret-left fa-2x baloon-icon"}"}
+
+            .message-item__body-others--text
+              = comment.body
+            .message-item__body-others--icons
               %time
                 %i.far.fa-clock
-                %span 1日前
+                %span
+                  = time_ago_in_words(comment.created_at)
               %button
                 %i.far.fa-flag
 
-        %li.message-item
-          = link_to "#" , class: "message-user" do
-            %figure
-              %img.message-user-icon{src: "https://images-na.ssl-images-amazon.com/images/I/41MxiNH7ODL._SX355_.jpg"}
-              %figcaption
-                hasebeee
-              .message-is-seller
-                出品者
-          .message-item__body
-            = fa_icon "caret-left 2x", class: "baloon-icon";
-            .message-item__body--text 通報しました
-            .message-item__body--icons
-              %time
-                %i.far.fa-clock
-                %span 1日前
-              %button
-                %i.far.fa-flag
-  
-.message__content
-  %form.message-form
-    %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-    %textarea.comment-textarea
-    .comment-submit-button
-      .comment-button-text
-        コメントする
+
+= form_for [@product, @comment] do |f|
+  .message__content
+    .message-form
+      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      = f.text_area :body, class: "comment-textarea"
+      .comment-submit-button
+        .comment-button-text
+          = f.submit "コメントする", class: "comment-submit-button comment-button-text"
 
 
 %ul.item-prev-next
