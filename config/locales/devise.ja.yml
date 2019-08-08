@@ -39,6 +39,10 @@ ja:
             birthday:
               blank: "を入力してください。"
               invalid: "は有効でありません。"
+            verification_code_confirmation:
+              blank: "を入力してください。"
+              invalid: "が一致しません。"
+
     attributes:
       user:
         current_password: "現在のパスワード"
@@ -52,6 +56,7 @@ ja:
         name_kana_first: "名カナ"
         nickname: "ニックネーム"
         birthday: "誕生日"
+        verification_code_confirmation: "認証番号"
   recaptcha:
     errors:
       verification_failed: 'reCAPTCHA認証をしてください'

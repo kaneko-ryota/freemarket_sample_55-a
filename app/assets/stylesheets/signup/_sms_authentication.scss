@@ -22,7 +22,7 @@
         font-weight: bold;
       }
       &__number {
-        &__box {
+        #user_verification_code_confirmation {
           width: 328px;
           height: 48px;
           border-radius: 4px;
@@ -32,6 +32,12 @@
         &__box::placeholder {
           padding-left: 20px;
         }
+      }
+      .error-message{
+        color: #ea352d;
+        line-height: 1.5;
+        font-size: 14px;
+        margin: 8px 0 0;
       }
       &__sentence {
         font-size: 14px;
