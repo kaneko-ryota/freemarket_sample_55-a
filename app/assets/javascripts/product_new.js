@@ -77,7 +77,7 @@ $( document ).on('turbolinks:load', function() {
         image.data("image", index + 5);
         preview2.append(image);
         dropzone2.css({
-          width: `calc(100% - (20% * ${images.length - 5}))`
+          width: `calc(100% - (10% * ${images.length - 5}))`
         });
       });
 
