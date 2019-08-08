@@ -12,8 +12,8 @@ class Product < ApplicationRecord
   scope :ladies, -> {where(category_id: 1).order("created_at DESC").limit(4)}
   scope :mens,  -> {where(category_id: 2).order("created_at DESC").limit(4)}
 
-  scope :chanel, -> {where(category_id: 1).order("created_at DESC").limit(4)}
-  scope :nike, -> {where(category_id: 2).order("created_at DESC").limit(4)}
+  scope :chanels, -> {where(brand_id: 1).order("created_at DESC").limit(4)}
+  scope :nikes, -> {where(brand_id: 2).order("created_at DESC").limit(4)}
 
 
 
