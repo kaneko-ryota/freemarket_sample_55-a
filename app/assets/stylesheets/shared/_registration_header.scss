@@ -43,9 +43,9 @@
             left: 50%;
           }
           &__active {
-            background-color: #ea352d;;
+            background-color: #ea352d;
             &:before, &:after {
-              background: #ea352d;;
+              background: #ea352d;
             }
           }
         }
@@ -62,7 +62,7 @@
       }
       .active-nav {
         font-weight: bold;
-        color: #ea352d;;
+        color: #ea352d;
         .progress-status:after {
           background: #cccccc;
         }
