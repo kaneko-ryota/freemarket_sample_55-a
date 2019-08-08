@@ -50,7 +50,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'pry-rails'
-  gem 'omniauth'
   gem 'omniauth-google-oauth2'
   gem 'omniauth-facebook'
 end
@@ -81,3 +80,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem "moji"
   gem 'rails-i18n'
   gem 'twilio-ruby'
+  gem 'omniauth'
