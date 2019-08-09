@@ -121,13 +121,13 @@
 
         %li.message-item
           = link_to "#" , class: "message-user" do
-            %figure{:class => "#{(comment.user == current_user)? "figure-myself" : "figure-others"}"}
+            %figure{class: "#{(comment.user == current_user)? "figure-myself" : "figure-others"}"}
               %img.message-user-icon{src: "https://images-na.ssl-images-amazon.com/images/I/41l7ijWCGSL._SY355_.jpg"}
-              %div{:class => "#{(comment.user == current_user)? "figcaption-myself" : "figcaption-others"}"}
+              %div{class: "#{(comment.user == current_user)? "figcaption-myself" : "figcaption-others"}"}
                 = comment.user.nickname
 
-          %div{:class => "#{(comment.user == current_user)? "message-item__body-myself" : "message-item__body-others"}"}
-            %i{:class => "#{(comment.user == current_user)? "fas fa-caret-right fa-2x baloon-icon" : "fas fa-caret-left fa-2x baloon-icon"}"}
+          %div{class: "#{(comment.user == current_user)? "message-item__body-myself" : "message-item__body-others"}"}
+            %i{class: "#{(comment.user == current_user)? "fas fa-caret-right fa-2x baloon-icon" : "fas fa-caret-left fa-2x baloon-icon"}"}
 
             .message-item__body-others--text
               = comment.body

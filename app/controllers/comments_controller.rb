@@ -4,6 +4,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     if @comment.save
       redirect_to controller: :products, action: :show, id: params[:product_id]
+    else
+      render template: "product/show"
     end
   end
 
