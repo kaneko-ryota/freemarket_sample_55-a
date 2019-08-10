@@ -102,6 +102,7 @@
         =link_to product_path(product) do
           .search-main__box__item
             .search-main__box__item--image
+              = image_tag product.product_images.first.image.to_s,class:"search-image"
             -# - @products.product_images.each_with_index do |image, index|
             -#   - if index == 0
                 -# = image_tag("#{image.image.url}")
