@@ -66,6 +66,8 @@ class ProductsController < ApplicationController
   end
 
   def purchase_confirmation
+    @images = @product.product_images
+    @image =  @images.first
   end
 
   require "payjp"

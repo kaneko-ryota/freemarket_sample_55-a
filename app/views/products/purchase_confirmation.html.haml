@@ -7,7 +7,7 @@
       .main__body__product__contents
         .main__body__product__contents__detail
           .main__body__product__contents__detail__image
-            =image_tag "stadium.jpg", size: "64x64"
+            =image_tag @image.image.to_s, size: "64x64"
           .main__body__product__contents__detail__text
             = @product.name
           .main__body__product__contents__detail__price
