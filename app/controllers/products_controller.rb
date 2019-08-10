@@ -41,6 +41,8 @@ class ProductsController < ApplicationController
     @comments = @product.comments
     @comment = Comment.new
     @product = Product.find(params[:id])
+    @images = @product.product_images
+    @image =  @images.first
   end
 
   def edit
