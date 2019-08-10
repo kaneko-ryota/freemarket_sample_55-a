@@ -38,6 +38,10 @@
           right: 10px;
           cursor: pointer;
         }
+        .wer{
+          display: none;
+          // visibility: hidden;
+        }
         input::placeholder{
           font-size: 15px;
         }

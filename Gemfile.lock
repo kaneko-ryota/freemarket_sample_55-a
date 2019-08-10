@@ -149,6 +149,18 @@ GEM
       thor (>= 0.14, < 2.0)
     json (2.2.0)
     jwt (2.2.1)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
     kgio (2.11.2)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -236,6 +248,14 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.19.0)
     rake (12.3.3)
+    ransack (2.1.1)
+      actionpack (>= 5.0)
+      activerecord (>= 5.0)
+      activesupport (>= 5.0)
+      i18n
+    ransacker_translator (0.0.4)
+      rails (>= 4.0.0)
+      ransack
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -346,6 +366,7 @@ DEPENDENCIES
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari
   listen (~> 3.0.5)
   mini_magick
   moji
@@ -358,6 +379,8 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.7, >= 5.0.7.2)
   rails-i18n
+  ransack
+  ransacker_translator
   recaptcha
   rspec-rails
   sass-rails (~> 5.0)

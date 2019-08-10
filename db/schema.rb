@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20190805055955) do
     t.integer  "product_id",               null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.text     "body",       limit: 65535
+    t.text     "body",       limit: 65535,              collation: "utf8_unicode_ci"
     t.index ["product_id"], name: "index_comments_on_product_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
@@ -111,18 +111,18 @@ ActiveRecord::Schema.define(version: 20190805055955) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
-    t.string   "name_last",                                         null: false
-    t.string   "name_kana_last"
+    t.string   "name_last",                                         null: false, collation: "utf8_unicode_ci"
+    t.string   "name_kana_last",                                                 collation: "utf8_unicode_ci"
     t.string   "nickname"
     t.date     "birthday"
     t.string   "phone_number"
     t.text     "profile",                limit: 65535
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "token"
-    t.string   "meta"
-    t.string   "name_first"
-    t.string   "name_kana_first"
+    t.string   "provider",                                                       collation: "utf8_unicode_ci"
+    t.string   "uid",                                                            collation: "utf8_unicode_ci"
+    t.string   "token",                                                          collation: "utf8_unicode_ci"
+    t.string   "meta",                                                           collation: "utf8_unicode_ci"
+    t.string   "name_first",                                                     collation: "utf8_unicode_ci"
+    t.string   "name_kana_first",                                                collation: "utf8_unicode_ci"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

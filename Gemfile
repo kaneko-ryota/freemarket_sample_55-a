@@ -81,3 +81,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'rails-i18n'
   gem 'twilio-ruby'
   gem 'omniauth'
+  gem 'rails-i18n'
+  gem 'ransack'
+  gem 'ransacker_translator'
+  gem "kaminari"
+

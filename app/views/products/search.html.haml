@@ -1,0 +1,113 @@
+= render "shared/main_header"
+= render "shared/exhibition_btn"
+
+.search
+  .search-left
+    .search_left__sort
+      %select.search_left__sort-select
+    .search_left__dropdown-wrap
+      %h3 詳細検索
+      -# - form_for do |f|
+      .dropdown-form
+        %label
+          %i
+          %span
+            キーワードを検索する
+        %select.dropdown-form--box
+      .dropdown-form
+        %label
+          %i
+          %span
+            カテゴリーを検索する
+        %select.dropdown-form--box
+      .dropdown-form
+        %label
+          %i
+          %span
+            ブランド名から探す
+        %select.dropdown-form--box
+      .dropdown-form
+        %label
+          %i
+          %span
+            サイズを指定する
+        %select.dropdown-form--box
+      .dropdown-form
+        %label
+          %i
+          %span
+            価格
+        %select.dropdown-form--box
+      .dropdown-checkbox.clearfix
+        %label
+          %i
+          %span 商品の状態
+        .dropdown-checkbox__form
+          .dropdown-checkbox__form--default
+            %input{type:"checkbox",name:"condition-all"}
+            %label{for:"condition-all"}すべて
+          .dropdown-checkbox__form--default
+            %input{type:"checkbox"}
+            %label{for:""}新品、未使用
+          .dropdown-checkbox__form--default
+            %input{type:"checkbox"}
+            %label{for:""}未使用に近い
+          .dropdown-checkbox__form--default
+            %input{type:"checkbox"}
+            %label{for:""}目立った傷や汚れなし
+          .dropdown-checkbox__form--default
+            %input{type:"checkbox"}
+            %label{for:""}やや傷や汚れあり
+          .dropdown-checkbox__form--default
+            %input{type:"checkbox"}
+            %label{for:""}傷や汚れあり
+          .dropdown-checkbox__form--default
+            %input{type:"checkbox"}
+            %label{for:""}全体的に状態が悪い
+      .dropdown-checkbox.clearfix
+        %label
+          %i
+          %span 配送料の負担
+        .dropdown-checkbox__form
+          .dropdown-checkbox__form--default
+            %input{type:"checkbox"}
+            %label{for:""}
+          .dropdown-checkbox__form--default
+            %input{type:"checkbox"}
+            %label{for:""}
+          .dropdown-checkbox__form--default
+            %input{type:"checkbox"}
+            %label{for:""}
+      .dropdown-checkbox.clearfix
+        %label
+          %i
+          %span 販売状況
+        .dropdown-checkbox__form
+          .dropdown-checkbox__form--default
+            %input{type:"checkbox"}
+            %label{for:""}
+          .dropdown-checkbox__form--default
+            %input{type:"checkbox"}
+            %label{for:""}
+          .dropdown-checkbox__form--default
+            %input{type:"checkbox"}
+            %label{for:""}
+  .search-main
+    .search-main__result 
+      = params[:q].values
+      %span.qqqqq の検索結果
+    .search-main__count #{@count}件表示
+    .search-main__box
+      - @products.each do |product|     
+        =link_to product_path(product) do
+          .search-main__box__item
+            .search-main__box__item--image
+            -# - @products.product_images.each_with_index do |image, index|
+            -#   - if index == 0
+                -# = image_tag("#{image.image.url}")
+            .search-main__box__item--detail
+              .search-main__box__item--detail--name 
+                = product.name.truncate(11)
+              .search-main__box__item--detail--price 
+                = "¥#{product.price.to_s(:delimited)}"
+= render "shared/main_footer"

@@ -7,7 +7,7 @@ class Product < ApplicationRecord
   belongs_to :category
   has_one :order
   accepts_nested_attributes_for :product_images, allow_destroy: true
-
+  
 
   scope :ladies, -> {where(category_id: 1).order("created_at DESC").limit(4)}
   scope :mens,  -> {where(category_id: 2).order("created_at DESC").limit(4)}
