@@ -15,7 +15,6 @@
 // registration
 @import "signup/sms_authentication";
 @import "signup/complete";
-@import "signup/login_display";
 @import "signup/member_info";
 @import "signup/sms";
 @import "signup/top";
@@ -30,6 +29,7 @@
 @import "shared/registration_header";
 
 // user
+@import "user/login";
 @import "user/logout";
 @import "user/mypage";
 @import "user/profile";
