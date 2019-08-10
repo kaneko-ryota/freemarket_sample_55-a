@@ -11,7 +11,7 @@ class AddressesController < ApplicationController
     if @address.save
       redirect_to complete_signup_index_path
     else
-      render "user_info"
+      render user_info_signup_index_path
     end
   end
 
