@@ -17,12 +17,13 @@
           %i.fab.fa-google.fa-lg.new-main__body__sns__btn-google__icon
           Googleでログイン
     .new-main__body__input
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = form_for(@user, as: resource_name, url: session_path(resource_name)) do |f|
         .field
           .new-main__body__input__email
             = f.email_field :email, autofocus: true, autocomplete: "email",  placeholder: "メールアドレス", class: "new-main__body__input__email__box"
         .field
           = f.password_field :password, autocomplete: "current-password",  autocomplete: "new-password",  placeholder: "パスワード", class: "new-main__body__input__pass__box"
-          .new-main__body__login
-            = f.submit "ログイン", class: "new-main__body__login__btn"
+        = recaptcha_tags
+        .new-main__body__login
+          = f.submit "ログイン", class: "new-main__body__login__btn"
 = render "shared/registration_footer"
