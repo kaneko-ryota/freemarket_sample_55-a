@@ -12,7 +12,7 @@
             = @product.name
           .main__body__product__contents__detail__price
             %p.main__body__product__contents__detail__price__num
-              = "#{@product.price}円"
+              = "#{@product.price.to_s(:delimited)}円"
               %sapn.main__body__product__contents__detail__price__num__shipping 送料込み
 
           =link_to "#" do
@@ -22,7 +22,7 @@
             %p.main__body__product__contents__detail__fee__text
               支払い金額
             %p.main__body__product__contents__detail__fee__num
-              = "#{@product.price}円"
+              = "#{@product.price.to_s(:delimited)}円"
 
           =link_to action: :buy do
             .main__body__product__contents__detail__buy-btn
