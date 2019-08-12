@@ -3,9 +3,9 @@
 
 .search
   .search-left
-    .search_left__sort
-      %select.search_left__sort-select
-    .search_left__dropdown-wrap
+    .search-left__sort
+      %select.search-left__sort-select
+    .search-left__dropdown-wrap
       %h3 詳細検索
       -# - form_for do |f|
       .dropdown-form
@@ -71,13 +71,13 @@
         .dropdown-checkbox__form
           .dropdown-checkbox__form--default
             %input{type:"checkbox"}
-            %label{for:""}
+            %label{for:""}全て
           .dropdown-checkbox__form--default
             %input{type:"checkbox"}
-            %label{for:""}
+            %label{for:""}着払い（購入者負担）
           .dropdown-checkbox__form--default
             %input{type:"checkbox"}
-            %label{for:""}
+            %label{for:""}送料込み(出品者負担)
       .dropdown-checkbox.clearfix
         %label
           %i
@@ -85,16 +85,16 @@
         .dropdown-checkbox__form
           .dropdown-checkbox__form--default
             %input{type:"checkbox"}
-            %label{for:""}
+            %label{for:""}全て
           .dropdown-checkbox__form--default
             %input{type:"checkbox"}
-            %label{for:""}
+            %label{for:""}販売中
           .dropdown-checkbox__form--default
             %input{type:"checkbox"}
-            %label{for:""}
+            %label{for:""}売り切れ
   .search-main
     .search-main__result 
-      = params[:q].values
+      = params[:q][:name_or_explain_or_item_status_or_size_cont]
       %span.qqqqq の検索結果
     .search-main__count #{@count}件表示
     .search-main__box
@@ -111,4 +111,5 @@
                 = product.name.truncate(11)
               .search-main__box__item--detail--price 
                 = "¥#{product.price.to_s(:delimited)}"
+    = paginate @products
 = render "shared/main_footer"
