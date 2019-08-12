@@ -11,7 +11,7 @@ ja:
         address:
           attributes:
             postal_code:
-              invalid: "は数字で入力してください。"
+              invalid: "はハイフンありの数字で入力してください。"
             prefecture:
               blank: "を選択してください。"
     attributes:
