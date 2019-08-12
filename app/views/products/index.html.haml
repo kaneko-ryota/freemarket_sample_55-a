@@ -7,7 +7,7 @@
       %h3.item-box-container__title レディース新着アイテム
       .item-box-container__content
         - @products_ladies.each do |product|
-          = link_to product_path(product), class: "user-product-show-link" do
+          = link_to product_path(product), class: "user-product-show-link-index" do
             = render partial: "shared/item_box", locals: {product: product}
       .item-box-container__view-all すべての商品を見る
 
@@ -15,7 +15,7 @@
       %h3.item-box-container__title メンズ新着アイテム
       .item-box-container__content
         - @products_mens.each do |product|
-          = link_to product_path(product), class: "user-product-show-link" do
+          = link_to product_path(product), class: "user-product-show-link-index" do
             = render partial: "shared/item_box", locals: {product: product}
       .item-box-container__view-all すべての商品を見る
 
@@ -25,7 +25,7 @@
       %h3.item-box-container__title シャネル新着アイテム
       .item-box-container__content
         - @chanels.each do |product|
-          = link_to product_path(product), class: "user-product-show-link" do
+          = link_to product_path(product), class: "user-product-show-link-index" do
             = render partial: "shared/item_box", locals: {product: product}
       .item-box-container__view-all すべての商品を見る
 
@@ -33,7 +33,7 @@
       %h3.item-box-container__title ナイキ新着アイテム
       .item-box-container__content
         - @products_ladies.each do |product|
-          = link_to product_path(product), class: "user-product-show-link" do
+          = link_to product_path(product), class: "user-product-show-link-index" do
             = render partial: "shared/item_box", locals: {product: product}
 
       .item-box-container__view-all すべての商品を見る

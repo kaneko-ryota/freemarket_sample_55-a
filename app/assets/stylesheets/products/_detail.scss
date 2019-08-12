@@ -219,7 +219,7 @@
         display: flex;
         .message-user{
           position: relative;
-          figure{
+          .figure-others{
             position: absolute;
             left: -60px;
             top: -20px;
@@ -229,7 +229,7 @@
               border-radius: 50%;
               position: relative;
             }
-            figcaption{
+            .figcaption-others{
               font-weight: 600;
               font-size: 13px;
               position: absolute;
@@ -244,21 +244,81 @@
               background-color: #eef0f4;
             }
           }
+          .figure-myself{
+            position: absolute;
+            left: 550px;
+            top: -20px;
+            .message-user-icon{
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              position: relative;
+            }
+            .figcaption-myself{
+              font-weight: 600;
+              font-size: 13px;
+              position: absolute;
+              top: -20px;
+              left: -50px;
+              color: black;
+            }
+            .message-is-seller{
+              font-size: 12px;
+              text-align: center;
+              color: black;
+              background-color: #eef0f4;
+            }
+          }
         }
-        &__body{
+        &__body-others{
           width: 560px;
           background: #eef0f4;
           border-radius: 15px;
           line-height: 2;
           padding: 16px;
           font-size: 14px;
-          left: 30px;
+          left: 40px;
           position: relative;
           .baloon-icon{
             position: absolute;
             top: 8px;
             left: -9px;
             color: #eef0f4;
+          }
+          &--icons{
+            color: #aaa;
+            display: flex;
+            justify-content: space-between;
+            time{
+              .clock-icon{
+              }
+            }
+            button{
+              background-color: transparent;
+              color: #aaa;
+              border: 0;
+              outline:0;
+              cursor: pointer;
+              .flag-icon{
+
+              }
+            }
+          }
+        }
+        &__body-myself{
+          width: 560px;
+          background: #fbf0e6;
+          border-radius: 15px;
+          line-height: 2;
+          padding: 16px;
+          font-size: 14px;
+          left: -20px;
+          position: relative;
+          .baloon-icon{
+            position: absolute;
+            top: 8px;
+            right: -9px;
+            color: #fbf0e6;
           }
           &--text{
 
@@ -301,7 +361,7 @@
     background: #fff6de;
     margin:0 auto;
   }
-  textarea{
+  .comment-textarea {
     box-sizing:border-box;
     width: 668px;
     min-height: 104px;
@@ -328,6 +388,7 @@
   .comment-button-text {
     color: white;
     font-size: 14px;
+    width: 100%;
   }
 }
 
@@ -384,6 +445,10 @@
       }
     }
   }
+}
+
+.user-product-show-link-index {
+  margin-right: 20px;
 }
 
 .user-product-show-link {

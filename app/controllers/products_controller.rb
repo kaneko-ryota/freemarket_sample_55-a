@@ -38,7 +38,11 @@ class ProductsController < ApplicationController
     @price = @product.price.to_s(:delimited)
     @user = @product.user
     @products_other = @user.products.where.not(id: params[:id]).order("id desc")
+    @comments = @product.comments
     @comment = Comment.new
+    @product = Product.find(params[:id])
+    @images = @product.product_images
+    @image =  @images.first
   end
 
   def edit
@@ -62,26 +66,28 @@ class ProductsController < ApplicationController
   end
 
   def purchase_confirmation
+    @images = @product.product_images
+    @image =  @images.first
   end
 
   require "payjp"
 
-  def buy 
+  def buy
     @product.update(
       user_id: current_user.id,
       buyer_id: current_user.id,
       trade_status: "2"
     )
-    
+
     credit = Credit.find_by(user_id: current_user.id)
     charge = Payjp::Charge.create(
       amount:   @product.price,
       customer: credit.customer_id,
       currency: 'jpy'
-      )     
+      )
     redirect_to root_path
   end
-  
+
   private
   def product_params
     params.require(:product).permit(:name, :explain, :size, :item_status, :burden, :delivery_method, :region, :delivery_date, :price, :trade_status, :saler_id, :buyer_id, :category_id, :brand_id, :user_id).merge(user_id: current_user.id, saler_id: current_user.id)

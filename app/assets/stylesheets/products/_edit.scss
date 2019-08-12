@@ -1,0 +1,65 @@
+.inputform{
+  margin: 0 auto;
+  width: 700px;
+  font-size: 16px;
+  background-color: white;
+  &__head{
+    font-size: 22px;
+    font-weight: bold;
+    height: 97px;
+    line-height: 97px;
+    text-align: center;
+  }
+  .upload{
+    padding: 40px;
+    border-top: #f5f5f5;
+    
+    .maxup{
+      font-size: 14px;
+    }
+    &__box{
+      height: 162px;
+      width: 620px;
+      background:#f5f5f5;
+    }
+  }
+  .discription{
+    font-size:14px;
+    &__text{
+      border-radius: 40px;
+    }
+  }
+  .detail{
+    &__contents{
+      &__left{
+
+      }
+      &__right{
+
+      }
+    }
+  }
+}
+
+.option{
+  background-color:red;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  padding:3px;
+  border-radius:4px;
+}
+.category-select-default{
+  height:40px;
+  width: 400px;
+}
+.select-default{
+  height:40px;
+  width: 400px;
+}
+.upload-image{
+  height:150px;
+  width: 600px;
+  background:#f5f5f5;
+  
+}

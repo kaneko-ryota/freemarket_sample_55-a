@@ -11,15 +11,11 @@
           SOLD
     .item-content__left
       .item-content__left--photo
-        = image_tag("https://resources.matcha-jp.com/resize/720x2000/2018/09/20-63194.jpeg", class: "big-photo")
+        = image_tag @image.image.to_s, class: "big-photo"
         .mini-photos
           .mini-photos__active
-            = image_tag("https://resources.matcha-jp.com/resize/720x2000/2018/09/20-63194.jpeg", class: "mini-photo")
-          .mini-photos__not-active
-            = image_tag("https://tk.ismcdn.jp/mwimgs/6/e/1140/img_6ead3d2a815ac820f1630e7f4b2e26d5109924.jpg", class: "mini-photo")
-            = image_tag("https://upload.wikimedia.org/wikipedia/commons/5/55/Shibuya_station.jpg", class: "mini-photo")
-            = image_tag("https://resources.matcha-jp.com/resize/720x2000/2016/11/11-8834.jpeg", class: "mini-photo")
-            = image_tag("https://tk.ismcdn.jp/mwimgs/3/f/1140/img_3fce81b4877be8898b8fb4e048dade38472548.jpg", class: "mini-photo")
+            -@images.each do |image|
+              =image_tag image.image.to_s, class:"mini-photo"
     .item-content__right
       %table.item-content__right--table
         %tbody
@@ -27,7 +23,7 @@
             %th 出品者
             %td
               = link_to "#" do
-                = @product.user.name
+                = @product.user.nickname
               .item-user-rating
                 .item-user-rating__icon
                   = fa_icon 'laugh', class: 'icon-good'
@@ -111,52 +107,43 @@
         %span あんしん・あんぜんへの取り組み
 - if @product.saler_id == current_user.id
   = render "products/product_state"
-- else
-  .message
-    .message__content
-      %ul.message__content--items
+
+
+.message
+  .message__content
+    %ul.message__content--items
+
+      - @comments.each do |comment|
+
         %li.message-item
           = link_to "#" , class: "message-user" do
-            %figure
+            %figure{class: "#{(comment.user == current_user)? "figure-myself" : "figure-others"}"}
               %img.message-user-icon{src: "https://images-na.ssl-images-amazon.com/images/I/41l7ijWCGSL._SY355_.jpg"}
-              %figcaption
-                koike
+              %div{class: "#{(comment.user == current_user)? "figcaption-myself" : "figcaption-others"}"}
+                = comment.user.nickname
 
-          .message-item__body
-            = fa_icon "caret-left 2x", class: "baloon-icon";
-            .message-item__body--text 400円での購入は可能ですか？
-            .message-item__body--icons
+          %div{class: "#{(comment.user == current_user)? "message-item__body-myself" : "message-item__body-others"}"}
+            %i{class: "#{(comment.user == current_user)? "fas fa-caret-right fa-2x baloon-icon" : "fas fa-caret-left fa-2x baloon-icon"}"}
+
+            .message-item__body-others--text
+              = comment.body
+            .message-item__body-others--icons
               %time
                 %i.far.fa-clock
-                %span 1日前
+                %span
+                  = time_ago_in_words(comment.created_at)
               %button
                 %i.far.fa-flag
 
-        %li.message-item
-          = link_to "#" , class: "message-user" do
-            %figure
-              %img.message-user-icon{src: "https://images-na.ssl-images-amazon.com/images/I/41MxiNH7ODL._SX355_.jpg"}
-              %figcaption
-                hasebeee
-              .message-is-seller
-                出品者
-          .message-item__body
-            = fa_icon "caret-left 2x", class: "baloon-icon";
-            .message-item__body--text 通報しました
-            .message-item__body--icons
-              %time
-                %i.far.fa-clock
-                %span 1日前
-              %button
-                %i.far.fa-flag
-  
-.message__content
-  %form.message-form
-    %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-    %textarea.comment-textarea
-    .comment-submit-button
-      .comment-button-text
-        コメントする
+
+= form_for [@product, @comment] do |f|
+  .message__content
+    .message-form
+      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      = f.text_area :body, class: "comment-textarea"
+      .comment-submit-button
+        .comment-button-text
+          = f.submit "コメントする", class: "comment-submit-button comment-button-text"
 
 
 %ul.item-prev-next
@@ -187,7 +174,7 @@
   %section.pickup-container
     .user-show-products-item-box-container
       %h3.item-box-container__title
-        = "#{@product.user.name}さんのその他の出品"
+        = "#{@product.user.nickname}さんのその他の出品"
       .user-show-products-item-box-container__content
         -@products_other.each do |product|
           =link_to product_path(product), class: "user-product-show-link" do
