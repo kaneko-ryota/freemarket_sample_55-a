@@ -2,11 +2,10 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
-
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
+
 
   attr_accessor :verification_code_confirmation
 
@@ -21,10 +20,10 @@ class User < ApplicationRecord
   validates :name_first, presence: true
   validates :name_kana_last, presence: true, format: { with: /\p{Katakana}/}
   validates :name_kana_first, presence: true, format: { with: /\p{Katakana}/}
-  validates :email, presence: true, unless: :uid?
+  validates :email, presence: true
   validates :password, presence: true, format: { with: /\A[a-zA-Z\d]+\z/}, on: :create
   validates :password_confirmation, presence: true, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]/i}, on: :create
-  validates :nickname, presence: true, unless: :uid?
+  validates :nickname, presence: true
   validates :birthday, presence: true
 
   protected

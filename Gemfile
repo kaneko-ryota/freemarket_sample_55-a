@@ -83,4 +83,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'omniauth'
   gem 'ransack'
   gem "kaminari"
+  gem "omniauth-rails_csrf_protection"
+  gem 'active_hash'
 
