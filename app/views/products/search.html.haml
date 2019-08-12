@@ -7,7 +7,6 @@
       %select.search-left__sort-select
     .search-left__dropdown-wrap
       %h3 詳細検索
-      -# - form_for do |f|
       .dropdown-form
         %label
           %i
@@ -103,9 +102,6 @@
           .search-main__box__item
             .search-main__box__item--image
               = image_tag product.product_images.first.image.to_s,class:"search-image"
-            -# - @products.product_images.each_with_index do |image, index|
-            -#   - if index == 0
-                -# = image_tag("#{image.image.url}")
             .search-main__box__item--detail
               .search-main__box__item--detail--name 
                 = product.name.truncate(11)
