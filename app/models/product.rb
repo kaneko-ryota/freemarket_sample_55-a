@@ -8,6 +8,14 @@ class Product < ApplicationRecord
   has_one :order
   accepts_nested_attributes_for :product_images, allow_destroy: true
 
+  validates :name, presence: true
+  validates :explain, presence: true
+  validates :item_status, presence: true
+  validates :burden, presence: true
+  validates :delivery_method, presence: true
+  validates :region, presence: true
+  validates :delivery_date, presence: true
+  validates_inclusion_of :price, in: 300..9999999
   validates :category_id, presence: true
   validates :brand_id, presence: true
 
