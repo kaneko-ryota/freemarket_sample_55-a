@@ -11,7 +11,6 @@ class Product < ApplicationRecord
   validates :category_id, presence: true
   validates :brand_id, presence: true
 
-
   scope :ladies, -> {where(category_id: 1).order("created_at DESC").limit(4)}
   scope :mens,  -> {where(category_id: 2).order("created_at DESC").limit(4)}
 
