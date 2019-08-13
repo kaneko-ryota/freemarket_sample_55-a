@@ -30,7 +30,11 @@ class ApplicationController < ActionController::Base
 
   def set_search
     @q = Product.search(params[:q])
-    @products = @q.result.page(params[:page]).per(16).order("id DESC")
+    if params[:q] 
+      @products = @q.result.page(params[:page]).per(12).order("id DESC")
+    else
+      @products = Product.all
+    end
     @count = @products.count
   end
 end

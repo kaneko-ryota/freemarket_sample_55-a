@@ -253,9 +253,6 @@ GEM
       activerecord (>= 5.0)
       activesupport (>= 5.0)
       i18n
-    ransacker_translator (0.0.4)
-      rails (>= 4.0.0)
-      ransack
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -380,7 +377,6 @@ DEPENDENCIES
   rails (~> 5.0.7, >= 5.0.7.2)
   rails-i18n
   ransack
-  ransacker_translator
   recaptcha
   rspec-rails
   sass-rails (~> 5.0)
