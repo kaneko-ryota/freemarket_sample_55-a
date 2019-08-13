@@ -169,11 +169,75 @@ $( document ).on('turbolinks:load', function() {
     }
   })
 
+  $(".btn__red").on("click", function(){
+    if($("#product_name").val() == "") {
+      $(".product-new__error-message1").css("display", "block");
+    } else {
+      $(".product-new__error-message1").css("display", "none");
+    }
+    if($("#product_explain").val() == "") {
+      $(".product-new__error-message2").css("display", "block");
+    } else {
+      $(".product-new__error-message2").css("display", "none");
+    }
+    if($("#product_category_id").val() == "") {
+      $(".product-new__error-message3").css("display", "block");
+    } else {
+      $(".product-new__error-message3").css("display", "none");
+    }
+    if($("#product_size").val() == "") {
+      $(".product-new__error-message4").css("display", "block");
+    } else {
+      $(".product-new__error-message4").css("display", "none");
+    }
+    if($("#product_brand_id").val() == "") {
+      $(".product-new__error-message5").css("display", "block");
+    } else {
+      $(".product-new__error-message5").css("display", "none");
+    }
+    if($("#product_item_status").val() == "") {
+      $(".product-new__error-message6").css("display", "block");
+    } else {
+      $(".product-new__error-message6").css("display", "none");
+    }
+    if($("#product_burden").val() == "") {
+      $(".product-new__error-message7").css("display", "block");
+    } else {
+      $(".product-new__error-message7").css("display", "none");
+    }
+    if($("#product_delivery_method").val() == "") {
+      $(".product-new__error-message8").css("display", "block");
+    } else {
+      $(".product-new__error-message8").css("display", "none");
+    }
+    if($("#product_region").val() == "") {
+      $(".product-new__error-message9").css("display", "block");
+    } else {
+      $(".product-new__error-message9").css("display", "none");
+    }
+    if($("#product_delivery_date").val() == "") {
+      $(".product-new__error-message10").css("display", "block");
+    } else {
+      $(".product-new__error-message10").css("display", "none");
+    }
+    if($("#product_price").val() == "") {
+      $(".product-new__error-message11").css("display", "block");
+    } else {
+      $(".product-new__error-message11").css("display", "none");
+    }
+    if($("#upload-image").val() == "") {
+      $(".product-new__error-message12").css("display", "block");
+    } else {
+      $(".product-new__error-message12").css("display", "none");
+    }
+  });
+
 
   $('#new_item').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData($(this).get(0));
     if (new_image_files.length == 0) {
+      return false
       formData.append("new_images[images][]", " ")
     } else {
       new_image_files.forEach(function(file){
@@ -187,6 +251,12 @@ $( document ).on('turbolinks:load', function() {
       data:        formData,
       contentType: false,
       processData: false,
+    })
+    .done(function(data){
+      $(".btn__red").attr("disabled", false);
+    })
+    .fail(function(){
+      $(".btn__red").attr("disabled", false);
     })
   });
   }
