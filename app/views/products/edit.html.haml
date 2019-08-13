@@ -1,7 +1,7 @@
 = render "shared/registration_header"
 .wrapper
   .inputform
-    =form_for @product do |f|
+    = form_for @product, html: {id:'new_item'} do |f|
       .inputform__head 商品の情報を入力
       .upload
         %p
@@ -42,14 +42,14 @@
               .detail__contents__right__1--select
                 = f.select :category_id, [["---", ""], ["レディース", "1"], ["メンズ", "2"], ["ベビー・キッズ", "3"], ["インテリア・住まい・小物", "4"], ["本・音楽・ゲーム", "5"], ["おもちゃ・ホビー・グッズ", "6"], ["コスメ・香水・美容", "7"], ["家電・スマホ・カメラ", "8"], ["スポーツ・レジャー", "9"], ["ハンドメイド", "10"], ["チケット", "11"], ["自動車・オートバイ", "12"], ["その他", "13"]], {}, {class: "category-select-default"}
 
-            .detail__contents__right__1.size-select-box.category-first-hide
+            .detail__contents__right__1
               %p
                 サイズ
                 %span.option 必須
               .detail__contents__right__1--select
                 = f.select :size, [["---", ""], ["S"], ["M"], ["L"]], {}, {class: "select-default"}
 
-            .detail__contents__right__1.brand-select-box.category-first-hide
+            .detail__contents__right__1
               %p
                 ブランド
                 %span.option 必須
