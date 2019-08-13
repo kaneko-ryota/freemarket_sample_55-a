@@ -29,7 +29,10 @@ Rails.application.routes.draw do
     member do
       get :purchase_confirmation  
       get :buy
-      get :product_state
+      post :stop
+      post :restart
+      # post :product_state
+      
     end
   end
   resources :addresses

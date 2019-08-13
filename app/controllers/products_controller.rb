@@ -53,6 +53,20 @@ class ProductsController < ApplicationController
     end
   end
 
+  def stop
+    @product = Product.find(params[:id])
+    @product.update(trade_status: '1')
+    redirect_to product_path(@product.id)
+  end
+
+  def restart
+    @product = Product.find(params[:id])
+    @product.update(trade_status: '0')
+    redirect_to product_path(@product.id)
+  end
+
+  
+
   def destroy
     if @product.user_id == current_user.id
       @product.destroy
