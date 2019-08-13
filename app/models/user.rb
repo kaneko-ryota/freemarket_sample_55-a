@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :orders
   has_one :credit
   has_one :address
+  has_one :personal_information
 
   validates :name_last, presence: true
   validates :name_first, presence: true

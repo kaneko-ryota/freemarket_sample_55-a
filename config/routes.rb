@@ -27,12 +27,13 @@ Rails.application.routes.draw do
     resources :comments
     resources :likes, only: [:create, :destroy]
     member do
-      get :purchase_confirmation 
+      get :purchase_confirmation
       get :buy
       get :product_state
     end
   end
   resources :addresses
+  resources :personal_informations
   resources :credits do
     collection do
       post "pay" => "credits#pay"
