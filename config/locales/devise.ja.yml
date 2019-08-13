@@ -104,8 +104,8 @@ ja:
       new:
         sign_up: "アカウント登録"
     sessions:
-      new:
-        sign_in: "ログイン"
+      signed_in: "サインインしました。"
+      sign_in: "ログイン"
     shared:
       links:
         back: "戻る"
