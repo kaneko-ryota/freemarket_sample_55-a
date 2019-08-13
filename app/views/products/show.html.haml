@@ -9,17 +9,17 @@
       .item-content__item-sold-out-badge
         .item-content__sold-label
           SOLD
+    - elsif @product.trade_status == 1
+      .item-content__item-stop-badge
+        .item-content__stop-label
+          停止中
     .item-content__left
       .item-content__left--photo
-        = image_tag("https://resources.matcha-jp.com/resize/720x2000/2018/09/20-63194.jpeg", class: "big-photo")
+        = image_tag @image.image.to_s, class: "big-photo"
         .mini-photos
           .mini-photos__active
-            = image_tag("https://resources.matcha-jp.com/resize/720x2000/2018/09/20-63194.jpeg", class: "mini-photo")
-          .mini-photos__not-active
-            = image_tag("https://tk.ismcdn.jp/mwimgs/6/e/1140/img_6ead3d2a815ac820f1630e7f4b2e26d5109924.jpg", class: "mini-photo")
-            = image_tag("https://upload.wikimedia.org/wikipedia/commons/5/55/Shibuya_station.jpg", class: "mini-photo")
-            = image_tag("https://resources.matcha-jp.com/resize/720x2000/2016/11/11-8834.jpeg", class: "mini-photo")
-            = image_tag("https://tk.ismcdn.jp/mwimgs/3/f/1140/img_3fce81b4877be8898b8fb4e048dade38472548.jpg", class: "mini-photo")
+            -@images.each do |image|
+              =image_tag image.image.to_s, class:"mini-photo"
     .item-content__right
       %table.item-content__right--table
         %tbody

@@ -1,5 +1,6 @@
 = render "shared/main_header"
 .main
+  = link_to image_tag("https://www.mercari.com/jp/assets/img/common/jp/top/banner-camp.jpg"), "https://tech-camp.in/technology"
   %section.pickup-container
     %h2.pickup-container__head ピックアップカテゴリー
     %section.item-box-container
@@ -31,7 +32,7 @@
     %section.item-box-container
       %h3.item-box-container__title ナイキ新着アイテム
       .item-box-container__content
-        - @products_ladies.each do |product|
+        - @nikes.each do |product|
           = link_to product_path(product), class: "user-product-show-link-index" do
             = render partial: "shared/item_box", locals: {product: product}
 

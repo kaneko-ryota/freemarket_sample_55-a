@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-
   before_action :set_product,  only: [:show, :edit, :update, :destroy, :purchase_confirmation, :buy]
   def index
     @products_ladies = Product.ladies
@@ -41,6 +40,8 @@ class ProductsController < ApplicationController
     @comments = @product.comments
     @comment = Comment.new
     @product = Product.find(params[:id])
+    @images = @product.product_images
+    @image =  @images.first
   end
 
   def edit
@@ -54,6 +55,20 @@ class ProductsController < ApplicationController
     end
   end
 
+  def stop
+    @product = Product.find(params[:id])
+    @product.update(trade_status: '1')
+    redirect_to product_path(@product.id)
+  end
+
+  def restart
+    @product = Product.find(params[:id])
+    @product.update(trade_status: '0')
+    redirect_to product_path(@product.id)
+  end
+
+  
+
   def destroy
     if @product.user_id == current_user.id
       @product.destroy
@@ -64,6 +79,8 @@ class ProductsController < ApplicationController
   end
 
   def purchase_confirmation
+    @images = @product.product_images
+    @image =  @images.first
   end
 
   require "payjp"
