@@ -18,6 +18,38 @@
       }
       &--group{
         margin: 40px 0 0;
+        .user-name-address{
+          display: flex;
+          &__last{
+            font-size: 1rem;
+            margin-left: 15px;
+          }
+          &__first{
+            font-size: 1rem;
+            margin-left: 5px;
+          }
+        }
+        .user-name-kana-address{
+          display: flex;
+          &__last{
+            font-size: 1rem;
+            margin-left: 15px;
+          }
+          &__first{
+            font-size: 1rem;
+            margin-left: 5px;
+          }
+        }
+        .user-birthday-address{
+          font-size: 1rem;
+          margin-left: 15px;
+        }
+        .error-message{
+          color: #ea352d;
+          line-height: 1.5;
+          font-size: 14px;
+          margin: 8px 0 0;
+        }
       }
       .group-upload{
         text-align: right;
@@ -51,11 +83,9 @@
         cursor: pointer;
         background: 0;
         outline: 0;
-        
       }
     }
-    
-    
+
     label{
       font-size: 14px;
       font-weight: 600;
@@ -77,9 +107,8 @@
       font-size: 16px;
       box-sizing: border-box;
       &:focus{
-        border-color: #0099e8;    
+        border-color: #0099e8;
       }
-      
     }
     .essential{
       padding: 2px 4px;

@@ -72,14 +72,12 @@ class SignupController < ApplicationController
   def user_info
     @address = Address.new
     @step_num = 2
-    @address.save
   end
 
 
   def credit
     @credit = Credit.new
     @step_num = 3
-    @credit.save
   end
 
 
@@ -104,6 +102,7 @@ class SignupController < ApplicationController
       render sms_authentication_signup_index_path
     end
   end
+  
 
 
 private

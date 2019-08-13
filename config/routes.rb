@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', sessions: 'users/sessions'}
   root to: 'products#index'
   resources :users do
     collection do
@@ -26,8 +26,11 @@ Rails.application.routes.draw do
   resources :products do
     resources :comments
     resources :likes, only: [:create, :destroy]
+    collection do
+      get :search
+    end
     member do
-      get :purchase_confirmation  
+      get :purchase_confirmation 
       get :buy
       post :stop
       post :restart

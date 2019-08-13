@@ -46,7 +46,7 @@
       %span.member-info__body__main__text お名前(全角)
       %span.member-info__body__main__mark 必須
       .member-info__body__main__input
-        = f.text_field :name_last, placeholder: "例)山田 綾", class: "member-info__body__main__input__box-name"
+        = f.text_field :name_last, placeholder: "例)山田", class: "member-info__body__main__input__box-name"
         = f.text_field :name_first, placeholder: "例)彩", class: "member-info__body__main__input__box-name-bottom"
         - if @user.errors.any?
           - @user.errors.full_messages_for(:name_first).each do |message|
@@ -60,7 +60,7 @@
       %span.member-info__body__main__text お名前カナ(全角)
       %span.member-info__body__main__mark 必須
       .member-info__body__main__input
-        = f.text_field :name_kana_last, placeholder: "例)ヤマダ アヤ", class: "member-info__body__main__input__box-name"
+        = f.text_field :name_kana_last, placeholder: "例)ヤマダ", class: "member-info__body__main__input__box-name"
 
         = f.text_field :name_kana_first, placeholder: "例)アヤ", class: "member-info__body__main__input__box-name-bottom"
         - if @user.errors.any?

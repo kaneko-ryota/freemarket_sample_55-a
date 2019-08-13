@@ -32,11 +32,20 @@
           border: 1px solid #ccc;
           outline: 0;
         }
-        i{
+        .search-icon{
           position: absolute;
-          top: 10px;
-          right: 10px;
+          top: 13px;
+          right: 13px;
           cursor: pointer;
+        }
+        .wer{
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 40px;
+          width: 42px;
+          outline: 0;
+          border-radius: 4px;
         }
         input::placeholder{
           font-size: 15px;
@@ -88,6 +97,26 @@
               border-radius: 15px;
               vertical-align: middle;
             }
+          }
+          .signup-btn{
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            border-radius: 4px;
+            text-align: center;
+            padding: 0 10px;
+            line-height: 30px;
+          }
+          .login-btn{
+            border: 1px solid #0099e8;
+            background: #fff;
+            color: #0099e8;
+            padding: 0 10px;
+            line-height: 30px;
+            padding: 0 10px;
+            border-radius: 4px;
+            text-align: center;
+            margin: 0 0 0 8px;
           }
         }
       }

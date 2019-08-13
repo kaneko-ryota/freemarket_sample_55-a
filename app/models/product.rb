@@ -8,6 +8,8 @@ class Product < ApplicationRecord
   has_one :order
   accepts_nested_attributes_for :product_images, allow_destroy: true
 
+  validates :category_id, presence: true
+  validates :brand_id, presence: true
 
   scope :ladies, -> {where(category_id: 1,trade_status: 0).order("created_at DESC").limit(4)}
   scope :mens,  -> {where(category_id: 2,trade_status: 0).order("created_at DESC").limit(4)}
