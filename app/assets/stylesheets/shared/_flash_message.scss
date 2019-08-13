@@ -1,9 +1,11 @@
 .key{
-  // height: 60px;
   width: 100%;
   padding: 20px 0;
   background-color: #DFF0d8;
   color:#468847;
   font-size: 14px;
   text-align: center;
+  position: fixed;
+  top: 60px;
+  z-index: 100;
 }
