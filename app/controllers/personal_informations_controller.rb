@@ -20,7 +20,7 @@ class PersonalInformationsController < ApplicationController
     @personal_information = PersonalInformation.find_by(user_id: current_user.id)
     if @personal_information.update(personal_information_params)
       # MEMO: flashメッセージ表示予定
-      redirect_to personal_informations_path, notice: "変更した"
+      redirect_to personal_informations_path, notice: "変更しました。"
     else
       # MEMO: flashメッセージ表示予定
       render :index
