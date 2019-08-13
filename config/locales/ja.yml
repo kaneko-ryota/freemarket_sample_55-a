@@ -10,14 +10,39 @@ ja:
       models:
         address:
           attributes:
+            name_last:
+              blank: "を入力してください。"
+              invalid: "に数字や特殊文字は使用できません"
+            name_first:
+              blank: "を入力してください。"
+              invalid: "に数字や特殊文字は使用できません"
+            name_kana_last:
+              blank: "を入力してください。"
+              invalid: "に英数字や特殊文字は使用できません。"
+            name_kana_first:
+              blank: "を入力してください。"
+              invalid: "に英数字や特殊文字は使用できません。"
             postal_code:
               invalid: "はハイフンありの数字で入力してください。"
-            prefecture:
+            prefecture_id:
               blank: "を選択してください。"
+        personal_information:
+          attributes:
+            postal_code:
+              invalid: "はハイフンありの数字で入力してください。"
     attributes:
       address:
+          name_last: "姓"
+          name_first: "名"
+          name_kana_last: "姓カナ"
+          name_kana_first: "名カナ"
           postal_code: "郵便番号"
-          prefecture: "都道府県"
+          prefecture_id: "都道府県"
+          city: "市区町村"
+          house_number: "番地"
+      personal_information:
+          postal_code: "郵便番号"
+          prefecture_id: "都道府県"
           city: "市区町村"
           house_number: "番地"
   date:

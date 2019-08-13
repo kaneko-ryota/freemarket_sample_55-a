@@ -30,7 +30,7 @@ Rails.application.routes.draw do
       get :search
     end
     member do
-      get :purchase_confirmation 
+      get :purchase_confirmation
       get :buy
       post :stop
       post :restart
@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     end
   end
   resources :addresses
+  resources :personal_informations
   resources :credits do
     collection do
       post "pay" => "credits#pay"
