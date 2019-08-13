@@ -13,31 +13,48 @@
         = link_to "本人確認書類のアップロードに関して>","/" ,target:"_blank",class:"group-upload__link"
       .entry-wrap__form--group
         %label お名前
-        %p メルカリ太郎
+        .user-name-address
+          %p.user-name-address__last= current_user.name_last
+          %p.user-name-address__first= current_user.name_first
       .entry-wrap__form--group
         %label お名前カナ
-        %p メルカリタロウ
+        .user-name-kana-address
+          %p.user-name-kana-address__last= current_user.name_kana_last
+          %p.user-name-kana-address__first= current_user.name_kana_first
       .entry-wrap__form--group
         %label 生年月日
-        %p 1998/7/24
+        %p.user-birthday-address= current_user.birthday
       .entry-wrap__form--group
         %label 郵便番号
         %span.essential 必須
-        = f.text_field :postal_code, placeholder:"例）1234567"
+        = f.text_field :postal_code, placeholder:"例）1234567", class: "entry-form-box"
+        - if @address.errors.any?
+          - @address.errors.full_messages_for(:postal_code).each do |message|
+            %li.error-message= message
       .entry-wrap__form--group
         %label 都道府県
         %span.essential 必須
         .group-prefecture-select-box
           //TODO 都道府県を簡単に取得、登録できるように変更する
-          =f.select :prefecture,[["東京都","東京都"],["神奈川県","神奈川県"],["千葉県","千葉県"],["埼玉県","埼玉県"],["栃木県","栃木県"],["茨城県","茨城県"],["群馬県","群馬県"]]
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+        - if @address.errors.any?
+          - @address.errors.full_messages_for(:prefecture).each do |message|
+            %li.error-message= message
+
       .entry-wrap__form--group
         %label 市区町村
         %span.essential 必須
-        = f.text_field :city, placeholder:"例）東京都渋谷区"
+        = f.text_field :city, placeholder:"例）東京都渋谷区", class: "entry-form-box"
+        - if @address.errors.any?
+          - @address.errors.full_messages_for(:city).each do |message|
+            %li.error-message= message
       .entry-wrap__form--group
         %label 番地
         %span.essential 必須
-        = f.text_field :house_number, placeholder:"例）青山1-1-1"
+        = f.text_field :house_number, placeholder:"例）青山1-1-1", class: "entry-form-box"
+        - if @address.errors.any?
+          - @address.errors.full_messages_for(:house_number).each do |message|
+            %li.error-message= message
       .entry-wrap__form--group
         %label 建物名
         %span.optional 任意
