@@ -9,6 +9,10 @@
       .item-content__item-sold-out-badge
         .item-content__sold-label
           SOLD
+    - elsif @product.trade_status == 1
+      .item-content__item-stop-badge
+        .item-content__stop-label
+          停止中
     .item-content__left
       .item-content__left--photo
         = image_tag @image.image.to_s, class: "big-photo"

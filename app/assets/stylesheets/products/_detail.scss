@@ -42,6 +42,29 @@
       font-size: 22px;
       font-weight: 600;
     }
+    &__item-stop-badge:after{
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 10px;
+      z-index: 1;
+      border-style: solid;
+      border-width: 100px 100px 0 0;
+      border-color: gray transparent;
+    }
+    &__stop-label{
+      position: absolute;
+      top: 15px;
+      left: 10px;
+      z-index: 2;
+      color: #fff;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      letter-spacing: 2px;
+      font-size: 20px;
+      font-weight: 600;
+    }
     &__left{
       &--photo{
         background-color: #fafafa;
