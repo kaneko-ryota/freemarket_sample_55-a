@@ -32,7 +32,7 @@
     %section.item-box-container
       %h3.item-box-container__title ナイキ新着アイテム
       .item-box-container__content
-        - @products_ladies.each do |product|
+        - @nikes.each do |product|
           = link_to product_path(product), class: "user-product-show-link-index" do
             = render partial: "shared/item_box", locals: {product: product}
 
