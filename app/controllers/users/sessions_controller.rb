@@ -2,7 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
   prepend_before_action :check_captcha, only: [:create]
-  after_filter :delete_flash, only: [:create, :destory]
+  after_filter :delete_flash, only: [:create, :destroy]
 
 
   def new
