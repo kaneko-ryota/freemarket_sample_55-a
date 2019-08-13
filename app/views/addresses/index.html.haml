@@ -71,5 +71,5 @@
         - if @address.errors.any?
           - @address.errors.full_messages_for(:phone_number).each do |message|
             %li.error-message= message
-        = f.submit "次へ進む", class: "address-info-edit__body__main__next-btn"
+        = f.submit "変更する", class: "address-info-edit__body__main__next-btn"
 = render "shared/main_footer"
