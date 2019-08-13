@@ -16,37 +16,40 @@
       padding-top: 40px;
       padding-bottom: 64px;
       margin: 0 auto;
-      &__text {
-        font-size: 14px;
-      }
-      &__mark {
-        font-size: 12px;
-        color: #ffffff;
-        padding: 3px;
-        border-radius: 3px;
-        background-color: #ea352d;
-      }
-      &__mark-any {
-        font-size: 12px;
-        color: #ffffff;
-        padding: 3px;
-        border-radius: 3px;
-        background-color: #cccccc;
-      }
       &__input {
+        margin-top: 30px;
+        &__text {
+          font-size: 14px;
+        }
+        &__mark {
+          font-size: 12px;
+          color: #ffffff;
+          padding: 3px;
+          border-radius: 3px;
+          background-color: #ea352d;
+        }
+        &__mark-any {
+          font-size: 12px;
+          color: #ffffff;
+          padding: 3px;
+          border-radius: 3px;
+          background-color: #cccccc;
+        }
         &__box {
-          width: 328px;
+          width: 100%;
           height: 48px;
           border-radius: 4px;
           border: 1px solid #cccccc;
+          padding: 10px 16px 8px;
         }
         &__box-2 {
-          width: 328px;
+          width: 100%;
           height: 48px;
           border-radius: 4px;
           border: 1px solid #cccccc;
           margin-top: 10px;
           margin-bottom: 30px;
+          padding: 10px 16px 8px;
         }
         &__box::placeholder {
           padding-left: 20px;
@@ -55,21 +58,136 @@
           padding-left: 20px;
         }
         &__box2-prefecture {
-          width: 328px;
+          width: 100%;
           height: 48px;
           border-radius: 4px;
           border: 1px solid #cccccc;
           margin-top: 5px;
-          margin-bottom: 32px;
+        }
+        select{
+          width: 100%;
+          position: relative;
+          z-index: 2;
+          height: 48px;
+          padding: 0 16px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          font-size: 16px;
+          line-height: 1.5;
+          cursor: pointer;
+          background: 0;
+          outline: 0;
+        }
+        .error-message{
+          color: #ea352d;
+          line-height: 1.5;
+          font-size: 14px;
+          margin: 8px 0 0;
         }
       }
       &__next-btn {
-        width: 343px;
+        width: 100%;
+        height: 50px;
+        background-color: #ea352d;
+        text-align: center;
+        line-height: 50px;
+        margin-top: 30px;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+// マイページ用
+.address-info-edit {
+  width: 1020px;
+  margin: 40px auto 0;
+  overflow: auto;
+  background-color: #f5f5f5;
+  &__body {
+    width: 700px;
+    background-color: #ffffff;
+    float: right;
+    &__title {
+      padding: 40px 0;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      border-bottom: 1px solid #dddddd;
+    }
+    &__main {
+      width: 343px;
+      padding-top: 40px;
+      padding-bottom: 64px;
+      margin: 0 auto;
+      &__input {
+        margin-top: 30px;
+        &__text {
+          font-size: 14px;
+        }
+        &__mark {
+          font-size: 12px;
+          color: #ffffff;
+          padding: 3px;
+          border-radius: 3px;
+          background-color: #ea352d;
+        }
+        &__mark-any {
+          font-size: 12px;
+          color: #ffffff;
+          padding: 3px;
+          border-radius: 3px;
+          background-color: #cccccc;
+        }
+        &__box {
+          width: 100%;
+          border-radius: 4px;
+          border: 1px solid #cccccc;
+          padding: 10px 16px 8px;
+        }
+        &__box-2 {
+          width: 100%;
+          border-radius: 4px;
+          border: 1px solid #cccccc;
+          margin-top: 10px;
+          padding: 10px 16px 8px;
+        }
+        &__box2-prefecture {
+          width: 100%;
+          height: 48px;
+          border-radius: 4px;
+          border: 1px solid #cccccc;
+          margin-top: 5px;
+        }
+        select{
+          width: 377px;
+          position: relative;
+          z-index: 2;
+          height: 48px;
+          padding: 0 16px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          font-size: 16px;
+          line-height: 1.5;
+          cursor: pointer;
+          background: 0;
+          outline: 0;
+        }
+        .error-message{
+          color: #ea352d;
+          line-height: 1.5;
+          font-size: 14px;
+          margin: 8px 0 0;
+        }
+      }
+      &__next-btn {
+        width: 100%;
         height: 50px;
         background-color: #ea352d;
         text-align: center;
         line-height: 50px;
         color: #ffffff;
+        margin-top: 30px;
       }
     }
   }
