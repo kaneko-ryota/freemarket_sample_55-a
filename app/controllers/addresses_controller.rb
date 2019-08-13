@@ -11,7 +11,7 @@ class AddressesController < ApplicationController
     @address = Address.find_by(user_id: current_user.id)
     if @address.update(address_params)
       # MEMO: flashメッセージ表示予定
-      render :index
+      redirect_to addresses_path, notice: "変更しました。"
     else
       # MEMO: flashメッセージ表示予定
       render :index
