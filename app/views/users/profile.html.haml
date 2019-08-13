@@ -1,4 +1,7 @@
 = render "shared/main_header"
+.profile-flash-message
+  - flash.each do |key, value|
+    = content_tag :div, value, class: "key"
 .profile-container
   = render "shared/main_sidebar"
   .profile-wrap

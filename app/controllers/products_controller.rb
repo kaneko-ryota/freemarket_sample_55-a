@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-
   before_action :set_product,  only: [:show, :edit, :update, :destroy, :purchase_confirmation, :buy]
   def index
     @products_ladies = Product.ladies
@@ -55,6 +54,20 @@ class ProductsController < ApplicationController
       render :edit
     end
   end
+
+  def stop
+    @product = Product.find(params[:id])
+    @product.update(trade_status: '1')
+    redirect_to product_path(@product.id)
+  end
+
+  def restart
+    @product = Product.find(params[:id])
+    @product.update(trade_status: '0')
+    redirect_to product_path(@product.id)
+  end
+
+  
 
   def destroy
     if @product.user_id == current_user.id

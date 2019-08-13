@@ -317,7 +317,7 @@
                     .image {
                       height: 76px;
                       object-fit: contain;
-                      max-width: 114px;
+                      width: 114px;
                     }
                   }
                   .btn_wrapper{
@@ -405,6 +405,12 @@
   }
 }
 
+.product-new__error-message1, .product-new__error-message2, .product-new__error-message3, .product-new__error-message4, .product-new__error-message5, .product-new__error-message6, .product-new__error-message7, .product-new__error-message8, .product-new__error-message9, .product-new__error-message10, .product-new__error-message11, .product-new__error-message12 {
+  display: none;
+  color: red;
+  font-size: 14px;
+  margin-left: 20px;
+}
 
 .exhibiton-header {
   height: 128px;

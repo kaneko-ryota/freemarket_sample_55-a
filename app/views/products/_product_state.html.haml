@@ -1,6 +1,9 @@
 .state-box
   =link_to "商品の編集", edit_product_path ,class:"state-box__edit-red"
   %p or
-  %form{ method: "POST", novalidate: "novalidate",class:"state-box__restart-red"}
-    出品を再開
+  - if @product.trade_status == 0
+    =link_to "出品を一時停止する", stop_product_path(@product) , method: :post, class:"state-box__restart-gray"
+  - elsif @product.trade_status == 1
+    =link_to "出品を再開する", restart_product_path(@product) , method: :post, class:"state-box__restart-red"
+
   = link_to "この商品を削除する", product_path(@product), method: :delete, class: "state-box__delete-gray"

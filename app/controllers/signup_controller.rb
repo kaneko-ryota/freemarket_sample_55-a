@@ -102,6 +102,7 @@ class SignupController < ApplicationController
       render sms_authentication_signup_index_path
     end
   end
+  
 
 
 private
