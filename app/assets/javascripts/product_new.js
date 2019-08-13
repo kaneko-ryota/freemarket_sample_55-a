@@ -222,6 +222,8 @@ $( document ).on('turbolinks:load', function() {
     }
     if($("#product_price").val() == "") {
       $(".product-new__error-message11").css("display", "block");
+    } else if($("#product_price").val() < 300 || $("#product_price").val() > 9999999) {
+      $(".product-new__error-message11").css("display", "block");
     } else {
       $(".product-new__error-message11").css("display", "none");
     }
