@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to profile_user_path
+      redirect_to profile_user_path, notice: "変更した"
     else
       render :show
     end
