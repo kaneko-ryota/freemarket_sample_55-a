@@ -2,10 +2,7 @@ class PersonalInformationsController < ApplicationController
 
   def index
     # MEMO: ユーザーが本人登録を行なっていた場合はidで取得後に編集を可能にし、していない場合は新規で作成する
-    if @personal_information = PersonalInformation.find_by(user_id: current_user.id)
-    else
-      @personal_information = PersonalInformation.new
-    end
+    @personal_information = PersonalInformation.find_or_initialize_by(user_id: current_user.id)
   end
 
   def create

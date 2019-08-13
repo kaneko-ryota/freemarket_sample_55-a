@@ -2,10 +2,8 @@ class AddressesController < ApplicationController
 
   def index
     # MEMO: ユーザーが住所登録を行なっていた場合はidで取得後に編集を可能にし、していない場合は新規で作成する
-    if @address = Address.find_by(user_id: current_user.id)
-    else
-      @address = Address.new
-    end
+    @address = Address.find_or_initialize_by(user_id: current_user.id)
+
   end
 
 
