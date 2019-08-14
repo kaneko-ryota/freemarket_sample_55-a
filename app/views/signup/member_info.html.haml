@@ -84,7 +84,7 @@
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
       //MEMO この一行でreCAPTCHAの表示ができます
-      -# = recaptcha_tags
+      = recaptcha_tags
 
       - if @user.errors.any?
         - @user.errors.full_messages_for(:base).each do |message|
