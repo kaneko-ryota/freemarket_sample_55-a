@@ -73,10 +73,11 @@
         min-height: 375px;
         .big-photo{
           float: left;
-          min-width: 200px;
+          min-width: 280px;
           max-width: 300px;
           height: 300px;
           margin: 0 auto;
+          object-fit: cover;
         }
         .mini-photos{
           &__active{
@@ -84,6 +85,7 @@
               float: left;
               width: 60px;
               height: 60px;
+              object-fit: cover;
             }
           }
           &__not-active{
@@ -396,7 +398,6 @@
     line-height: 1.5;
   }
   .comment-submit-button {
-    margin: 8px 0 0;
     text-align: center;
     background: #aaa;
     border: 1px solid #aaa;

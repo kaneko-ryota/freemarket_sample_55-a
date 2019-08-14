@@ -92,9 +92,12 @@
             %input{type:"checkbox"}
             %label{for:""}売り切れ
   .search-main
-    .search-main__result 
+    - if params[:q][:name_or_explain_or_item_status_or_size_cont].present?
+      .search-main__result
       = params[:q][:name_or_explain_or_item_status_or_size_cont]
       %span.qqqqq の検索結果
+    - else
+      .search-main__result 商品一覧
     .search-main__count #{@count}件表示
     .search-main__box
       - @products.each do |product|     

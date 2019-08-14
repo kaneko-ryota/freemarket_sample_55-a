@@ -1,67 +1,74 @@
 = render "shared/registration_header"
-.entry
-  .entry-wrap
-    %h2.entry-wrap__head
-      本人情報の登録
-    = form_for(@address, url: addresses_path, method: :post, html:{class: "entry-wrap__form"}) do |f|
-      .entry-wrap--form--group
-        %p
-          お客さまの本人情報をご登録ください。
-          %br
-          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
-        %p.group-upload
-        = link_to "本人確認書類のアップロードに関して>","/" ,target:"_blank",class:"group-upload__link"
-      .entry-wrap__form--group
-        %label お名前
-        .user-name-address
-          %p.user-name-address__last= current_user.name_last
-          %p.user-name-address__first= current_user.name_first
-      .entry-wrap__form--group
-        %label お名前カナ
-        .user-name-kana-address
-          %p.user-name-kana-address__last= current_user.name_kana_last
-          %p.user-name-kana-address__first= current_user.name_kana_first
-      .entry-wrap__form--group
-        %label 生年月日
-        %p.user-birthday-address= current_user.birthday
-      .entry-wrap__form--group
-        %label 郵便番号
-        %span.essential 必須
-        = f.text_field :postal_code, placeholder:"例）1234567", class: "entry-form-box"
+.address-info
+  .address-info__body
+    .address-info__body__title
+      発送元・お届け先住所入力
+
+    = form_for @address, url: addresses_path, html:{class: "address-info__body__main"} do |f|
+      .address-info__body__main__input
+        %span.address-info__body__main__input__text お名前
+        %span.address-info__body__main__input__mark 必須
+        = f.text_field :name_last, placeholder: "メルカリ", class: "address-info__body__main__input__box"
+        - if @address.errors.any?
+          - @address.errors.full_messages_for(:name_last).each do |message|
+            %li.error-message= message
+        = f.text_field :name_first, placeholder: "太郎", class: "address-info__body__main__input__box-2"
+        - if @address.errors.any?
+          - @address.errors.full_messages_for(:name_first).each do |message|
+            %li.error-message= message
+      .address-info__body__main__input
+        %span.address-info__body__main__input__text お名前カナ
+        %span.address-info__body__main__input__mark 必須
+        = f.text_field :name_kana_last, placeholder: "メルカリ", class: "address-info__body__main__input__box"
+        - if @address.errors.any?
+          - @address.errors.full_messages_for(:name_kana_last).each do |message|
+            %li.error-message= message
+        = f.text_field :name_kana_first, placeholder: "タロウ", class: "address-info__body__main__input__box-2"
+        - if @address.errors.any?
+          - @address.errors.full_messages_for(:name_kana_first).each do |message|
+            %li.error-message= message
+      .address-info__body__main__input
+        %span.address-info__body__main__input__text 郵便番号
+        %span.address-info__body__main__input__mark 必須
+        = f.text_field :postal_code, placeholder: "例)123-4567", class: "address-info__body__main__input__box-2"
         - if @address.errors.any?
           - @address.errors.full_messages_for(:postal_code).each do |message|
             %li.error-message= message
-      .entry-wrap__form--group
-        %label 都道府県
-        %span.essential 必須
-        .group-prefecture-select-box
-          //TODO 都道府県を簡単に取得、登録できるように変更する
+      .address-info__body__main__input
+        %span.address-info__body__main__input__text 都道府県
+        %span.address-info__body__main__input__mark 必須
         = f.collection_select :prefecture_id, Prefecture.all, :id, :name
         - if @address.errors.any?
-          - @address.errors.full_messages_for(:prefecture).each do |message|
+          - @address.errors.full_messages_for(:prefecture_id).each do |message|
             %li.error-message= message
 
-      .entry-wrap__form--group
-        %label 市区町村
-        %span.essential 必須
-        = f.text_field :city, placeholder:"例）東京都渋谷区", class: "entry-form-box"
+      .address-info__body__main__input
+        %span.address-info__body__main__input__text 市区町村
+        %span.address-info__body__main__input__mark 必須
+        = f.text_field :city, placeholder: "例)横浜市緑区", class: "address-info__body__main__input__box-2"
         - if @address.errors.any?
           - @address.errors.full_messages_for(:city).each do |message|
             %li.error-message= message
-      .entry-wrap__form--group
-        %label 番地
-        %span.essential 必須
-        = f.text_field :house_number, placeholder:"例）青山1-1-1", class: "entry-form-box"
+      .address-info__body__main__input
+        %span.address-info__body__main__input__text 番地
+        %span.address-info__body__main__input__mark 必須
+        = f.text_field :house_number, placeholder: "例)青山1-1-1", class: "address-info__body__main__input__box-2"
         - if @address.errors.any?
           - @address.errors.full_messages_for(:house_number).each do |message|
             %li.error-message= message
-      .entry-wrap__form--group
-        %label 建物名
-        %span.optional 任意
-        =f.text_field :building_name, placeholder:"例）柳ビル103"
-      = f.submit "次へ進む", class: "next-step-btn"
-      .entry-wrap__form--group-last
-        %p.group-about-user-registration
-        = link_to "本人情報の登録について>","/",target:"_blank",class:"group-about-user-registration__link"
-
+      .address-info__body__main__input
+        %span.address-info__body__main__input__text 建物名
+        %span.address-info__body__main__input__mark-any 任意
+        = f.text_field :building_name, placeholder: "例)柳ビル103", class: "address-info__body__main__input__box-2"
+        - if @address.errors.any?
+          - @address.errors.full_messages_for(:building_name).each do |message|
+            %li.error-message= message
+      .address-info__body__main__input
+        %span.address-info__body__main__input__text 電話
+        %span.address-info__body__main__input__mark-any 任意
+        = f.text_field :phone_number, placeholder: "例)09012345678", class: "address-info__body__main__input__box-2"
+        - if @address.errors.any?
+          - @address.errors.full_messages_for(:phone_number).each do |message|
+            %li.error-message= message
+        = f.submit "次へ進む", class: "address-info__body__main__next-btn"
 = render "shared/registration_footer"
