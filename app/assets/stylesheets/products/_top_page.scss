@@ -29,6 +29,7 @@
             img{
               height: 220px;
               width: 100%;
+              object-fit: cover;
             }
             figcaption{
               .item-sold-out-badge:after{

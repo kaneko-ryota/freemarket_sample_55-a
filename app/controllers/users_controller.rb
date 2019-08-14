@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :authenticate_user!
   before_action :set_user, except: :logout
 
   def show
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to profile_user_path, notice: "変更した"
+      redirect_to profile_user_path, notice: "変更しました。"
     else
       render :show
     end

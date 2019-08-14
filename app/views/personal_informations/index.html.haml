@@ -1,0 +1,70 @@
+= render "shared/main_header"
+= render "shared/flash_message"
+.entry-edit
+  = render "shared/main_sidebar"
+  .entry-wrap-edit
+    %h2.entry-wrap-edit__head
+      本人情報の登録
+    = form_for(@personal_information, html:{class: "entry-wrap-edit__form"}) do |f|
+      .entry-wrap-edit--form--group
+        %p
+          お客さまの本人情報をご登録ください。
+          %br
+          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+        %p.group-upload
+        = link_to "本人確認書類のアップロードに関して>","/" ,target:"_blank",class:"group-upload__link"
+      .entry-wrap-edit__form--group
+        %label お名前
+        .user-name-address
+          %p.user-name-address__last= current_user.name_last
+          %p.user-name-address__first= current_user.name_first
+      .entry-wrap-edit__form--group
+        %label お名前カナ
+        .user-name-kana-address
+          %p.user-name-kana-address__last= current_user.name_kana_last
+          %p.user-name-kana-address__first= current_user.name_kana_first
+      .entry-wrap-edit__form--group
+        %label 生年月日
+        %p.user-birthday-address= current_user.birthday
+      .entry-wrap-edit__form--group
+        %label 郵便番号
+        %span.essential 必須
+        = f.text_field :postal_code, placeholder:"例）123-4567", class: "entry-form-box"
+        - if @personal_information.errors.any?
+          - @personal_information.errors.full_messages_for(:postal_code).each do |message|
+            %li.error-message= message
+
+      .entry-wrap-edit__form--group
+        %label 都道府県
+        %span.essential 必須
+        .group-prefecture-select-box
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+        - if @personal_information.errors.any?
+          - @personal_information.errors.full_messages_for(:prefecture_id).each do |message|
+            %li.error-message= message
+
+      .entry-wrap-edit__form--group
+        %label 市区町村
+        %span.essential 必須
+        = f.text_field :city, placeholder:"例）東京都渋谷区", class: "entry-form-box"
+        - if @personal_information.errors.any?
+          - @personal_information.errors.full_messages_for(:city).each do |message|
+            %li.error-message= message
+
+      .entry-wrap-edit__form--group
+        %label 番地
+        %span.essential 必須
+        = f.text_field :house_number, placeholder:"例）青山1-1-1", class: "entry-form-box"
+        - if @personal_information.errors.any?
+          - @personal_information.errors.full_messages_for(:house_number).each do |message|
+            %li.error-message= message
+      .entry-wrap-edit__form--group
+        %label 建物名
+        %span.optional 任意
+        =f.text_field :building_name, placeholder:"例）柳ビル103"
+      = f.submit "登録する", class: "next-step-btn"
+      .entry-wrap-edit__form--group-last
+        %p.group-about-user-registration
+        = link_to "本人情報の登録について>","/",target:"_blank",class:"group-about-user-registration__link"
+
+= render "shared/main_footer"
