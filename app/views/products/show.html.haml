@@ -87,8 +87,12 @@
   - if @product.trade_status == 2 || @product.trade_status == 3
     .item-soldout-btn
       売り切れました
+  - elsif user_signed_in?
+    -if @product.saler_id == current_user.id
+    - else
+      = link_to "購入画面に進む", purchase_confirmation_product_path(@product) , class: 'item-buy-btn'
   - else
-    = link_to "購入画面に進む", purchase_confirmation_product_path(@product) , class: 'item-buy-btn'
+    = link_to "購入画面に進む", new_user_session_path, class: "item-buy-btn"
 
   .item__description
     %p.item__description--inner
