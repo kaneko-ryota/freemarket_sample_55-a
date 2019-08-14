@@ -92,20 +92,27 @@
             %input{type:"checkbox"}
             %label{for:""}売り切れ
   .search-main
-    .search-main__result 
+    - if params[:q][:name_or_explain_or_item_status_or_size_cont].present?
+      .search-main__result
       = params[:q][:name_or_explain_or_item_status_or_size_cont]
       %span.qqqqq の検索結果
+    - else
+      .search-main__result 商品一覧
     .search-main__count #{@count}件表示
     .search-main__box
-      - @products.each do |product|     
+      - @products.each do |product|
         =link_to product_path(product) do
           .search-main__box__item
+            - if product.trade_status == 2 || product.trade_status == 3
+              .search-main__box__item__item-sold-out-badge
+                .search-main__box__item__sold-label
+                  SOLD
             .search-main__box__item--image
               = image_tag product.product_images.first.image.to_s,class:"search-image"
             .search-main__box__item--detail
-              .search-main__box__item--detail--name 
+              .search-main__box__item--detail--name
                 = product.name.truncate(11)
-              .search-main__box__item--detail--price 
+              .search-main__box__item--detail--price
                 = "¥#{product.price.to_s(:delimited)}"
     = paginate @products
 = render "shared/main_footer"

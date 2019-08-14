@@ -34,7 +34,7 @@ class AddressesController < ApplicationController
 
     @address = Address.new(address_params)
     if @address.save
-      redirect_to complete_signup_index_path
+      redirect_to credit_signup_index_path
     else
       render user_info_signup_index_path
     end
