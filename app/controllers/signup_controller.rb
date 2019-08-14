@@ -60,13 +60,13 @@ class SignupController < ApplicationController
     @user_phone_number = "+81#{user_phone_params[:phone_number][1..-1]}"
 
     # MEMO: SMSを送信できる回数/電話番号が限られているのでコメントアウトしてあります
-    client = Twilio::REST::Client.new(ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN'])
-    client.messages.create(
-      from: ENV['TWILIO_NUMBER'],
-      to: @user_phone_number,
-      body: @@generate_token
-    )
-  end
+  #   client = Twilio::REST::Client.new(ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN'])
+  #   client.messages.create(
+  #     from: ENV['TWILIO_NUMBER'],
+  #     to: @user_phone_number,
+  #     body: @@generate_token
+  #   )
+  # end
 
 
   def user_info
