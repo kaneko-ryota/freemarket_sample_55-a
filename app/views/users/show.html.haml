@@ -8,7 +8,7 @@
     = render "shared/main_sidebar"
     .mypage-contents__main
       .mypage-contents__main__user
-        = link_to "https://www.mercari.com/jp/u/934297861/" do
+        = link_to "#" do
           .mypage-contents__main__user__avatar
             = image_tag("//static.mercdn.net/images/member_photo_noimage_thumb.png", height: "60", width: "60")
           %h2.mypage-contents__main__user__name
@@ -29,35 +29,15 @@
           .switch-tab__right やることリスト
 
         .tab
-          .tab--item.during-deal-item
-            .tab--item__left
-              = image_tag("//static.mercdn.net/images/mercari_profile.png", class: "lazyloaded")
-            .tab--item__right
-              お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。
-              .tab--item__right__time
-                %i.far.fa-clock
-                10時間前
 
-          .tab--item.during-deal-item
-            .tab--item__left
-              = image_tag("//static.mercdn.net/images/mercari_profile.png", class: "lazyloaded")
-            .tab--item__right
-              お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。
-              .tab--item__right__time
-                %i.far.fa-clock
-                10時間前
+          .tab--things-to-do-list__active.during-deal
+            .tab--things-to-do-list__image
+              = image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?2787198863", class: "tab--things-to-do-list__image__color")
+            .tab--things-to-do-list__textbox
+              現在、お知らせはありません
 
-          .tab--item.during-deal-item
-            .tab--item__left
-              = image_tag("//static.mercdn.net/images/mercari_profile.png", class: "lazyloaded")
-            .tab--item__right
-              お知らせです。お知らせです。お知らせです。お知らせです。お知らせです。
-              .tab--item__right__time
-                %i.far.fa-clock
-                10時間前
-
-          .tab--list.during-deal-item-btn
-            = link_to "一覧を見る", '#', class: "look-list-btn"
+          / .tab--list.during-deal-item-btn
+          /   = link_to "一覧を見る", '#', class: "look-list-btn"
 
 
           .tab--things-to-do-list.past

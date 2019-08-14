@@ -1,5 +1,6 @@
 class PersonalInformationsController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def index
     # MEMO: ユーザーが本人登録を行なっていた場合はidで取得後に編集を可能にし、していない場合は新規で作成する
     @personal_information = PersonalInformation.find_or_initialize_by(user_id: current_user.id)

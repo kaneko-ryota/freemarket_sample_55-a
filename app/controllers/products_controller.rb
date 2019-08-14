@@ -9,6 +9,9 @@ class ProductsController < ApplicationController
   end
 
   def new
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @product = Product.new
     @product.product_images.build
   end
@@ -45,6 +48,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
   end
 
   def update
@@ -79,6 +83,7 @@ class ProductsController < ApplicationController
   end
 
   def purchase_confirmation
+    @credit = current_user.credit
     @images = @product.product_images
     @image =  @images.first
   end
