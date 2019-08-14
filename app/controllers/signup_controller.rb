@@ -66,7 +66,7 @@ class SignupController < ApplicationController
   #     to: @user_phone_number,
   #     body: @@generate_token
   #   )
-  # end
+  end
 
 
   def user_info
