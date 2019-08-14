@@ -108,9 +108,10 @@
     .item__button-container--right
       = link_to "#", class: "policy-safe"  do
         = fa_icon "lock"
-        %span あんしん・あんぜんへの取り組み
-- if @product.saler_id == current_user.id
-  = render "products/product_state"
+      %span あんしん・あんぜんへの取り組み
+- if user_signed_in?
+  - if @product.saler_id == current_user.id
+    = render "products/product_state"
 
 
 .message
