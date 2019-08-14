@@ -30,6 +30,8 @@ ja:
           attributes:
             postal_code:
               invalid: "はハイフンありの数字で入力してください。"
+            prefecture_id:
+              blank: "を選択してください。"
     attributes:
       address:
           name_last: "姓"
