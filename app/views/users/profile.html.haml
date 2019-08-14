@@ -1,4 +1,5 @@
 = render "shared/main_header"
+- breadcrumb :profile
 .profile-flash-message
   - flash.each do |key, value|
     = content_tag :div, value, class: "key"
