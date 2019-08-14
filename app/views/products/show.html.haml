@@ -118,31 +118,33 @@
     = render "products/product_state"
 
 
-.message
-  .message__content
-    %ul.message__content--items
+- if @product.comments.length == 0
+- else
+  .message
+    .message__content
+      %ul.message__content--items
 
-      - @comments.each do |comment|
+        - @comments.each do |comment|
 
-        %li.message-item
-          = link_to "#" , class: "message-user" do
-            %figure{class: "#{(comment.user == current_user)? "figure-myself" : "figure-others"}"}
-              %img.message-user-icon{src: "https://images-na.ssl-images-amazon.com/images/I/41l7ijWCGSL._SY355_.jpg"}
-              %div{class: "#{(comment.user == current_user)? "figcaption-myself" : "figcaption-others"}"}
-                = comment.user.nickname
+          %li.message-item
+            = link_to "#" , class: "message-user" do
+              %figure{class: "#{(comment.user == current_user)? "figure-myself" : "figure-others"}"}
+                %img.message-user-icon{src: "https://cdn.pixabay.com/photo/2016/04/24/01/25/nagasaki-1348645_1280.jpg"}
+                %div{class: "#{(comment.user == current_user)? "figcaption-myself" : "figcaption-others"}"}
+                  = comment.user.nickname
 
-          %div{class: "#{(comment.user == current_user)? "message-item__body-myself" : "message-item__body-others"}"}
-            %i{class: "#{(comment.user == current_user)? "fas fa-caret-right fa-2x baloon-icon" : "fas fa-caret-left fa-2x baloon-icon"}"}
+            %div{class: "#{(comment.user == current_user)? "message-item__body-myself" : "message-item__body-others"}"}
+              %i{class: "#{(comment.user == current_user)? "fas fa-caret-right fa-2x baloon-icon" : "fas fa-caret-left fa-2x baloon-icon"}"}
 
-            .message-item__body-others--text
-              = comment.body
-            .message-item__body-others--icons
-              %time
-                %i.far.fa-clock
-                %span
-                  = time_ago_in_words(comment.created_at)
-              %button
-                %i.far.fa-flag
+              .message-item__body-others--text
+                = comment.body
+              .message-item__body-others--icons
+                %time
+                  %i.far.fa-clock
+                  %span
+                    = time_ago_in_words(comment.created_at)
+                %button
+                  %i.far.fa-flag
 
 
 = form_for [@product, @comment] do |f|
