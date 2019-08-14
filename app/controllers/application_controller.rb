@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   def set_search
     @q = Product.search(params[:q])
     if params[:q] 
-      @products = @q.result.page(params[:page]).per(12).order("id DESC")
+      @products = @q.result.page(params[:page]).per(24).order("id DESC")
     else
       @products = Product.all
     end

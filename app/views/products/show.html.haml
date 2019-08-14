@@ -87,8 +87,12 @@
   - if @product.trade_status == 2 || @product.trade_status == 3
     .item-soldout-btn
       売り切れました
+  - elsif user_signed_in?
+    -if @product.saler_id == current_user.id
+    - else
+      = link_to "購入画面に進む", purchase_confirmation_product_path(@product) , class: 'item-buy-btn'
   - else
-    = link_to "購入画面に進む", purchase_confirmation_product_path(@product) , class: 'item-buy-btn'
+    = link_to "購入画面に進む", new_user_session_path, class: "item-buy-btn"
 
   .item__description
     %p.item__description--inner
@@ -114,31 +118,33 @@
     = render "products/product_state"
 
 
-.message
-  .message__content
-    %ul.message__content--items
+- if @product.comments.length == 0
+- else
+  .message
+    .message__content
+      %ul.message__content--items
 
-      - @comments.each do |comment|
+        - @comments.each do |comment|
 
-        %li.message-item
-          = link_to "#" , class: "message-user" do
-            %figure{class: "#{(comment.user == current_user)? "figure-myself" : "figure-others"}"}
-              %img.message-user-icon{src: "https://images-na.ssl-images-amazon.com/images/I/41l7ijWCGSL._SY355_.jpg"}
-              %div{class: "#{(comment.user == current_user)? "figcaption-myself" : "figcaption-others"}"}
-                = comment.user.nickname
+          %li.message-item
+            = link_to "#" , class: "message-user" do
+              %figure{class: "#{(comment.user == current_user)? "figure-myself" : "figure-others"}"}
+                %img.message-user-icon{src: "https://cdn.pixabay.com/photo/2016/04/24/01/25/nagasaki-1348645_1280.jpg"}
+                %div{class: "#{(comment.user == current_user)? "figcaption-myself" : "figcaption-others"}"}
+                  = comment.user.nickname
 
-          %div{class: "#{(comment.user == current_user)? "message-item__body-myself" : "message-item__body-others"}"}
-            %i{class: "#{(comment.user == current_user)? "fas fa-caret-right fa-2x baloon-icon" : "fas fa-caret-left fa-2x baloon-icon"}"}
+            %div{class: "#{(comment.user == current_user)? "message-item__body-myself" : "message-item__body-others"}"}
+              %i{class: "#{(comment.user == current_user)? "fas fa-caret-right fa-2x baloon-icon" : "fas fa-caret-left fa-2x baloon-icon"}"}
 
-            .message-item__body-others--text
-              = comment.body
-            .message-item__body-others--icons
-              %time
-                %i.far.fa-clock
-                %span
-                  = time_ago_in_words(comment.created_at)
-              %button
-                %i.far.fa-flag
+              .message-item__body-others--text
+                = comment.body
+              .message-item__body-others--icons
+                %time
+                  %i.far.fa-clock
+                  %span
+                    = time_ago_in_words(comment.created_at)
+                %button
+                  %i.far.fa-flag
 
 
 = form_for [@product, @comment] do |f|
@@ -146,11 +152,13 @@
     .message-form
       %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
       = f.text_area :body, class: "comment-textarea"
-      .comment-submit-button
-        .comment-button-text
-          = f.submit "コメントする", class: "comment-submit-button comment-button-text"
-
-
+      - if @product.trade_status == 0
+        .comment-submit-button
+          .comment-button-text
+            = f.submit "コメントする", class: "comment-submit-button comment-button-text"
+      - else
+        .comment-submit-button
+          .comment-button-text 売り切れのためコメントできません
 %ul.item-prev-next
   %li.item-prev-next__left
     = link_to product_path(@product.previous) , class: "prev-next-btn" do
