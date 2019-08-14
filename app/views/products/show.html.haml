@@ -146,19 +146,19 @@
                 %button
                   %i.far.fa-flag
 
-
-= form_for [@product, @comment] do |f|
-  .message__content
-    .message-form
-      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      = f.text_area :body, class: "comment-textarea"
-      - if @product.trade_status == 0
-        .comment-submit-button
-          .comment-button-text
-            = f.submit "コメントする", class: "comment-submit-button comment-button-text"
-      - else
-        .comment-submit-button
-          .comment-button-text 売り切れのためコメントできません
+- if user_signed_in?
+  = form_for [@product, @comment] do |f|
+    .message__content
+      .message-form
+        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = f.text_area :body, class: "comment-textarea"
+        - if @product.trade_status == 0
+          .comment-submit-button
+            .comment-button-text
+              = f.submit "コメントする", class: "comment-submit-button comment-button-text"
+        - else
+          .comment-submit-button
+            .comment-button-text 売り切れのためコメントできません
 %ul.item-prev-next
   %li.item-prev-next__left
     = link_to product_path(@product.previous) , class: "prev-next-btn" do
