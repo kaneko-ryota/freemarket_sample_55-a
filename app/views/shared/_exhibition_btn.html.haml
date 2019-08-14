@@ -1,6 +1,14 @@
-=link_to new_product_path do
-  .exhibition-btn
-    .exhibition-btn__text
-    出品
-    .exhibition-btn__icon
-      %i.fas.fa-camera.fa-3x.exhibition-btn__icon__color
+- if user_signed_in?
+  = link_to new_product_path do
+    .exhibition-btn
+      .exhibition-btn__text
+      出品
+      .exhibition-btn__icon
+        %i.fas.fa-camera.fa-3x.exhibition-btn__icon__color
+- else
+  = link_to new_user_session_path do
+    .exhibition-btn
+      .exhibition-btn__text
+      出品
+      .exhibition-btn__icon
+        %i.fas.fa-camera.fa-3x.exhibition-btn__icon__color
