@@ -82,6 +82,7 @@ class ProductsController < ApplicationController
   end
 
   def purchase_confirmation
+    @credit = current_user.credit
     @images = @product.product_images
     @image =  @images.first
   end
