@@ -17,10 +17,10 @@ class SignupController < ApplicationController
 
   def save_session1
     #MEMO: tr_s!メソッドを使って入力された英数字を半角から全角に変換しています
-    user_params[:name_last].tr_s!("0-9a-zA-Z  ()-", "０-９ａ-ｚＡ-Ｚ 　（）－−")
-    user_params[:name_first].tr_s!("0-9a-zA-Z  ()-", "０-９ａ-ｚＡ-Ｚ 　（）－−")
-    user_params[:name_kana_first].tr_s!("0-9a-zA-Z  ()-", "０-９ａ-ｚＡ-Ｚ 　（）－−")
-    user_params[:name_kana_last].tr_s!("0-9a-zA-Z  ()-", "０-９ａ-ｚＡ-Ｚ 　（）－−")
+    user_params[:name_last].tr_s("0-9a-zA-Z  ()-", "０-９ａ-ｚＡ-Ｚ 　（）－−")
+    user_params[:name_first].tr_s("0-9a-zA-Z  ()-", "０-９ａ-ｚＡ-Ｚ 　（）－−")
+    user_params[:name_kana_first].tr_s("0-9a-zA-Z  ()-", "０-９ａ-ｚＡ-Ｚ 　（）－−")
+    user_params[:name_kana_last].tr_s("0-9a-zA-Z  ()-", "０-９ａ-ｚＡ-Ｚ 　（）－−")
     #MEMO Mojiというgemを使ってユーザーの入力した名前を半角から全角に、カナ文字はひらがなからカタカナに変換しています(日本語に限る)
     user_params[:name_last].replace(Moji.han_to_zen(user_params[:name_last]))
     user_params[:name_first].replace(Moji.han_to_zen(user_params[:name_first]))
