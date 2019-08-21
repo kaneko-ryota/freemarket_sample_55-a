@@ -23,15 +23,30 @@ class User < ApplicationRecord
   validates :name_kana_first, presence: true, format: { with: /\p{Katakana}/}
   validates :email, presence: true
   validates :password, presence: true, format: { with: /\A[a-zA-Z\d]+\z/}, on: :create
-  validates :password_confirmation, presence: true, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]/i}, on: :create
+  validates :password_confirmation, presence: true, on: :create
   validates :nickname, presence: true
   validates :birthday, presence: true
 
   protected
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
+
+  def self.find_oauth(auth)
+    uid = auth.uid
+    provider = auth.provider
+    snscredential = SnsCredential.where(uid: uid, provider: provider).first
+    if snscredential.present?
+      user = User.where(id: snscredential.user_id).first
+    else
+      user = User.where(email: auth.info.email).first
+      if user.present?
+        SnsCredential.create(
+          uid: uid,
+          provider: provider,
+          user_id: user.id
+          )
+      else
+        user = nil
+      end
     end
+    return user
   end
 end

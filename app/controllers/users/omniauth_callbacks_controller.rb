@@ -5,16 +5,22 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def google_oauth2
-    callback_for(:google)
+    callback_for(:google_oauth2)
   end
 
   def callback_for(provider)
-    @user = User.from_omniauth(request.env["omniauth.auth"])
-    if @user.persisted?
+    @user = User.find_oauth(request.env["omniauth.auth"])
+    if @user.present?
       sign_in_and_redirect @user, event: :authentication
-      set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     else
-      session["devise.#{provider}_data"] = request.env["omniauth.auth"].except("extra")
+      session[:nickname] = request.env["omniauth.auth"].info.name
+      session[:email] = request.env["omniauth.auth"].info.email
+      session[:uid] = request.env["omniauth.auth"].uid
+      session[:provider] = provider.to_s
+
+      # MEMO: validation突破用にパスワードを仮設定
+      session[:password] = "1111111a"
+
       redirect_to member_info_signup_index_path
     end
   end
