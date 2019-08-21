@@ -2,7 +2,7 @@ crumb :root do
   link "メルカリ", root_path
 end
 
-crumb :mypage do |user|
+crumb :mypage do
   link "マイページ", user_path(current_user)
 end
 
@@ -11,7 +11,7 @@ crumb :detail do |product|
 end
 
 crumb :profile do
-  link "プロフィール", profile_users_path
+  link "プロフィール", profile_user_path
   parent :mypage
 end
 
