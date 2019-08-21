@@ -5,6 +5,11 @@ class SignupController < ApplicationController
   before_action :user_signed_in, only: [:save_session1, :sms, :sms, :sms_authentication]
 
   def top
+    session[:nickname] = nil
+    session[:email] = nil
+    session[:uid] = nil
+    session[:provider] = nil
+    session[:password] = nil
   end
 
 
@@ -29,9 +34,19 @@ class SignupController < ApplicationController
     user_params[:name_kana_last].replace(Moji.han_to_zen(user_params[:name_kana_last]))
     user_params[:name_kana_last].replace(Moji.hira_to_kata(user_params[:name_kana_last]))
 
+
+
     @user = User.new(user_params)
+
+    #MEMO: SNS認証使用時にパスワードの入力を省略/validationで設定できるのであれば変更予定
+    if session[:provider] != nil
+      @user.password = session[:password]
+      @user.password_confirmation = session[:password]
+    end
+
     #FIXME: @user.valid?がfalseだった場合に右の条件が読まれず、recaptcha用のエラー文が表示されない
     if @user.valid? && verify_recaptcha(model: @user)
+
       session[:user_session] = user_params
       @step_num = 1
       redirect_to sms_signup_index_path
@@ -39,6 +54,7 @@ class SignupController < ApplicationController
       #FIXME render時に入力した情報がURLに表示されてしまう
       @step_num = 0
       render 'member_info'
+
     end
   end
 
@@ -82,7 +98,6 @@ class SignupController < ApplicationController
 
 
   def complete
-    sign_in User.find(session[:id]) unless user_signed_in?
     @step_num = 4
   end
 
@@ -92,10 +107,26 @@ class SignupController < ApplicationController
     # MEMO: 開発用のパスワードで認証を通れるようにしています
     #FIXME?: @user.saveをif文の条件にするとemailがbinaryになってしまうのでtrue内に移動しています、原因の究明が必要
     if verification_params[:verification_code_confirmation] == "777" || verification_params[:verification_code_confirmation] == @@generate_token
+
+      if (session[:uid] != nil)
+        @user.password = session[:password]
+        @user.password_confirmation = session[:password]
+      end
+
       @user.save
       session[:id] = @user.id
       sign_in User.find(session[:id]) unless user_signed_in?
+
+      if (session[:uid] != nil)
+        SnsCredential.create(
+          uid: session[:uid],
+          provider: session[:provider],
+          user_id: @user.id
+        )
+      end
+
       redirect_to user_info_signup_index_path
+
     else
       @step_num = 1
       @user.errors.add(:verification_code_confirmation)

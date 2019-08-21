@@ -50,8 +50,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'pry-rails'
-  gem 'omniauth-google-oauth2'
-  gem 'omniauth-facebook'
 end
 
 group :development do
@@ -84,7 +82,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'ransack'
   gem "kaminari"
   gem "omniauth-rails_csrf_protection"
+  gem 'omniauth-google-oauth2'
+  gem 'omniauth-facebook'
   gem 'active_hash'
   gem 'gon'
   gem 'aws-sdk'
-
